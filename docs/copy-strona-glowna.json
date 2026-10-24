@@ -1,0 +1,138 @@
+{
+  "_meta": {
+    "source": "index-172b5d4ad2d3fc88.js, _app-857bb371c75ceb91.js (moduły 7658, 7683, 5593), 320-98f9a0f598f8a034.js (navbar), com.html",
+    "note": "Tylko teksty faktycznie renderowane na starej stronie (PL). Pełny słownik pl+en: i18n-stara-strona.json"
+  },
+  "meta": {
+    "htmlLang": "en (błąd – powinno być pl)",
+    "title": "goatreps.com",
+    "description": "Najlepsza strona repowa, na której znajdziesz wiele przedmiotów w najlepszych cenach!",
+    "keywords": "goatreps, repliki premium, luksusowe repliki, repliki butów, repliki ubrań, goatreps.com",
+    "author": "goatreps.com",
+    "ogSiteName": "goatreps",
+    "ogUrl": "https://goatreps.com",
+    "ogImage": { "url": "https://goatreps.com/goatreps_banner.png", "width": 960, "height": 240 },
+    "twitterCard": "summary_large_image",
+    "icon": "/goat.png",
+    "themeColor": "#ffffff",
+    "discordComponentEmbed": {
+      "header": "-# <:goatreps:1503742743019524237> goatreps",
+      "body": "## [goatreps.com](https://goatreps.com)\nNajlepsza strona repowa, na której znajdziesz wiele przedmiotów w najlepszych cenach!",
+      "image": "https://goatreps.com/goatreps_banner.png",
+      "buttons": [
+        { "label": "Przeglądaj przedmioty", "url": "https://goatreps.com/products" },
+        { "label": "Nasz Discord", "url": "https://discord.gg/QaBEPx8Vsq" }
+      ]
+    }
+  },
+  "links": {
+    "discord": "https://discord.gg/QaBEPx8Vsq",
+    "tiktok": "https://www.tiktok.com/@goatreps",
+    "kakobuyRegister": "https://ikako.vip/r/Perkoz",
+    "author": "https://dekriss.pl"
+  },
+  "navbar": {
+    "logo": "/goat.png",
+    "brand": "Goat Reps",
+    "links": [ { "label": "Produkty", "href": "/products" }, { "label": "Narzędzia", "href": "/tools" } ],
+    "searchButton": "Szukaj produktów...",
+    "searchShortcut": "⌘K / Ctrl+K",
+    "favoritesDrawer": {
+      "title": "Ulubione",
+      "subtitle": "Twoje polubione produkty",
+      "emptyTitle": "Brak polubionych produktów",
+      "emptyHint": "Kliknij serce na karcie produktu aby dodać do ulubionych",
+      "viewDetails": "Zobacz szczegóły",
+      "remove": "Usuń z ulubionych"
+    },
+    "settingsDrawer": {
+      "title": "Ustawienia",
+      "subtitle": "Waluta i agent zakupowy",
+      "language": "Język",
+      "currency": "Waluta",
+      "agent": "Agent zakupowy",
+      "languages": [ "Polski (Polska)", "English (United Kingdom)" ],
+      "currencies": [ "PLN — Złoty", "USD — Dolar", "EUR — Euro" ],
+      "agents": [ "KakoBuy", "USFans", "AllChinaBuy", "ACBuy", "LitBuy" ]
+    }
+  },
+  "searchModal": {
+    "placeholder": "Szukaj produktów...",
+    "esc": "ESC",
+    "noResults": "Brak wyników",
+    "toolsHeader": "Narzędzia",
+    "tools": [
+      { "label": "Konwerter linków", "href": "/link-converter" },
+      { "label": "Śledzenie paczki", "href": "/tracking" },
+      { "label": "Znajdź QC", "href": "/qc-finder" }
+    ]
+  },
+  "home": {
+    "sections": [
+      {
+        "id": "hero",
+        "h1Html": "Znajdź więcej<br /> Szybciej i lepiej",
+        "discordPill": "Discord: 1K",
+        "searchPlaceholder": "Szukaj produktów..."
+      },
+      {
+        "id": "categoryStrip",
+        "items": "15 kategorii z katalog.json (bez 'all'), ikona + etykieta, link /products?category={key}"
+      },
+      {
+        "id": "latestFinds",
+        "eyebrow": "Popularne",
+        "h2": "Ostatnie znaleziska",
+        "viewAll": "Zobacz wszystko",
+        "prevAria": "Poprzedni produkt",
+        "nextAria": "Następny produkt",
+        "data": "GET /api/products?page={n}&count=10&sort=newest, autoplay 4500 ms"
+      },
+      {
+        "id": "newestItems",
+        "heading": "Nowe produkty",
+        "data": "GET /api/products?page=1&count=5&sort=newest"
+      },
+      {
+        "id": "categoryRows",
+        "headingTemplate": "Nowe {Kategoria}",
+        "data": "GET /api/products?page=1&count=5&sort=newest&category={key}; ukryj, gdy 0"
+      }
+    ],
+    "footer": null
+  },
+  "productCard": {
+    "priceLabel": "Cena",
+    "moreDetails": "Szczegóły",
+    "quality": "Quality: {q}/10",
+    "badges": { "bestbatch": "BEST", "budgetbatch": "BUDGET" }
+  },
+  "socialSidebar": [ "Discord", "TikTok", "KakoBuy" ],
+  "welcomeDialog": {
+    "brand": "Goat Reps",
+    "badges": [ "★ PARTNER", "★ LIMITOWANA" ],
+    "title": "Zgarnij",
+    "titleHighlight": "-50% na shipping",
+    "description": "Załóż konto KakoBuy przez nasz link i odbierz zniżkę na wysyłkę. Oferta ważna przez",
+    "descriptionDays": "7 dni",
+    "viewers": "{{count}} osób ogląda teraz tę ofertę",
+    "benefits": [
+      { "label": "Bonus powitalny na pierwszy haul", "value": "KakoBuy" },
+      { "label": "Zniżka na shipping", "value": "-50%" }
+    ],
+    "countdownLabels": [ "DNI", "GODZ", "MIN", "SEK" ],
+    "cta": "Zarejestruj się w KakoBuy",
+    "ctaUrl": "https://ikako.vip/r/Perkoz",
+    "footer": "Bez zobowiązań · Oferta tylko przez ten link",
+    "close": "Zamknij",
+    "warning": "Licznik (pierwsza wizyta + 7 dni) i liczba oglądających (losowo 32–59) są fałszywe – nie przenosić 1:1"
+  },
+  "itemPageFooter": { "brand": "Goat Reps", "codedBy": "Coded by", "author": "dekriss", "authorUrl": "https://dekriss.pl" },
+  "notFound": {
+    "big": "404",
+    "title": "Strona nie została znaleziona",
+    "description": "Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.",
+    "home": "Strona główna",
+    "back": "Wróć"
+  }
+}

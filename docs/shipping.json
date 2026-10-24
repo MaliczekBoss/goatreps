@@ -1,0 +1,231 @@
+{
+  "_meta": {
+    "source": "p_shipping-4f9390af3830f50e.js + GET https://goatreps.com/api/shipping (snapshot 2026-10-24)",
+    "currencyOfApiPrices": "USD (klient mnoży originalPrice przez kurs PLN/USD)"
+  },
+  "countries": [
+    {
+      "code": "PL",
+      "label": "Polska",
+      "labelEn": "Poland"
+    },
+    {
+      "code": "DE",
+      "label": "Niemcy",
+      "labelEn": "Germany"
+    },
+    {
+      "code": "FR",
+      "label": "Francja",
+      "labelEn": "France"
+    },
+    {
+      "code": "GB",
+      "label": "Wielka Brytania",
+      "labelEn": "United Kingdom"
+    },
+    {
+      "code": "CZ",
+      "label": "Czechy",
+      "labelEn": "Czech Republic"
+    },
+    {
+      "code": "SK",
+      "label": "Słowacja",
+      "labelEn": "Slovakia"
+    },
+    {
+      "code": "HU",
+      "label": "Węgry",
+      "labelEn": "Hungary"
+    },
+    {
+      "code": "RO",
+      "label": "Rumunia",
+      "labelEn": "Romania"
+    },
+    {
+      "code": "US",
+      "label": "USA",
+      "labelEn": "USA"
+    }
+  ],
+  "defaultCountry": "PL",
+  "tiers": [
+    {
+      "key": "express",
+      "label": "Express",
+      "icon": "Zap"
+    },
+    {
+      "key": "standard",
+      "label": "Standard",
+      "icon": "Clock"
+    },
+    {
+      "key": "economy",
+      "label": "Economy",
+      "icon": "TrendingDown"
+    }
+  ],
+  "request": "GET /api/shipping?country={CC}&weight={grams}&agent=kakobuy",
+  "responseShape": {
+    "express": {
+      "name": "string",
+      "price": "number",
+      "days": "string",
+      "originalPrice": "string"
+    },
+    "standard": "…",
+    "economy": "…"
+  },
+  "errors": {
+    "missingWeight": {
+      "status": 400,
+      "body": {
+        "error": "Weight is required"
+      }
+    },
+    "unknownCountry": {
+      "status": 500,
+      "body": {
+        "error": "Failed to fetch shipping data"
+      }
+    }
+  },
+  "voucher": {
+    "label": "Kupon KakoBuy",
+    "code": "Perkoz",
+    "amountPLN": 55,
+    "defaultOn": true
+  },
+  "formula": [
+    "plnPerUsd = (rates.USD > 0 && rates.PLN > 0) ? rates.PLN / rates.USD : 4",
+    "r = parseFloat(option.originalPrice) * plnPerUsd",
+    "base = (isNaN(r) || r === 0) ? option.price : r",
+    "shown = voucherOn ? Math.max(0, base - 55).toFixed(2) : base.toFixed(2)   // + \" zł\"",
+    "voucherOn => dodatkowo \"bez kuponu: {base.toFixed(2)} zł\""
+  ],
+  "snapshot": {
+    "country=DE&weight=1000": {
+      "express": {
+        "name": "Europe Tariffless Line -M",
+        "price": 27.79,
+        "days": "8-25 days",
+        "originalPrice": "27.79"
+      },
+      "standard": {
+        "name": "Europe Tariffless Line -K",
+        "price": 25.84,
+        "days": "7-12 days",
+        "originalPrice": "25.84"
+      },
+      "economy": {
+        "name": "Europe DHL Line（Express Line）",
+        "price": 24.87,
+        "days": "8-12 days",
+        "originalPrice": "24.87"
+      }
+    },
+    "country=PL&weight=1000": {
+      "express": {
+        "name": "Europe Tariffless Line - electrified",
+        "price": 30.89,
+        "days": "11-20 days",
+        "originalPrice": "30.89"
+      },
+      "standard": {
+        "name": "ups-Tariffless Line-electrified",
+        "price": 28.66,
+        "days": "9-18 days",
+        "originalPrice": "28.66"
+      },
+      "economy": {
+        "name": "HKUPS-T",
+        "price": 25.47,
+        "days": "7-13 days",
+        "originalPrice": "25.47"
+      }
+    },
+    "country=PL&weight=2000": {
+      "express": {
+        "name": "Europe Tariffless Line -K",
+        "price": 48.37,
+        "days": "7-15 days",
+        "originalPrice": "48.37"
+      },
+      "standard": {
+        "name": "ups-Tariffless Line-electrified",
+        "price": 47.89,
+        "days": "9-18 days",
+        "originalPrice": "47.89"
+      },
+      "economy": {
+        "name": "HKUPS-T",
+        "price": 43.46,
+        "days": "7-13 days",
+        "originalPrice": "43.46"
+      }
+    },
+    "country=PL&weight=500": {
+      "express": {
+        "name": "Europe Tariffless Line - electrified",
+        "price": 21.78,
+        "days": "11-20 days",
+        "originalPrice": "21.78"
+      },
+      "standard": {
+        "name": "ups-Tariffless Line-electrified",
+        "price": 19.04,
+        "days": "9-18 days",
+        "originalPrice": "19.04"
+      },
+      "economy": {
+        "name": "HKUPS-T",
+        "price": 16.47,
+        "days": "7-13 days",
+        "originalPrice": "16.47"
+      }
+    },
+    "country=PL&weight=5000": {
+      "express": {
+        "name": "Europe DHL Small Parcel (Economy)",
+        "price": 97.77,
+        "days": "13-17 days",
+        "originalPrice": "97.77"
+      },
+      "standard": {
+        "name": "HKUPS-T",
+        "price": 97.43,
+        "days": "7-13 days",
+        "originalPrice": "97.43"
+      },
+      "economy": {
+        "name": "DHL Duty-Free Fast Line J (No Battery)",
+        "price": 96.19,
+        "days": "13-17 days",
+        "originalPrice": "96.19"
+      }
+    },
+    "pl": {
+      "express": {
+        "name": "Europe Tariffless Line - electrified",
+        "price": 30.89,
+        "days": "11-20 days",
+        "originalPrice": "30.89"
+      },
+      "standard": {
+        "name": "ups-Tariffless Line-electrified",
+        "price": 28.66,
+        "days": "9-18 days",
+        "originalPrice": "28.66"
+      },
+      "economy": {
+        "name": "HKUPS-T",
+        "price": 25.47,
+        "days": "7-13 days",
+        "originalPrice": "25.47"
+      }
+    }
+  }
+}

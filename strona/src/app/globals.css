@@ -1,0 +1,606 @@
+@import "tailwindcss";
+
+/*
+  goatreps – odświeżony wygląd starej strony: czarne tło, ciemne karty z cienką ramką,
+  biały przycisk główny, zielona plakietka jakości, przyciski agentów w ich kolorach.
+*/
+/* kolory 1:1 ze starej strony (Tailwind zinc/neutral w trybie ciemnym) */
+:root {
+  color-scheme: dark;
+  --bg: #09090b;
+  --card: #0a0a0a;
+  --card-2: #171717;
+  --fg: #ffffff;
+  --muted: #a1a1aa;
+  --subtle: #71717a;
+  --border: #262626;
+  --border-strong: #404040;
+  --accent: #22c55e;
+  --accent-ink: #4ade80;
+  --accent-soft: rgb(34 197 94 / 0.1);
+  --danger: #f87171;
+  --kakobuy: #e7000b;
+  --discord: #5865f2;
+}
+
+.site-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media (width >= 640px) {
+  .site-container {
+    padding-inline: 1.5rem;
+  }
+}
+
+.products-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem 0.5rem;
+}
+@media (width >= 640px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 0.75rem;
+  }
+}
+@media (width >= 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* wejście sekcji przy przewijaniu (jak na starej stronie), sterowane przez <Reveal> */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--d, 0) * 60ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ikony kategorii wjeżdżają po kolei przy wejściu na stronę */
+.cat-in {
+  animation: cat-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--d, 0) * 40ms + 300ms);
+}
+@keyframes cat-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+/* poświaty w hero gasną przy przewijaniu (tam, gdzie przeglądarka to obsługuje) */
+@supports (animation-timeline: scroll()) {
+  .hero-blobs {
+    animation: blobs-out linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 70vh;
+  }
+  @keyframes blobs-out {
+    to {
+      opacity: 0;
+      transform: translateY(-60px);
+    }
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --color-kakobuy: var(--kakobuy);
+  --color-discord: var(--discord);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* skala typograficzna: 12 14 16 18 21 24 36 48 */
+  --text-meta: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.125rem;
+  --text-h4: 1.3125rem;
+  --text-h3: 1.5rem;
+  --text-h2: 2.25rem;
+  --text-h1: 3rem;
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* tło strony: FluxLines (layout.tsx) – wygaszone ku brzegom, żeby nie walczyło z treścią */
+body {
+  isolation: isolate;
+}
+.flux-bg {
+  mask-image: radial-gradient(130% 95% at 50% 35%, #000 30%, rgb(0 0 0 / 0.35) 75%, transparent 100%);
+}
+
+/* linie w kartach (FluxFill) – wygaszone od lewej, gdzie jest tekst */
+.flux-fade-left {
+  mask-image: linear-gradient(90deg, rgb(0 0 0 / 0.25), #000 45%, #000);
+}
+
+/* wielki napis w stopce: litery wycięte maską (flux-wordmark.tsx), w środku linie FluxLines jak w tle */
+.flux-wordmark {
+  /* krawędź po obrysie liter – filtr na rodzicu działa na wynik maski */
+  filter: drop-shadow(0 0 0.5px rgb(255 255 255 / 0.6)) drop-shadow(0 -1px 0 rgb(255 255 255 / 0.12));
+}
+.flux-wordmark-fill {
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* karty w hero wjeżdżają i rozkładają się w wachlarz */
+.fan-card {
+  animation: fan-in 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--d, 0) * 120ms + 350ms);
+}
+@keyframes fan-in {
+  from {
+    opacity: 0;
+    transform: translateY(70px) scale(0.92);
+  }
+}
+
+/* pasek społecznościowy wjeżdża z prawej przy wejściu na stronę */
+.dock-in > a {
+  animation: dock-in 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--d, 0) * 90ms + 900ms);
+}
+@keyframes dock-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+/* pasek jakości na stronie produktu wypełnia się kreska po kresce */
+.quality-seg {
+  animation: seg-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--d, 0) * 45ms + 200ms);
+  transform-origin: left;
+}
+@keyframes seg-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0.2);
+  }
+}
+
+/* błysk przesuwający się po plakietce "Stworzone przez" po najechaniu */
+.group:hover .shine {
+  animation: shine 900ms ease-out;
+}
+@keyframes shine {
+  to {
+    left: 130%;
+  }
+}
+
+/* nagłówki i ceny – lekko zwężony krój */
+.condensed {
+  letter-spacing: -0.02em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* w warstwie bazowej, żeby klasy Tailwinda (np. focus-visible:outline-none) mogły ją wyłączyć */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+  }
+  /* pola tekstowe pokazują fokus kursorem i własną ramką – bez białego prostokąta */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+  }
+}
+
+::selection {
+  background: rgb(255 255 255 / 0.85);
+  color: #000;
+}
+
+/* karta (produkt, panel, okno) */
+/* w warstwie komponentów, żeby klasy Tailwinda (np. absolute) zawsze miały pierwszeństwo */
+@layer components {
+  .label {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+  }
+}
+
+/* cienka linia oddzielająca dane od ceny na karcie */
+.perf {
+  height: 1px;
+  margin: 0 14px;
+  background: var(--border);
+}
+
+/* plakietka BEST / BUDGET */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  backdrop-filter: blur(6px);
+}
+
+/* tło hero: miękkie światło, które przesuwa się powoli (zatrzymane przy "ogranicz ruch") */
+.hero-glow {
+  background:
+    radial-gradient(40% 55% at 22% 30%, rgb(255 255 255 / 0.07), transparent 70%),
+    radial-gradient(30% 45% at 78% 20%, rgb(255 255 255 / 0.05), transparent 70%),
+    radial-gradient(35% 50% at 60% 85%, rgb(255 255 255 / 0.04), transparent 70%);
+  animation: glow-drift 18s ease-in-out infinite alternate;
+}
+@keyframes glow-drift {
+  to {
+    transform: translate3d(2%, 3%, 0) scale(1.05);
+  }
+}
+
+/* logo w hero lekko się unosi */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* jedyna sekwencja wejścia: nagłówek hero odsłania się linijka po linijce */
+.reveal-line {
+  display: block;
+  animation: reveal 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--d, 0) * 120ms + 80ms);
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(6px);
+  }
+}
+
+/* ---------- Przejścia między stronami (View Transitions) ---------- */
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  35% {
+    filter: blur(2px);
+  }
+}
+::view-transition-old(.fade-out) {
+  animation: 160ms ease-in both fade-out;
+}
+::view-transition-new(.fade-in) {
+  animation: 240ms ease-out 60ms both fade-in;
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* zmiana ceny po synchronizacji */
+.price-flash {
+  animation: price-flash 1.4s ease-out both;
+}
+@keyframes price-flash {
+  0% {
+    color: var(--accent-ink);
+    transform: translateY(-4px);
+    opacity: 0.2;
+  }
+  25% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.pop-in {
+  animation: pop-in 320ms cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+/* okna */
+dialog.lightbox {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+dialog.lightbox::backdrop {
+  background: rgb(0 0 0 / 0.92);
+}
+dialog.lightbox[open] .lightbox-photo {
+  animation: lightbox-open 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes lightbox-open {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+dialog.modal {
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  max-width: min(100vw - 32px, 560px);
+  width: 100%;
+  overflow: visible;
+}
+dialog.modal::backdrop {
+  background: rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(6px);
+}
+dialog.modal[open] > * {
+  animation: modal-in 280ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+dialog.modal[open]::backdrop {
+  animation: backdrop-in 280ms ease-out both;
+}
+/* zamykanie (closeDialog w lib/dialog.ts): karta opada i znika, tło się rozjaśnia */
+dialog.modal[data-closing] > * {
+  animation: modal-out 200ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+dialog.modal[data-closing]::backdrop {
+  animation: backdrop-out 200ms ease-in both;
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+}
+@keyframes modal-out {
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+}
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes backdrop-out {
+  to {
+    opacity: 0;
+  }
+}
+
+dialog.drawer {
+  margin: 0 0 0 auto;
+  height: 100dvh;
+  max-height: none;
+  width: min(100vw, 400px);
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+}
+dialog.drawer::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+dialog.drawer[open] {
+  animation: drawer-in 280ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+dialog.sheet {
+  margin: auto 0 0;
+  width: 100%;
+  max-width: none;
+  max-height: 88dvh;
+  border: 0;
+  border-top: 1px solid var(--border);
+  padding: 0;
+  border-radius: 20px 20px 0 0;
+  background: var(--card);
+  color: var(--fg);
+}
+dialog.sheet::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+dialog.sheet[open] {
+  animation: sheet-up 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* przewijane poziomo rzędy z wygaszonymi krawędziami */
+.fade-x {
+  mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+select,
+input,
+textarea {
+  color-scheme: dark;
+}
+
+/* ---------- TrueFocus (React Bits) – w warstwie components, żeby klasy Tailwinda je nadpisywały ---------- */
+@layer components {
+.tf-container {
+  position: relative;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  outline: none;
+  user-select: none;
+}
+.tf-word {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+.tf-word.tf-active {
+  filter: blur(0);
+}
+.tf-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.tf-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 6px;
+  background-color: var(--highlight-color);
+  pointer-events: none;
+}
+.tf-box,
+.tf-underline,
+.tf-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  filter: drop-shadow(0 0 4px var(--glow-color, transparent));
+}
+.tf-box {
+  border: var(--border-width, 3px) solid var(--border-color, currentColor);
+  border-radius: 6px;
+}
+.tf-underline {
+  border-radius: calc(var(--border-width, 3px) / 2);
+  background-color: var(--border-color, currentColor);
+}
+.tf-corner {
+  width: var(--corner-size, 1rem);
+  height: var(--corner-size, 1rem);
+  border: var(--border-width, 3px) solid var(--border-color, currentColor);
+  border-radius: 3px;
+}
+.tf-top-left {
+  border-right: none;
+  border-bottom: none;
+}
+.tf-top-right {
+  border-left: none;
+  border-bottom: none;
+}
+.tf-bottom-left {
+  border-right: none;
+  border-top: none;
+}
+.tf-bottom-right {
+  border-left: none;
+  border-top: none;
+}
+}
+
+/* pasek postępu pod aktywnym krokiem w "Jak kupować" */
+.progress-step {
+  animation: progress-step linear both;
+}
+@keyframes progress-step {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

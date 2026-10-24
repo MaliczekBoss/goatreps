@@ -1,0 +1,34 @@
+# goatreps – nowa strona
+
+| Folder | Co zawiera |
+| --- | --- |
+| `strona/` | Strona: Next.js 16 + React 19 + TypeScript + Turbopack + Tailwind 4. Instrukcja w `strona/README.md`. |
+| `cdn/` | Zdjęcia gotowe do wgrania na S3/CDN (WebP): `i/` główne 1400 px, `t/` miniatury 480 px, `q/` galeria 1400 px, `p/` podglądy galerii 360 px, `c/` kategorie, `a/` logo agentów, `b/` logo strony. Instrukcja w `cdn/README-S3.md`. |
+| `narzedzia/` | Skrypty importu: pobranie produktów ze starej strony, scalenie z backupem, zdjęcia → WebP, katalog, tabela wysyłki. Instrukcja w `narzedzia/README.md`. |
+| `docs/` | Specyfikacja starej strony (funkcje, API, agenci, konwerter linków, obserwacje bezpieczeństwa). |
+| `zrodla/` | Surowe pobrane dane i oryginały zdjęć (nie wgrywać na serwer). |
+| `backup (1).json` | Kopia bazy MongoDB – **zawiera adresy IP odwiedzających i hash hasła admina, trzymaj ją prywatnie**. |
+
+Kolejność wdrożenia: 1) wgraj `cdn/` na S3, 2) ustaw `.env` strony (`NEXT_PUBLIC_CDN_URL`, `TRUST_PROXY`),
+3) `npm ci && npm run build && npm start` w `strona/`.
+
+## Wdrożenie na Vercel
+
+Repo nie zawiera folderów `cdn/` (zdjęcia, 1,25 GB), `zrodla/` ani backupu bazy – są za duże albo prywatne.
+
+1. **Zdjęcia:** wgraj zawartość lokalnego `cdn/` do magazynu plików z publicznym adresem (Cloudflare R2, AWS S3 + CloudFront, Bunny…),
+   zachowując ścieżki (`i/…`, `t/…`, `q/…` itd.). Szczegóły w `cdn/README-S3.md` (lokalnie).
+2. **Nowy projekt na Vercel** z tego repo, w ustawieniach: **Root Directory = `strona`** (framework Next.js wykryje się sam).
+3. **Zmienne środowiskowe** (Settings → Environment Variables), wzór w `strona/.env.example`:
+   - `NEXT_PUBLIC_CDN_URL` – adres magazynu zdjęć, np. `https://cdn.goatreps.com` (bez tego strona nie pokaże zdjęć),
+   - `TRUST_PROXY=x-real-ip` – Vercel podaje prawdziwy adres odwiedzającego w tym nagłówku (limity zapytań, statystyki),
+   - `ADMIN_PASSWORD`, `ADMIN_SECRET` (min. 12 znaków, inny niż hasło), opcjonalnie `ADMIN_TOTP_SECRET`,
+   - klucze do wyszukiwania po zdjęciu: `OPENAI_API_KEY` / `OPENAI_BASE_URL` i/lub `GEMINI_API_KEY`.
+4. **Redeploy** po ustawieniu zmiennych.
+
+Ograniczenia Vercela (serwer bez stałego dysku i z wieloma krótko żyjącymi instancjami):
+- statystyki panelu admina i odświeżone ceny są trzymane tylko w pamięci – po restarcie instancji znikają
+  (panel pokazuje ostrzeżenie); na stałe trzeba by je zapisywać np. w Upstash Redis,
+- sesja admina jest ważna po podpisie przez 12 h; „Wyloguj wszędzie” wylogowuje tylko bieżące urządzenie – resztę wyloguje zmiana `ADMIN_SECRET`,
+- kursy KakoBuy: bez pliku `data/kursy.json` strona liczy kurs NBP × narzut KakoBuy (~8,3%), więc ceny w zł dalej są zbliżone do KakoBuy.
+

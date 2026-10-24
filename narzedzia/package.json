@@ -1,0 +1,29 @@
+{
+  "name": "goatreps-narzedzia",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Skrypty do katalogu produktów goatreps i zdjęć na CDN (S3)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "snapshot": "node snapshot.mjs ../zrodla",
+    "kopia": "node --max-old-space-size=4096 kopia.mjs \"../backup (1).json\" ../zrodla",
+    "scal": "node scal.mjs ../zrodla",
+    "zdjecia": "node zdjecia.mjs ../zrodla ../cdn",
+    "zdjecia:glowne": "node zdjecia.mjs ../zrodla ../cdn --glowne",
+    "zdjecia:galeria": "node zdjecia.mjs ../zrodla ../cdn --galeria",
+    "zdjecia:statyczne": "node zdjecia.mjs ../zrodla ../cdn --statyczne",
+    "katalog": "node katalog.mjs ../zrodla ../cdn ../strona/data",
+    "manifest": "node manifest.mjs ../cdn",
+    "qc": "node qc.mjs ../strona/data ../cdn ../zrodla",
+    "weidian": "node weidian-zdjecia.mjs ../strona/data ../cdn ../zrodla",
+    "sprawdz": "node sprawdz.mjs ../zrodla ../cdn ../strona/data",
+    "aktualizuj": "npm run snapshot && npm run scal && npm run zdjecia && npm run katalog && npm run weidian -- --limit 0 && npm run sprawdz",
+    "kurs": "node kurs-kakobuy.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}

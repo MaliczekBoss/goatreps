@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "buty",
+    "name": "Buty",
+    "count": 659,
+    "image": "c/buty.webp"
+  },
+  {
+    "slug": "koszulki",
+    "name": "Koszulki",
+    "count": 617,
+    "image": "c/koszulki.webp"
+  },
+  {
+    "slug": "bluzy",
+    "name": "Bluzy",
+    "count": 489,
+    "image": "c/bluzy.webp"
+  },
+  {
+    "slug": "akcesoria",
+    "name": "Akcesoria",
+    "count": 322,
+    "image": "c/akcesoria.webp"
+  },
+  {
+    "slug": "spodnie",
+    "name": "Spodnie",
+    "count": 237,
+    "image": "c/spodnie.webp"
+  },
+  {
+    "slug": "spodenki",
+    "name": "Spodenki",
+    "count": 171,
+    "image": "c/spodenki.webp"
+  },
+  {
+    "slug": "kurtki",
+    "name": "Kurtki",
+    "count": 137,
+    "image": "c/kurtki.webp"
+  },
+  {
+    "slug": "nakrycie_glowy",
+    "name": "Nakrycie głowy",
+    "count": 108,
+    "image": "c/nakrycie_glowy.webp"
+  },
+  {
+    "slug": "torby_i_plecaki",
+    "name": "Torby i plecaki",
+    "count": 94,
+    "image": "c/torby_i_plecaki.webp"
+  },
+  {
+    "slug": "elektronika",
+    "name": "Elektronika",
+    "count": 79,
+    "image": "c/elektronika.webp"
+  },
+  {
+    "slug": "longsleeve",
+    "name": "Longsleeve",
+    "count": 74,
+    "image": "c/longsleeve.webp"
+  },
+  {
+    "slug": "paski",
+    "name": "Paski",
+    "count": 32,
+    "image": "c/paski.webp"
+  },
+  {
+    "slug": "sety",
+    "name": "Sety",
+    "count": 3,
+    "image": "c/sety.webp"
+  },
+  {
+    "slug": "inne",
+    "name": "Inne",
+    "count": 217,
+    "image": null
+  }
+]

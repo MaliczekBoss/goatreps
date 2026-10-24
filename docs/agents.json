@@ -1,0 +1,144 @@
+[
+  {
+    "key": "kakobuy",
+    "name": "KakoBuy",
+    "logo": "/agents/kakobuy.png",
+    "color": "#e7000b",
+    "buttonClass": "bg-red-600 hover:bg-red-500 text-white border-red-500/50",
+    "referral": { "param": "affcode", "code": "Perkoz", "registerUrl": "https://ikako.vip/r/Perkoz" },
+    "settingsKey": "kakoBuy",
+    "apiField": "kakobuy_link",
+    "default": true,
+    "inSettings": true,
+    "inLinkConverter": true,
+    "templates": {
+      "weidian": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D{id}&affcode=Perkoz",
+      "taobao": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D{id}&affcode=Perkoz",
+      "1688": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F{id}.html&affcode=Perkoz"
+    }
+  },
+  {
+    "key": "usfans",
+    "name": "USFans",
+    "logo": "/agents/usfans.png",
+    "color": "#ffffff",
+    "buttonClass": "bg-white hover:bg-zinc-100 text-black border-white/30",
+    "referral": { "param": "ref", "code": "GSWJ8H" },
+    "settingsKey": "usFans",
+    "apiField": "usfans_link",
+    "inSettings": true,
+    "inLinkConverter": true,
+    "platformCodes": { "weidian": "3", "taobao": "2", "1688": "1" },
+    "templates": {
+      "weidian": "https://www.usfans.com/product/3/{id}?ref=GSWJ8H",
+      "taobao": "https://www.usfans.com/product/2/{id}?ref=GSWJ8H",
+      "1688": "https://www.usfans.com/product/1/{id}?ref=GSWJ8H"
+    }
+  },
+  {
+    "key": "allchinabuy",
+    "name": "AllChinaBuy",
+    "logo": "/agents/allchinabuy.png",
+    "logoGrayscale": true,
+    "color": "#ffffff",
+    "buttonClass": "bg-white hover:bg-zinc-100 text-black border-white/30",
+    "referral": { "param": "partnercode", "code": "wVSV4X" },
+    "settingsKey": "allchinabuy",
+    "apiField": "allchinabuy_link",
+    "inSettings": true,
+    "inLinkConverter": true,
+    "templates": {
+      "weidian": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D{id}&partnercode=wVSV4X",
+      "taobao": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D{id}&partnercode=wVSV4X",
+      "1688": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F{id}.html&partnercode=wVSV4X"
+    }
+  },
+  {
+    "key": "acbuy",
+    "name": "ACBuy",
+    "logo": "/agents/acbuy.png",
+    "color": "#05df72",
+    "buttonClass": "bg-green-400 hover:bg-green-300 text-black border-green-300/50",
+    "referral": { "param": "u", "code": "MD2BNM" },
+    "settingsKey": "acbuy",
+    "apiField": "acbuy_link",
+    "inSettings": true,
+    "inLinkConverter": true,
+    "platformCodes": { "weidian": "WD", "taobao": "TB", "1688": "AL" },
+    "templates": {
+      "weidian": "https://www.acbuy.com/product?id={id}&source=WD&u=MD2BNM",
+      "taobao": "https://www.acbuy.com/product?id={id}&source=TB&u=MD2BNM",
+      "1688": "https://www.acbuy.com/product?id={id}&source=AL&u=MD2BNM"
+    }
+  },
+  {
+    "key": "litbuy",
+    "name": "LitBuy",
+    "logo": "/agents/litbuy.png",
+    "color": "#fdc700",
+    "buttonClass": "bg-yellow-400 hover:bg-yellow-300 text-black border-yellow-300/50",
+    "referral": { "param": "inviteCode", "code": "GOATREPS" },
+    "settingsKey": "litbuy",
+    "apiField": "litbuy_link",
+    "inSettings": true,
+    "inLinkConverter": true,
+    "platformCodes": { "weidian": "weidian", "taobao": "taobao", "1688": "1688" },
+    "templates": {
+      "weidian": "https://litbuy.com/product/weidian/{id}?inviteCode=GOATREPS",
+      "taobao": "https://litbuy.com/product/taobao/{id}?inviteCode=GOATREPS",
+      "1688": "https://litbuy.com/product/1688/{id}?inviteCode=GOATREPS"
+    }
+  },
+  {
+    "key": "oopbuy",
+    "name": "OopBuy",
+    "logo": null,
+    "logoNote": "/agents/oopbuy.png nie istnieje (404)",
+    "referral": { "param": "ref", "code": "", "note": "pusty kod -> link bez query string" },
+    "settingsKey": null,
+    "apiField": "oopbuy_link",
+    "inSettings": false,
+    "inLinkConverter": true,
+    "platformCodes": { "weidian": "WEIDIAN", "taobao": "TAOBAO", "1688": "1688" },
+    "templates": {
+      "weidian": "https://oopbuy.com/product/WEIDIAN/{id}",
+      "taobao": "https://oopbuy.com/product/TAOBAO/{id}",
+      "1688": "https://oopbuy.com/product/1688/{id}"
+    }
+  },
+  {
+    "key": "mulebuy",
+    "name": "MuleBuy",
+    "logo": null,
+    "logoNote": "/agents/mulebuy.png nie istnieje (404)",
+    "referral": { "param": "ref", "code": "200910978" },
+    "settingsKey": null,
+    "apiField": "mulebuy_link",
+    "inSettings": false,
+    "inLinkConverter": true,
+    "platformCodes": { "weidian": "WEIDIAN", "taobao": "TAOBAO", "1688": "ALI_1688" },
+    "templates": {
+      "weidian": "https://mulebuy.com/product?id={id}&platform=WEIDIAN&ref=200910978",
+      "taobao": "https://mulebuy.com/product?id={id}&platform=TAOBAO&ref=200910978",
+      "1688": "https://mulebuy.com/product?id={id}&platform=ALI_1688&ref=200910978"
+    }
+  },
+  {
+    "key": "cnfans",
+    "name": "CNFans",
+    "logo": null,
+    "logoNote": "/agents/cnfans.png nie istnieje (404); agent wystepuje tylko w bazie/API (cnfans_link), nie w UI ani w konwerterze",
+    "referral": { "param": "ref", "code": "634281", "note": "kod NIE wystepuje w kodzie frontu; zaobserwowany w 190 z 3235 linkow w bazie (reszta ma pusty ref=)" },
+    "settingsKey": null,
+    "apiField": "cnfans_link",
+    "inSettings": false,
+    "inLinkConverter": false,
+    "platformCodes": { "weidian": "weidian", "taobao": "taobao", "1688": "1688" },
+    "templates": {
+      "weidian": "https://cnfans.com/product/?shop_type=weidian&id={id}&ref=634281",
+      "taobao": "https://cnfans.com/product/?shop_type=taobao&id={id}&ref=634281",
+      "1688": "https://cnfans.com/product/?shop_type=1688&id={id}&ref=634281"
+    },
+    "templatesNote": "weidian i 1688 zaobserwowane w bazie; taobao (shop_type=taobao) wywnioskowane, niezweryfikowane"
+  }
+]

@@ -1,0 +1,274 @@
+{
+  "_meta": {
+    "source": "index-172b5d4ad2d3fc88.js (C/S), p_products-2bcf0e9c33fdeea8.js (lista y, w), 9397 ProductCard; liczby produktów z backup (1).json z 2026-10-22",
+    "uncategorized": 217
+  },
+  "categories": [
+    {
+      "key": "all",
+      "label": "Wszystkie",
+      "labelEn": "All",
+      "icon": null,
+      "onlyOnProductsPage": true
+    },
+    {
+      "key": "buty",
+      "label": "Buty",
+      "labelEn": "Shoes",
+      "icon": "/clothes/buty.png",
+      "productCount": 658,
+      "labelHardcoded": false
+    },
+    {
+      "key": "koszulki",
+      "label": "Koszulki",
+      "labelEn": "T-shirts",
+      "icon": "/clothes/koszulki.png",
+      "productCount": 617,
+      "labelHardcoded": false
+    },
+    {
+      "key": "bluzy",
+      "label": "Bluzy",
+      "labelEn": "Hoodies",
+      "icon": "/clothes/bluzy.png",
+      "productCount": 489,
+      "labelHardcoded": false
+    },
+    {
+      "key": "swetry",
+      "label": "Swetry",
+      "labelEn": "Sweaters",
+      "icon": "/clothes/swetry.png",
+      "productCount": 0,
+      "labelHardcoded": true
+    },
+    {
+      "key": "kurtki",
+      "label": "Kurtki",
+      "labelEn": "Jackets",
+      "icon": "/clothes/kurtki.png",
+      "productCount": 136,
+      "labelHardcoded": false
+    },
+    {
+      "key": "sety",
+      "label": "Sety",
+      "labelEn": "Sets",
+      "icon": "/clothes/sety.png",
+      "productCount": 3,
+      "labelHardcoded": true
+    },
+    {
+      "key": "spodnie",
+      "label": "Spodnie",
+      "labelEn": "Pants",
+      "icon": "/clothes/spodnie.png",
+      "productCount": 237,
+      "labelHardcoded": false
+    },
+    {
+      "key": "spodenki",
+      "label": "Spodenki",
+      "labelEn": "Shorts",
+      "icon": "/clothes/spodenki.png",
+      "productCount": 171,
+      "labelHardcoded": false
+    },
+    {
+      "key": "longsleeve",
+      "label": "Longsleeve",
+      "labelEn": "Longsleeve",
+      "icon": "/clothes/longsleeve.png",
+      "productCount": 74,
+      "labelHardcoded": false
+    },
+    {
+      "key": "nakrycie_glowy",
+      "label": "Nakrycie głowy",
+      "labelEn": "Headwear",
+      "icon": "/clothes/nakrycie_glowy.png",
+      "productCount": 108,
+      "labelHardcoded": false
+    },
+    {
+      "key": "okulary",
+      "label": "Okulary",
+      "labelEn": "Sunglasses",
+      "icon": "/clothes/okulary.png",
+      "productCount": 0,
+      "labelHardcoded": true
+    },
+    {
+      "key": "torby_i_plecaki",
+      "label": "Torby i plecaki",
+      "labelEn": "Bags & Backpacks",
+      "icon": "/clothes/plecaki.png",
+      "productCount": 94,
+      "labelHardcoded": false
+    },
+    {
+      "key": "paski",
+      "label": "Paski",
+      "labelEn": "Belts",
+      "icon": "/clothes/paski.png",
+      "productCount": 32,
+      "labelHardcoded": false
+    },
+    {
+      "key": "elektronika",
+      "label": "Elektronika",
+      "labelEn": "Electronics",
+      "icon": "/clothes/elektronika.png",
+      "productCount": 79,
+      "labelHardcoded": false
+    },
+    {
+      "key": "akcesoria",
+      "label": "Akcesoria",
+      "labelEn": "Accessories",
+      "icon": "/clothes/akcesoria.png",
+      "productCount": 322,
+      "labelHardcoded": false
+    }
+  ],
+  "tags": [
+    {
+      "key": "bestbatch",
+      "label": "Best Batch",
+      "badge": "BEST",
+      "badgeClass": "bg-white/10 text-white border-white/30",
+      "productCount": 1431
+    },
+    {
+      "key": "budgetbatch",
+      "label": "Budget Batch",
+      "badge": "BUDGET",
+      "badgeClass": "bg-emerald-500/15 text-emerald-300 border-emerald-500/35",
+      "productCount": 272
+    },
+    {
+      "key": "random",
+      "label": "Random",
+      "badge": null,
+      "productCount": 1241
+    },
+    {
+      "key": "promocje",
+      "label": "Promocje",
+      "badge": null,
+      "productCount": 0,
+      "unused": true
+    },
+    {
+      "key": "npc",
+      "label": "NPC",
+      "badge": null,
+      "productCount": 0,
+      "unused": true
+    },
+    {
+      "key": "non-npc",
+      "label": "Non-NPC",
+      "badge": null,
+      "productCount": 0,
+      "unused": true
+    }
+  ],
+  "badgePriority": "bestbatch > budgetbatch (tylko jeden badge na karcie)",
+  "quality": {
+    "values": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "default": 9,
+    "display": "Quality: {q}/10 (etykieta po angielsku, hardcoded)"
+  },
+  "sort": [
+    {
+      "key": "newest",
+      "label": "Najnowsze",
+      "icon": "Sparkles"
+    },
+    {
+      "key": "oldest",
+      "label": "Najstarsze",
+      "icon": "History"
+    },
+    {
+      "key": "price_asc",
+      "label": "Cena rosnąco",
+      "icon": "TrendingUp"
+    },
+    {
+      "key": "price_desc",
+      "label": "Cena malejąco",
+      "icon": "TrendingDown"
+    }
+  ],
+  "pageSizes": {
+    "productsPage": 15,
+    "homeLatestFindsCarousel": 10,
+    "homeNewestRow": 5,
+    "homeCategoryRow": 5,
+    "searchModal": 3,
+    "shippingDbSearch": 8,
+    "apiMaxCount": 100
+  },
+  "priceSlider": {
+    "baseMaxCNY": 2000,
+    "step": 10,
+    "maxFormula": "max = 10 * ceil(2000 * rate[currency] / 10)",
+    "toCNY": "Math.round(value / rate)",
+    "sendMinOnlyIf": "min > 0",
+    "sendMaxOnlyIf": "max < sliderMax"
+  },
+  "currencies": [
+    {
+      "key": "PLN",
+      "label": "PLN — Złoty",
+      "symbol": "zł",
+      "default": true
+    },
+    {
+      "key": "USD",
+      "label": "USD — Dolar",
+      "symbol": "$"
+    },
+    {
+      "key": "EUR",
+      "label": "EUR — Euro",
+      "symbol": "€"
+    }
+  ],
+  "languages": [
+    {
+      "code": "pl",
+      "countryCode": "PL",
+      "label": "Polski",
+      "country": "Polska",
+      "default": true
+    },
+    {
+      "code": "en",
+      "countryCode": "GB",
+      "label": "English",
+      "country": "United Kingdom"
+    }
+  ],
+  "platformCodes": {
+    "88": "1688",
+    "WD": "Weidian",
+    "TB": "Taobao",
+    "AL": "Aliexpress (sic! w stronie produktu; w ACBuy AL=1688)"
+  },
+  "localStorage": {
+    "userSettings": "{\"defaultCurrency\":\"PLN|USD|EUR\",\"defaultAgent\":\"kakoBuy|usFans|allchinabuy|acbuy|litbuy\"}",
+    "likedProducts": "[{id,title,image_url,price,quality,category,default_link,kakobuy_link,usfans_link,allchinabuy_link,acbuy_link,litbuy_link}]  (+ CustomEvent \"liked-products-sync\")",
+    "goatreps_language": "\"pl\" | \"en\"",
+    "goatreps_welcome_done": "\"1\" po zamknięciu popupu",
+    "goatreps_offer_end": "ISO date = pierwsza wizyta + 7 dni (fałszywy licznik)"
+  }
+}

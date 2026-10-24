@@ -1,0 +1,225 @@
+/* HoloCard – efekty karty z ProfileCard (React Bits), folia przez wzór z logo kozła */
+@layer theme, base, components, utilities;
+
+@layer components {
+  .holo-card {
+    --hc-light-x: 50%;
+    --hc-light-y: 50%;
+    --hc-pointer-x: 50%;
+    --hc-pointer-y: 50%;
+    --hc-band-x: 50%;
+    --hc-band-y: 50%;
+    --hc-reach: 0;
+    --hc-rotate-x: 0deg;
+    --hc-rotate-y: 0deg;
+    --hc-shift-x: 0px;
+    --hc-shift-y: 0px;
+    --hc-tilt: 0;
+    --hc-active: 0;
+    /* kolory strony (w oryginale lekko fioletowe) */
+    --hc-frame: rgba(23, 23, 26, 0.9);
+    --hc-frame-edge: rgba(255, 255, 255, 0.08);
+    --hc-frame-highlight: rgba(255, 255, 255, 0.07);
+    --hc-frame-shadow: 0 22px 44px -22px rgba(0, 0, 0, 0.85), 0 6px 16px -8px rgba(0, 0, 0, 0.5);
+    --hc-tile: linear-gradient(180deg, #2a2a2f 0%, #161619 100%);
+    --hc-tile-edge: rgba(255, 255, 255, 0.07);
+    --hc-tile-highlight: rgba(255, 255, 255, 0.1);
+    --hc-shade: rgba(0, 0, 0, 0.4);
+    --hc-sheen: rgba(255, 255, 255, 0.16);
+    --hc-pattern: url("/goat-pattern.png");
+    --hc-pattern-size: 150px auto;
+    --hc-grain: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27500%27%20height%3D%27500%27%3E%3Cfilter%20id%3D%27g%27%20x%3D%270%27%20y%3D%270%27%20width%3D%27100%25%27%20height%3D%27100%25%27%20color-interpolation-filters%3D%27sRGB%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270.55%200%200%200%20-0.24%200.55%200%200%200%20-0.24%200.55%200%200%200%20-0.24%200%200%200%200%201%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23g%29%27%2F%3E%3C%2Fsvg%3E");
+    position: relative;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .holo-card__body {
+    position: relative;
+    border-radius: 22px;
+    background: var(--hc-frame);
+    box-shadow: var(--hc-frame-shadow);
+    transform: rotateX(var(--hc-rotate-x)) rotateY(var(--hc-rotate-y));
+    will-change: transform;
+  }
+
+  /* kafelek z folią: kontener musi mieć position + overflow, to ustawia okładka */
+  .holo-card__tile {
+    background: var(--hc-tile);
+    isolation: isolate;
+  }
+
+  .holo-card__sheen,
+  .holo-card__logo,
+  .holo-card__holo,
+  .holo-card__tile-rim,
+  .holo-card__glare,
+  .holo-card__shade,
+  .holo-card__rim {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .holo-card__sheen {
+    background: radial-gradient(
+      farthest-corner circle at calc(var(--hc-light-x) - 10px) calc(var(--hc-light-y) - 10px),
+      var(--hc-sheen) 0%,
+      transparent 55%
+    );
+    opacity: calc(var(--hc-holo) * var(--hc-active));
+  }
+
+  /* wzór z logo kozła zawsze lekko widoczny w tle; pod kursorem jaśniejszy, a folia dodaje kolor */
+  .holo-card__logo {
+    background: #fff;
+    opacity: calc(0.07 + 0.08 * var(--hc-active));
+    -webkit-mask-image: var(--hc-pattern);
+    -webkit-mask-size: var(--hc-pattern-size);
+    -webkit-mask-position: calc(50% - var(--hc-shift-x) * 1.5) calc(65% - var(--hc-shift-y) * 1.5);
+    -webkit-mask-repeat: repeat;
+    mask-image: var(--hc-pattern);
+    mask-size: var(--hc-pattern-size);
+    mask-position: calc(50% - var(--hc-shift-x) * 1.5) calc(65% - var(--hc-shift-y) * 1.5);
+    mask-repeat: repeat;
+  }
+
+  .holo-card__holo {
+    --hc-spectrum: repeating-linear-gradient(
+      0deg,
+      hsl(2, 100%, 73%) 5%,
+      hsl(53, 100%, 69%) 10%,
+      hsl(93, 100%, 69%) 15%,
+      hsl(176, 100%, 76%) 20%,
+      hsl(228, 100%, 74%) 25%,
+      hsl(260, 100%, 76%) 30%,
+      hsl(2, 100%, 73%) 35%
+    );
+    --hc-bars: repeating-linear-gradient(
+      -45deg,
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    );
+    --hc-falloff: radial-gradient(
+      farthest-corner circle at var(--hc-pointer-x) var(--hc-pointer-y),
+      hsla(0, 0%, 0%, 0.1) 12%,
+      hsla(0, 0%, 0%, 0.15) 20%,
+      hsla(0, 0%, 0%, 0.25) 120%
+    );
+    background-image: var(--hc-spectrum), var(--hc-bars), var(--hc-falloff);
+    background-position:
+      0 var(--hc-band-y),
+      var(--hc-band-x) var(--hc-band-y),
+      center;
+    background-size:
+      500% 500%,
+      300% 300%,
+      200% 200%;
+    background-blend-mode: color, hard-light;
+    mix-blend-mode: color-dodge;
+    filter: brightness(calc(0.66 + 0.19 * var(--hc-active))) contrast(calc(1.33 + 0.17 * var(--hc-active)))
+      saturate(calc(0.33 + 0.17 * var(--hc-active)));
+    /* w spoczynku wzór z kozłem ledwo widoczny, pod kursorem rozbłyska */
+    opacity: calc(var(--hc-holo) * 1.25 * (0.4 + 0.6 * var(--hc-active)));
+    -webkit-mask-image: var(--hc-pattern);
+    -webkit-mask-size: var(--hc-pattern-size);
+    -webkit-mask-position: calc(50% - var(--hc-shift-x) * 1.5) calc(65% - var(--hc-shift-y) * 1.5);
+    -webkit-mask-repeat: repeat;
+    mask-image: var(--hc-pattern);
+    mask-size: var(--hc-pattern-size);
+    mask-position: calc(50% - var(--hc-shift-x) * 1.5) calc(65% - var(--hc-shift-y) * 1.5);
+    mask-repeat: repeat;
+  }
+
+  .holo-card__holo-glow,
+  .holo-card__holo-shift {
+    position: absolute;
+    inset: 0;
+    opacity: var(--hc-active);
+  }
+
+  .holo-card__holo-glow {
+    background-image:
+      linear-gradient(
+        45deg,
+        hsl(176, 100%, 76%),
+        hsl(228, 100%, 74%),
+        hsl(260, 100%, 76%),
+        hsl(2, 100%, 73%),
+        hsl(53, 100%, 69%),
+        hsl(93, 100%, 69%)
+      ),
+      radial-gradient(circle at var(--hc-pointer-x) var(--hc-pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%),
+      var(--hc-grain);
+    background-size:
+      250% 250%,
+      100% 100%,
+      220px 220px;
+    background-position:
+      var(--hc-pointer-x) var(--hc-pointer-y),
+      center,
+      0 0;
+    background-blend-mode: color-dodge;
+    filter: brightness(calc(2 - var(--hc-reach))) contrast(calc(var(--hc-reach) + 2)) saturate(calc(0.5 + var(--hc-reach)));
+    mix-blend-mode: luminosity;
+  }
+
+  .holo-card__holo-shift {
+    background-image: var(--hc-spectrum), var(--hc-bars), var(--hc-falloff);
+    background-position:
+      0 var(--hc-band-y),
+      calc(var(--hc-band-x) * 0.4) calc(var(--hc-band-y) * 0.5),
+      center;
+    background-size:
+      200% 300%,
+      700% 700%,
+      100% 100%;
+    background-blend-mode: color, hard-light;
+    mix-blend-mode: difference;
+    filter: brightness(0.8) contrast(1.5);
+  }
+
+  /* zdjęcie produktu "unosi się" nad folią (paralaksa) */
+  .holo-card__photo {
+    transform: translate3d(var(--hc-shift-x), var(--hc-shift-y), 0);
+  }
+
+  .holo-card__tile-rim {
+    box-shadow:
+      inset 0 0 0 1px var(--hc-tile-edge),
+      inset 0 1px 0 var(--hc-tile-highlight);
+  }
+
+  .holo-card__glare {
+    background: radial-gradient(
+      farthest-corner circle at var(--hc-light-x) var(--hc-light-y),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.36) 20%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    mix-blend-mode: overlay;
+    opacity: calc(var(--hc-glare) * var(--hc-active));
+  }
+
+  .holo-card__shade {
+    background: radial-gradient(farthest-corner circle at var(--hc-light-x) var(--hc-light-y), transparent 30%, var(--hc-shade) 100%);
+    opacity: calc(var(--hc-glare) * var(--hc-tilt));
+  }
+
+  .holo-card__rim {
+    box-shadow:
+      inset 0 0 0 1px var(--hc-frame-edge),
+      inset 0 1px 0 var(--hc-frame-highlight);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .holo-card__body {
+      will-change: auto;
+    }
+  }
+}

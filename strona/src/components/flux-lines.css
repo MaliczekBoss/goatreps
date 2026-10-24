@@ -1,0 +1,19 @@
+/* FluxLines (React Bits) */
+@layer theme, base, components, utilities;
+
+@layer components {
+  .flux-lines-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .flux-lines-canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

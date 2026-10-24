@@ -1,0 +1,13 @@
+# Kopia bazy – adresy IP odwiedzających, hash hasła admina. Nigdy nie wgrywać ani nie commitować.
+backup*.json
+# Surowe pobrania i oryginały zdjęć
+/zrodla/
+node_modules/
+.env*
+!.env.example
+
+# Zdjęcia (1,25 GB, 26 tys. plików) – idą na S3/R2, nie do repo (za duże dla GitHuba i Vercela)
+/cdn/
+# Ustawienia lokalne Claude Code / edytora
+/.claude/
+*.tmp

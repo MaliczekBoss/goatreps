@@ -1,0 +1,548 @@
+{
+  "_meta": {
+    "source": "Wynik uruchomienia ORYGINALNYCH funkcji Dx/fj/gS (moduły 6741 + 1366 z p_link-converter-d760fba5fa6ade3a.js) w izolowanym vm. Port TS powinien dawać identyczne wyniki (lub świadomie poprawione – patrz link-converter.md, \"Znane błędy\")."
+  },
+  "referralConfig": {
+    "kakobuy": {
+      "name": "KakoBuy",
+      "affcode": "Perkoz"
+    },
+    "allchinabuy": {
+      "name": "AllChinaBuy",
+      "partnercode": "wVSV4X"
+    },
+    "litbuy": {
+      "name": "LitBuy",
+      "inviteCode": "GOATREPS"
+    },
+    "usfans": {
+      "name": "USFans",
+      "ref": "GSWJ8H"
+    },
+    "acbuy": {
+      "name": "ACBuy",
+      "ref": "MD2BNM"
+    },
+    "oopbuy": {
+      "name": "OopBuy",
+      "ref": ""
+    },
+    "mulebuy": {
+      "name": "MuleBuy",
+      "ref": "200910978"
+    }
+  },
+  "cases": [
+    {
+      "input": "https://weidian.com/item.html?itemID=7739733245",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "direct"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://shop1234567.v.weidian.com/item.html?itemID=7739733245&spider_token=abcd",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "direct"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://m.weidian.com/item.html?itemID=7739733245",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "direct"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://item.taobao.com/item.htm?id=681234567890",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "direct"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004&id=681234567890&ns=1",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "direct"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://m.intl.taobao.com/detail/detail.html?id=681234567890",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "direct"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://detail.1688.com/offer/612345678901.html",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "direct"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://m.1688.com/offer/612345678901.html?spm=a26352",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "direct"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "kakobuy"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=xyz",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "kakobuy"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=xyz",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "kakobuy"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.kakobuy.com/item/details?url=https://weidian.com/item.html?itemID=7739733245&affcode=xyz",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "kakobuy"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fspm%3Da1z10%26id%3D681234567890&affcode=xyz",
+      "parsed": null,
+      "original": null,
+      "links": null
+    },
+    {
+      "input": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=abc",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "allchinabuy"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://litbuy.com/product/taobao/681234567890?inviteCode=X",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "litbuy"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://litbuy.com/product/weidian/7739733245",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "litbuy"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.usfans.com/product/2/681234567890?ref=X",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "usfans"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.usfans.com/product/3/7739733245",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "usfans"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.usfans.com/product/1/612345678901",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "usfans"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.acbuy.com/product?id=612345678901&source=AL&u=X",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "acbuy"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://www.acbuy.com/product?id=7739733245",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "acbuy"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://oopbuy.com/product/1688/612345678901",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "oopbuy"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://oopbuy.com/product/WEIDIAN/7739733245",
+      "parsed": {
+        "itemId": "7739733245",
+        "platform": "WEIDIAN",
+        "sourceAgent": "oopbuy"
+      },
+      "original": "https://weidian.com/item.html?itemID=7739733245",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=7739733245",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7739733245&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/7739733245?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/7739733245?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=7739733245&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/7739733245",
+        "mulebuy": "https://mulebuy.com/product?id=7739733245&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=1",
+      "parsed": {
+        "itemId": "681234567890",
+        "platform": "TAOBAO",
+        "sourceAgent": "mulebuy"
+      },
+      "original": "https://item.taobao.com/item.htm?id=681234567890",
+      "links": {
+        "original": "https://item.taobao.com/item.htm?id=681234567890",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D681234567890&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/taobao/681234567890?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/2/681234567890?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=681234567890&source=TB&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/TAOBAO/681234567890",
+        "mulebuy": "https://mulebuy.com/product?id=681234567890&platform=TAOBAO&ref=200910978"
+      }
+    },
+    {
+      "input": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688",
+      "parsed": {
+        "itemId": "612345678901",
+        "platform": "1688",
+        "sourceAgent": "mulebuy"
+      },
+      "original": "https://detail.1688.com/offer/612345678901.html",
+      "links": {
+        "original": "https://detail.1688.com/offer/612345678901.html",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fdetail.1688.com%2Foffer%2F612345678901.html&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/1688/612345678901?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/1/612345678901?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=612345678901&source=AL&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/1688/612345678901",
+        "mulebuy": "https://mulebuy.com/product?id=612345678901&platform=ALI_1688&ref=200910978"
+      }
+    },
+    {
+      "input": "https://cnfans.com/product/?shop_type=weidian&id=7739733245&ref=",
+      "parsed": null,
+      "original": null,
+      "links": null
+    },
+    {
+      "input": "https://weidian.com/item.html?itemID%3D7739733245",
+      "parsed": {
+        "itemId": "3",
+        "platform": "WEIDIAN",
+        "sourceAgent": "direct"
+      },
+      "original": "https://weidian.com/item.html?itemID=3",
+      "links": {
+        "original": "https://weidian.com/item.html?itemID=3",
+        "kakobuy": "https://kakobuy.com/item/details?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D3&affcode=Perkoz",
+        "allchinabuy": "https://www.allchinabuy.com/en/page/buy/?nTag=Home-search&from=search-input&_search=url&position=&url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D3&partnercode=wVSV4X",
+        "litbuy": "https://litbuy.com/product/weidian/3?inviteCode=GOATREPS",
+        "usfans": "https://www.usfans.com/product/3/3?ref=GSWJ8H",
+        "acbuy": "https://www.acbuy.com/product?id=3&source=WD&u=MD2BNM",
+        "oopbuy": "https://oopbuy.com/product/WEIDIAN/3",
+        "mulebuy": "https://mulebuy.com/product?id=3&platform=WEIDIAN&ref=200910978"
+      }
+    },
+    {
+      "input": "https://world.taobao.com/item/681234567890.htm",
+      "parsed": null,
+      "original": null,
+      "links": null
+    },
+    {
+      "input": "https://item.tmall.com/item.htm?id=681234567890",
+      "parsed": null,
+      "original": null,
+      "links": null
+    },
+    {
+      "input": "hello world",
+      "parsed": null,
+      "original": null,
+      "links": null
+    },
+    {
+      "input": "https://weidian.com/item.html?itemID=7739733245%",
+      "parsed": null,
+      "original": null,
+      "links": null
+    }
+  ]
+}

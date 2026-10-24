@@ -1,0 +1,4562 @@
+{
+  "updatedAt": "2026-10-24T13:14:49.261Z",
+  "currency": "USD",
+  "countries": [
+    {
+      "code": "PL",
+      "name": "Polska"
+    },
+    {
+      "code": "DE",
+      "name": "Niemcy"
+    },
+    {
+      "code": "FR",
+      "name": "Francja"
+    },
+    {
+      "code": "GB",
+      "name": "Wielka Brytania"
+    },
+    {
+      "code": "CZ",
+      "name": "Czechy"
+    },
+    {
+      "code": "SK",
+      "name": "Słowacja"
+    },
+    {
+      "code": "HU",
+      "name": "Węgry"
+    },
+    {
+      "code": "RO",
+      "name": "Rumunia"
+    },
+    {
+      "code": "US",
+      "name": "USA"
+    }
+  ],
+  "rates": {
+    "PL": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 16.47,
+            "days": "7-13 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 19.04,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 21.78,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 16.47,
+            "days": "7-13 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 19.04,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 21.78,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 25.47,
+            "days": "7-13 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 28.66,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 30.89,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 25.47,
+            "days": "7-13 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 28.66,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 30.89,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 34.46,
+            "days": "7-13 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 38.27,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 39.85,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 43.46,
+            "days": "7-13 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 47.89,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 48.37,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 52.45,
+            "days": "7-13 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 56.54,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 56.76,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 61.45,
+            "days": "7-13 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 64.47,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 64.96,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 70.44,
+            "days": "7-13 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 72.4,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 73.17,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "HKUPS-T",
+            "price": 79.44,
+            "days": "7-13 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 80.33,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 81.37,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 88.26,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 88.43,
+            "days": "7-13 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 89.57,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 96.19,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 97.43,
+            "days": "7-13 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 97.77,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 104.12,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 105.97,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 106.42,
+            "days": "7-13 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 112.05,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 114.17,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 115.42,
+            "days": "7-13 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 119.98,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 122.37,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 124.41,
+            "days": "7-13 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 127.91,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 130.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 133.41,
+            "days": "7-13 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 135.84,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 138.78,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 142.06,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 143.77,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 146.98,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 150.58,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 151.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 155.18,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 159.1,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 159.63,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 163.38,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 167.62,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 167.56,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 171.58,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 176.14,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 175.49,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 179.78,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 184.65,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 215.14,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 220.79,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 227.41,
+            "days": "8-14 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 254.79,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 261.79,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line H (No Battery)",
+            "price": 269.8,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 334.09,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 343.81,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line H (No Battery)",
+            "price": 354.1,
+            "days": "13-17 days"
+          }
+        ]
+      }
+    ],
+    "DE": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 16.5,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 17.47,
+            "days": "7-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -M",
+            "price": 18.64,
+            "days": "8-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 16.5,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 17.47,
+            "days": "7-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -M",
+            "price": 18.64,
+            "days": "8-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 24.87,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 25.84,
+            "days": "7-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -M",
+            "price": 27.79,
+            "days": "8-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 24.87,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 25.84,
+            "days": "7-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -M",
+            "price": 27.79,
+            "days": "8-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 33.24,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 34.21,
+            "days": "7-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 36.27,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 41.61,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 42.59,
+            "days": "7-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 44.18,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 49.98,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 50.96,
+            "days": "7-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 51.83,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 58.36,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 59.33,
+            "days": "7-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 59.47,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 66.73,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 67.11,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 67.7,
+            "days": "7-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 74.75,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 75.1,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 75.86,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 82.39,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 83.47,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 83.78,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 90.02,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 91.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 91.84,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 97.66,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 99.61,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 100.21,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 105.3,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 107.53,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 108.59,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 112.94,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 115.45,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 116.96,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 120.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 123.37,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 125.33,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 128.21,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 131.29,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 133.7,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 135.85,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 139.21,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 142.07,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 143.49,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 147.13,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 150.44,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 151.12,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 155.05,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 158.82,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 158.76,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 162.96,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 167.19,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 166.4,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 170.88,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 175.56,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 204.59,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 210.48,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 217.42,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 242.78,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 250.07,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 259.28,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 319.15,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 329.25,
+            "days": "13-17 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 340.42,
+            "days": "2-14 days"
+          }
+        ]
+      }
+    ],
+    "FR": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "DPD Line-electrified",
+            "price": 18.76,
+            "days": "9-20 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 19.35,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 19.72,
+            "days": "5-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "DPD Line-electrified",
+            "price": 18.76,
+            "days": "9-20 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 19.35,
+            "days": "9-18 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 19.72,
+            "days": "5-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "DPD Line-electrified",
+            "price": 28.09,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.38,
+            "days": "5-15 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 29.28,
+            "days": "9-18 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "DPD Line-electrified",
+            "price": 28.09,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.38,
+            "days": "5-15 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 29.28,
+            "days": "9-18 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 37.05,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 37.42,
+            "days": "9-20 days"
+          },
+          {
+            "name": "ups-Tariffless Line-electrified",
+            "price": 39.2,
+            "days": "9-18 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 45.72,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 46.76,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 48.65,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 54.38,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 56.09,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 58.05,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 63.05,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 65.42,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 67.46,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 71.72,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 74.76,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 76.62,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 80.39,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 84.09,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 85.1,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 89.05,
+            "days": "5-15 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 93.42,
+            "days": "9-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 93.59,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 97.72,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 102.07,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DPD Line-electrified",
+            "price": 102.76,
+            "days": "9-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 106.39,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 110.56,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 112.05,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 115.06,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 119.04,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 120.57,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 123.72,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 127.53,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 129.09,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 132.39,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 136.01,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 137.61,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 141.06,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 144.5,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 146.12,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 149.72,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 152.99,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 154.64,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 158.39,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 161.47,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 163.16,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 167.06,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 169.96,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 171.68,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 175.73,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 178.44,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 180.2,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 184.39,
+            "days": "5-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 186.93,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 188.71,
+            "days": "10-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 229.35,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 231.3,
+            "days": "10-25 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 233.74,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 271.78,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 273.89,
+            "days": "10-25 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 277.08,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 356.64,
+            "days": "10-25 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 359.07,
+            "days": "10-25 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 363.75,
+            "days": "8-12 days"
+          }
+        ]
+      }
+    ],
+    "GB": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 10.18,
+            "days": "7-19 days"
+          },
+          {
+            "name": "EUB – With Built-in Battery",
+            "price": 10.96,
+            "days": "15-25 days"
+          },
+          {
+            "name": "HG-EUB",
+            "price": 11.61,
+            "days": "15-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 10.18,
+            "days": "7-19 days"
+          },
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 11.99,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B",
+            "price": 12.39,
+            "days": "5-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 16.79,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 17.1,
+            "days": "7-19 days"
+          },
+          {
+            "name": "Cosmetics Air Express(Battery,Liquid)",
+            "price": 20.23,
+            "days": "9-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 17.1,
+            "days": "7-19 days"
+          },
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 19.19,
+            "days": "6-12 days"
+          },
+          {
+            "name": "Cosmetics Air Express(Battery,Liquid)",
+            "price": 20.23,
+            "days": "9-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 23.99,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 24.03,
+            "days": "7-19 days"
+          },
+          {
+            "name": "UK Line-B",
+            "price": 29.58,
+            "days": "5-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 30.95,
+            "days": "7-19 days"
+          },
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 31.19,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B",
+            "price": 38.18,
+            "days": "5-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 35.99,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 37.87,
+            "days": "7-19 days"
+          },
+          {
+            "name": "UK Line-B",
+            "price": 46.77,
+            "days": "5-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 43.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 44.8,
+            "days": "7-19 days"
+          },
+          {
+            "name": "UK Line-B",
+            "price": 55.37,
+            "days": "5-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 48,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 51.72,
+            "days": "7-19 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 63.38,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 55.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 58.64,
+            "days": "7-19 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 70.86,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 60,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 65.57,
+            "days": "7-19 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 78.34,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 67.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK HG dedicated line PT",
+            "price": 72.49,
+            "days": "7-19 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 85.81,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 72,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 78.95,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 93.29,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 79.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 85.74,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 100.77,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 84,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 92.54,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 108.25,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 91.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 99.34,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 115.73,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 96,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 106.13,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 123.21,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 103.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 112.93,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 130.69,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 108,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 119.73,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 138.16,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 115.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 126.52,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 145.64,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 120,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 133.32,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 153.12,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 127.2,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 140.12,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 160.6,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 156.01,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 174.1,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 197.99,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 187.21,
+            "days": "6-12 days"
+          },
+          {
+            "name": "UK Line-B(>5kg)",
+            "price": 208.08,
+            "days": "5-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 235.38,
+            "days": "6-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "UK Air Freight Direct Line (Economy)",
+            "price": 247.22,
+            "days": "6-12 days"
+          },
+          {
+            "name": "GD-EMS",
+            "price": 310.17,
+            "days": "6-15 days"
+          },
+          {
+            "name": "HKUPS-T",
+            "price": 459.43,
+            "days": "2-14 days"
+          }
+        ]
+      }
+    ],
+    "CZ": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "NL-BRAM",
+            "price": 19.93,
+            "days": "15-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 20.01,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 21.26,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 20.01,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 21.26,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 21.95,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.97,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 30.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 30.66,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.97,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 30.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 30.66,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 37.93,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 39.2,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 39.49,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 46.89,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 47.82,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 48.15,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 55.85,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 56.45,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 56.82,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 64.82,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 65.07,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 65.49,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 73.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 73.78,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 74.16,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 82.32,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 82.74,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 82.82,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 90.95,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 91.49,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 91.7,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 99.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 100.16,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 100.66,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 108.2,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 108.82,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 109.62,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 116.82,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 117.49,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 118.47,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 125.45,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 126.16,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 127.13,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 134.07,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 134.83,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 135.8,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 142.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 143.49,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 144.47,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 151.32,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 152.16,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 153.14,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 159.95,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 160.83,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 161.8,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 168.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 169.5,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 170.47,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 177.2,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 178.16,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 179.14,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 185.82,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 186.83,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 187.8,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 228.95,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 230.17,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 231.14,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 272.07,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 273.5,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 274.48,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 358.32,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 360.18,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 361.15,
+            "days": "13-17 days"
+          }
+        ]
+      }
+    ],
+    "SK": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 19.57,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 20.3,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 22.62,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 19.57,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 20.3,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 22.62,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.08,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 29.56,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 31.1,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.08,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 29.56,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 31.1,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 36.6,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 38.81,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 39.59,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 45.12,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 48.07,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 48.08,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 53.64,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 56.56,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 57.05,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 62.16,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 65.05,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 65.5,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 70.67,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 73.53,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 73.87,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 79.19,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 82.02,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 82.24,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 87.71,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 90.5,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 90.62,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 96.23,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 98.99,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 98.99,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 104.74,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 107.36,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 107.47,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 113.26,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 115.73,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 115.96,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 121.78,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 124.1,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 124.44,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 130.3,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 132.47,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 132.93,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 138.82,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 140.85,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 141.41,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 147.33,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 149.22,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 149.9,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 155.85,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 157.59,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 158.39,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 164.37,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 165.96,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 166.87,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 172.89,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 174.33,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 175.36,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 181.41,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 182.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 183.84,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 224.56,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 226.27,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 227.41,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 266.42,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 268.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 269.99,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 350.14,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 353.55,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 355.17,
+            "days": "8-12 days"
+          }
+        ]
+      }
+    ],
+    "HU": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "NL-BRAM",
+            "price": 17.07,
+            "days": "15-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 19.72,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 20.3,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 19.72,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 20.3,
+            "days": "11-20 days"
+          },
+          {
+            "name": "NL-BRAM",
+            "price": 21.77,
+            "days": "15-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.38,
+            "days": "7-15 days"
+          },
+          {
+            "name": "NL-BRAM",
+            "price": 28.82,
+            "days": "15-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 29.56,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 28.38,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 29.56,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 30.82,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 37.05,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 38.81,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 39.17,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 45.72,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 47.51,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 48.07,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 54.38,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 55.85,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 57.05,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 63.05,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 64.2,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 65.5,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 71.72,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 72.54,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 73.87,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 80.39,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 80.89,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 82.24,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 89.05,
+            "days": "7-15 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 89.23,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 90.62,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 97.57,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 97.72,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 98.99,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 105.92,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 106.39,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 107.36,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 114.26,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 115.06,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 115.73,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 122.61,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 123.72,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 124.1,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 130.95,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 132.39,
+            "days": "7-15 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 132.47,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 139.3,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 140.85,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 141.06,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 147.64,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 149.22,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 149.72,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 155.98,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 157.59,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 158.39,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 164.33,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 165.96,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 167.06,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 172.67,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 174.33,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 175.73,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 181.02,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 182.7,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 184.39,
+            "days": "7-15 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 222.74,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 224.56,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 227.41,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 264.46,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 266.42,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 269.99,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 347.9,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 350.14,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 355.17,
+            "days": "8-12 days"
+          }
+        ]
+      }
+    ],
+    "RO": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 20.45,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 23.28,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 25.03,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 20.45,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 23.28,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 25.03,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 29.85,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 31.94,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 33.66,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 29.85,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 31.94,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 33.66,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 39.25,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 40.61,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 42.28,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 48.65,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 49.28,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 50.91,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 57.95,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 58.05,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 59.53,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 66.61,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 67.46,
+            "days": "11-20 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 68.16,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 75.28,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 76.78,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line - electrified",
+            "price": 76.86,
+            "days": "11-20 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 83.95,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 85.41,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 85.69,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 92.62,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 94.03,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 94.21,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 101.28,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 102.66,
+            "days": "13-17 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 102.72,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 109.95,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 111.24,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 111.28,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 118.62,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 119.76,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 119.91,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 127.28,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 128.28,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 128.53,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 135.95,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 136.79,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 137.16,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 144.62,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 145.31,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 145.78,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 153.29,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 153.83,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 154.41,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 161.95,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 162.35,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 163.03,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 170.62,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 170.87,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 171.66,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 179.29,
+            "days": "8-12 days"
+          },
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 179.38,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 180.28,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 187.9,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe Tariffless Line -K",
+            "price": 187.96,
+            "days": "8-12 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 188.91,
+            "days": "13-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 230.49,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 232.03,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 238.44,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 273.08,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 275.16,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 281.77,
+            "days": "8-12 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "DHL Duty-Free Fast Line J (No Battery)",
+            "price": 358.26,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Small Parcel (Economy)",
+            "price": 361.41,
+            "days": "13-17 days"
+          },
+          {
+            "name": "Europe DHL Line（Express Line）",
+            "price": 368.45,
+            "days": "8-12 days"
+          }
+        ]
+      }
+    ],
+    "US": [
+      {
+        "weight": 250,
+        "options": [
+          {
+            "name": "EUB (Batteries and Perfume Not Allowed)",
+            "price": 17.54,
+            "days": "15-25 days"
+          },
+          {
+            "name": "US Tax-Free (Actual Weight)",
+            "price": 20.76,
+            "days": "8-15 days"
+          },
+          {
+            "name": "USPS Tax-Free Line (Battery Accepted)",
+            "price": 21.01,
+            "days": "7-13 days"
+          }
+        ]
+      },
+      {
+        "weight": 500,
+        "options": [
+          {
+            "name": "USPS Tax-Free Line (Battery Accepted)",
+            "price": 21.01,
+            "days": "7-13 days"
+          },
+          {
+            "name": "USPS Special Line (Duty Free Route)",
+            "price": 22.25,
+            "days": "7-13 days"
+          },
+          {
+            "name": "Cosmetics Air Express(Battery,Liquid)",
+            "price": 22.59,
+            "days": "11-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 750,
+        "options": [
+          {
+            "name": "EUB (Batteries and Perfume Not Allowed)",
+            "price": 32.16,
+            "days": "15-25 days"
+          },
+          {
+            "name": "USPS Tax-Free Line (Battery Accepted)",
+            "price": 33.27,
+            "days": "7-13 days"
+          },
+          {
+            "name": "USPS Special Line (Duty Free Route)",
+            "price": 35.51,
+            "days": "7-13 days"
+          }
+        ]
+      },
+      {
+        "weight": 1000,
+        "options": [
+          {
+            "name": "Cosmetics Air Express(Battery,Liquid)",
+            "price": 38.19,
+            "days": "11-17 days"
+          },
+          {
+            "name": "USPS Tax-Free Line (Battery Accepted)",
+            "price": 39.4,
+            "days": "7-13 days"
+          },
+          {
+            "name": "EUB (Batteries and Perfume Not Allowed)",
+            "price": 39.47,
+            "days": "15-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 1500,
+        "options": [
+          {
+            "name": "USPS Tax-Free Line (Battery Accepted)",
+            "price": 51.66,
+            "days": "7-13 days"
+          },
+          {
+            "name": "Cosmetics Air Express(Battery,Liquid)",
+            "price": 53.78,
+            "days": "11-17 days"
+          },
+          {
+            "name": "EUB (Batteries and Perfume Not Allowed)",
+            "price": 54.08,
+            "days": "15-25 days"
+          }
+        ]
+      },
+      {
+        "weight": 2000,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 57.98,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 66.02,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 67.36,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 2500,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 67.27,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 74.06,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 76.23,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3000,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 76.56,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 82.1,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 85.1,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 3500,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 85.85,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 90.14,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 93.96,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4000,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 95.14,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 98.18,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 102.83,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 4500,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 104.43,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 106.21,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 111.7,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5000,
+        "options": [
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 113.72,
+            "days": "2-6 days"
+          },
+          {
+            "name": "HK UPS",
+            "price": 114.25,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 120.56,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 5500,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 122.29,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 123.01,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 129.43,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 130.33,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 132.3,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 138.3,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 6500,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 138.37,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 141.59,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 147.17,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 146.41,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 150.87,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 156.03,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 7500,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 154.45,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 160.16,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 164.9,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 162.49,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 169.45,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 173.77,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 8500,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 170.52,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 178.74,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 182.63,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 178.56,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 188.03,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 191.5,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 9500,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 186.6,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 197.32,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 200.37,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 10000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 194.64,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 206.61,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 209.23,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 12500,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 234.84,
+            "days": "2-6 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 253.06,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 253.57,
+            "days": "5-17 days"
+          }
+        ]
+      },
+      {
+        "weight": 15000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 275.03,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 297.91,
+            "days": "5-17 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 299.5,
+            "days": "2-6 days"
+          }
+        ]
+      },
+      {
+        "weight": 20000,
+        "options": [
+          {
+            "name": "HK UPS",
+            "price": 355.42,
+            "days": "2-6 days"
+          },
+          {
+            "name": "CN-EMS duty-free route",
+            "price": 386.58,
+            "days": "5-17 days"
+          },
+          {
+            "name": "UPS Duty-Free (No Batteries)",
+            "price": 392.4,
+            "days": "2-6 days"
+          }
+        ]
+      }
+    ]
+  }
+}

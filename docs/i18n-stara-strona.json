@@ -1,0 +1,1421 @@
+{
+  "_meta": {
+    "source": "_app-857bb371c75ceb91.js, moduł 7658 (I18nProvider). Sekcje admin/adminPage usunięte.",
+    "localStorageKey": "goatreps_language",
+    "defaultLocale": "pl",
+    "locales": [
+      "pl",
+      "en"
+    ],
+    "interpolation": "{{name}} -> params.name; brak klucza w en -> fallback do pl; brak w pl -> zwraca sam klucz",
+    "note": "Wiele kluczy to martwy kod (nieużywany w buildzie). Lista faktycznie używanych kluczy: SPEC-stara-strona.md, sekcja 6.6."
+  },
+  "pl": {
+    "navbar": {
+      "brand": "TwojaNazwa",
+      "home": "Strona główna",
+      "products": "Produkty",
+      "narzedzia": "Narzędzia",
+      "bestBatch": "Best Batch",
+      "discord": "Discord",
+      "toolsDropdown": {
+        "qcFinder": "Znajdź QC",
+        "tracking": "Śledzenie",
+        "linkConverter": "Konwerter linków"
+      },
+      "tools": {
+        "qcFinder": "Znajdź QC",
+        "tracking": "Śledzenie",
+        "linkConverter": "Konwerter linków",
+        "qcFinderDescription": "Znajdź QC",
+        "trackingDescription": "Śledź paczki",
+        "linkConverterDescription": "Konwertuj linki"
+      }
+    },
+    "header": {
+      "title": "TwojaNazwa",
+      "subtitle": "Znajdź więcej<br /> Szybciej i lepiej",
+      "description": "Szukaj wygodnie itemów, znajdź najlepszy batch, dowiedz się więcej o zamawianiu lub przekonwertuj link. Wszystko w jednym miejscu.",
+      "ctaPrimary": "Discord",
+      "ctaSecondary": "Best Batch",
+      "discord": "Discord: 1K",
+      "searchPlaceholder": "Szukaj produktów...",
+      "newest": "Nowe",
+      "newestItems": "Nowe produkty",
+      "popular": "Popularne",
+      "latestFinds": "Ostatnie znaleziska",
+      "latestFindsPrev": "Poprzedni produkt",
+      "latestFindsNext": "Następny produkt",
+      "viewAll": "Zobacz wszystko"
+    },
+    "bentoGrid": {
+      "bestBatch": {
+        "title": "Best Batch",
+        "description": "Tylko najlepsze batche na rynku. Sprawdzone przez naszą społeczność i oznaczone specjalnymi tagami."
+      },
+      "w2c": {
+        "title": "W2C",
+        "description": "Najlepsze przedmioty na rynku. Sprawdzone przez naszą społeczność i oznaczone specjalnymi tagami."
+      },
+      "smartTools": {
+        "title": "Smart Tools",
+        "description": "Zaawansowane narzędzia do konwersji linków, śledzenia paczek i analizy QC zdjęć."
+      },
+      "knowledgeBase": {
+        "title": "Knowledge Base",
+        "description": "Kompletne przewodniki i tutoriale. Od podstaw zamawiania po zaawansowane techniki."
+      },
+      "communityFeed": {
+        "title": "Community Feed",
+        "description": "Na żywo zobacz co kupują inni. Popularne itemy, nowe dropy i trendy w społeczności."
+      },
+      "laptopBox": {
+        "title": "Na tej podstronie znajdziesz najlepsze przedmioty!",
+        "description": "Przejdź do W2C i odkryj najlepsze przedmioty na rynku"
+      }
+    },
+    "bestBatch": {
+      "title": "Best Batch",
+      "subtitle": "Najlepsze batche na rynku",
+      "searchPlaceholder": "Szukaj...",
+      "filters": "Filtry",
+      "categories": {
+        "all": "Wszystkie",
+        "shoes": "Buty",
+        "clothes": "Ubrania",
+        "accessories": "Akcesoria",
+        "electronics": "Elektronika"
+      }
+    },
+    "w2c": {
+      "title": "Najlepsze przedmioty!",
+      "subtitle": "Na tej podstronie znajdziesz najlepsze przedmioty!",
+      "description": "Masz problem z znalezieniem itemów do swojego haula? U nas znajdziesz to, co potrzebujesz, i to do trzech agentów! KakoBuy, USFans i AllChinaBuy!",
+      "searchPlaceholder": "Szukaj...",
+      "filters": "Filtry",
+      "categories": {
+        "all": "Wszystkie",
+        "shoes": "Buty",
+        "clothes": "Ubrania",
+        "accessories": "Akcesoria",
+        "electronics": "Elektronika"
+      },
+      "price": "Cena",
+      "buyIn": "Kup w:",
+      "seeAgents": "Zobacz agentów"
+    },
+    "agents": {
+      "kakobuy": "KakoBuy",
+      "usfans": "USFans",
+      "allchinabuy": "AllChinaBuy",
+      "currencies": {
+        "pln": "PLN",
+        "usd": "USD",
+        "cny": "CNY"
+      }
+    },
+    "document": {
+      "title": "goatreps.com",
+      "description": "Najlepsza strona repowa, na której znajdziesz wiele przedmiotów w najlepszych cenach!",
+      "keywords": "goatreps, repliki premium, luksusowe repliki, repliki butów, repliki ubrań, goatreps.com",
+      "ogTitle": "goatreps.com",
+      "ogDescription": "Najlepsza strona repowa, na której znajdziesz wiele przedmiotów w najlepszych cenach!",
+      "twitterTitle": "goatreps.com",
+      "twitterDescription": "Najlepsza strona repowa, na której znajdziesz wiele przedmiotów w najlepszych cenach!"
+    },
+    "footer": {
+      "copyright": "© 2025 TwojaNazwa. Wszystkie prawa zastrzeżone. Strona jest źródłem wiedzy zamawiania z Chin jednak tego nie popiera!",
+      "tagline": "Zakupy stają się łatwiejsze!",
+      "codedBy": "Coded by",
+      "menu": {
+        "home": {
+          "title": "Strona Główna",
+          "start": "Start",
+          "benefits": "Korzyści"
+        },
+        "tools": {
+          "title": "Narzędzia",
+          "linkConverter": "Link Converter",
+          "w2c": "W2C",
+          "tracking": "Tracking Paczki",
+          "discord": "Nasz Discord"
+        }
+      }
+    },
+    "questions": {
+      "title": "Często zadawane pytania i odpowiedzi",
+      "subtitle": "Nasze community ma na celu pomagać użytkownikom w zamawianiu rzeczy z Chin. Jeśli masz jakieś pytania, na Discordzie udzielimy odpowiedzi na wszystko!",
+      "faq1": {
+        "question": "Czy KakoBuy jest bezpieczny?",
+        "answer": "Tak, KakoBuy to sprawdzona i bezpieczna platforma do zakupów z Chin. Wielu użytkowników naszego community z powodzeniem korzysta z ich usług."
+      },
+      "faq2": {
+        "question": "Czy celnik mi zabierze paczkę?",
+        "answer": "W większości przypadków nie, ale warto znać przepisy celne swojego kraju. Na naszym Discordzie znajdziesz szczegółowe informacje o tym jak bezpiecznie zamawiać."
+      },
+      "faq3": {
+        "question": "Czy przesyłka jest droga?",
+        "answer": "Koszty przesyłki zależą od wagi i rozmiaru paczki. Na Discordzie dzielimy się sprawdzonymi metodami optymalizacji kosztów wysyłki."
+      }
+    },
+    "utility": {
+      "explore": "Eksploruj narzędzia",
+      "title": "Narzędzia do konwersji linków",
+      "desc": "Konwertuj linki między różnymi platformami i agentami w jednym miejscu",
+      "features": [
+        "Konwersja Weidian → Kakobuy, USFans, Allchinabuy",
+        "Konwersja Taobao → Kakobuy, USFans, Allchinabuy",
+        "Konwersja 1688 → Kakobuy, USFans, Allchinabuy",
+        "Szybka i niezawodna konwersja"
+      ]
+    },
+    "converter": {
+      "badge": "Przekonwertuj linki!",
+      "title": "Przekonwertuj linki między różnymi platformami i agentami w jednym miejscu",
+      "description": "Wklej link z Weidian, Taobao lub 1688, a my wygenerujemy linki do wszystkich dostępnych agentów.",
+      "input": {
+        "placeholder": "Wklej link tutaj..."
+      },
+      "button": {
+        "convert": "Konwertuj",
+        "converting": "Konwertuję..."
+      },
+      "features": {
+        "platforms": "Wspiera Weidian, Taobao i 1688",
+        "detection": "Automatyczna detekcja platformy",
+        "generation": "Generuje linki do wszystkich agentów",
+        "speed": "Szybka konwersja w czasie rzeczywistym"
+      },
+      "error": {
+        "invalidUrl": "Nieprawidłowy URL",
+        "conversionFailed": "Nie udało się przekonwertować linków",
+        "copyFailed": "Nie udało się skopiować linku",
+        "copyAllFailed": "Nie udało się skopiować wszystkich linków"
+      },
+      "success": {
+        "converted": "Linki zostały przekonwertowane!",
+        "linkCopied": "Link {{platform}} został skopiowany!",
+        "allLinksCopied": "Wszystkie linki zostały skopiowane!"
+      },
+      "results": {
+        "title": "Przekonwertowane linki",
+        "originalPlatform": "Oryginalna platforma",
+        "unknown": "Nieznana",
+        "copyAll": "Skopiuj wszystkie",
+        "visit": "Odwiedź"
+      },
+      "noResults": {
+        "title": "Brak wyników",
+        "description": "Spróbuj ponownie z innym linkiem",
+        "clearButton": "Wyczyść i spróbuj ponownie"
+      }
+    },
+    "tracking": {
+      "badge": "Śledź przesyłkę!",
+      "title": "Śledzenie przesyłek",
+      "description": "Sprawdź status swoich przesyłek w czasie rzeczywistym",
+      "input": {
+        "placeholder": "Wprowadź numer śledzenia (np. CG52151218DE)..."
+      },
+      "button": {
+        "search": "Śledź przesyłkę",
+        "searching": "Szukam...",
+        "clearResults": "Wyczyść wyniki",
+        "tryAgain": "Spróbuj ponownie"
+      },
+      "features": {
+        "couriers": "Wspiera wszystkie główne kurierów",
+        "realtime": "Aktualizacje w czasie rzeczywistym",
+        "details": "Szczegółowe informacje o statusie",
+        "history": "Historia całej trasy przesyłki"
+      },
+      "results": {
+        "title": "Status przesyłki",
+        "mainInfo": "Informacje główne",
+        "trackingDetails": "Szczegóły przesyłki",
+        "noResults": {
+          "title": "Nie znaleziono przesyłki",
+          "description": "Sprawdź numer śledzenia i spróbuj ponownie"
+        }
+      },
+      "fields": {
+        "referenceNumber": "Numer referencyjny",
+        "trackingNumber": "Numer śledzenia",
+        "country": "Kraj",
+        "date": "Data",
+        "lastStatus": "Ostatni status",
+        "recipient": "Odbiorca",
+        "location": "Lokalizacja",
+        "status": "Status"
+      },
+      "error": {
+        "noTrackingNumber": "Wprowadź numer śledzenia",
+        "fetchFailed": "Nie udało się pobrać danych śledzenia",
+        "searchFailed": "Błąd podczas wyszukiwania śledzenia"
+      },
+      "success": {
+        "dataFetched": "Dane śledzenia zostały pobrane!"
+      }
+    },
+    "qcFinder": {
+      "badge": "Znajdź QC!",
+      "title": "QC Finder",
+      "description": "Znajdź i przeanalizuj zdjęcia kontroli jakości dla swoich produktów",
+      "input": {
+        "placeholder": "Wklej link do produktu (Weidian, Taobao, 1688)..."
+      },
+      "button": {
+        "search": "Szukaj QC",
+        "searching": "Szukam..."
+      },
+      "features": {
+        "platforms": "Wspiera Weidian, Taobao i 1688",
+        "detection": "Automatyczna detekcja produktu",
+        "generation": "Generuje zdjęcia QC",
+        "speed": "Szybkie wyszukiwanie w czasie rzeczywistym"
+      },
+      "results": {
+        "title": "Znalezione zdjęcia QC",
+        "clearButton": "Wyczyść wyniki",
+        "noResults": {
+          "title": "Brak zdjęć QC",
+          "description": "Nie znaleziono zdjęć kontroli jakości dla tego produktu. Spróbuj z innym linkiem.",
+          "button": "Spróbuj ponownie"
+        }
+      },
+      "modal": {
+        "download": "Zdjęcie zostało pobrane!",
+        "downloadError": "Błąd podczas pobierania zdjęcia"
+      },
+      "error": {
+        "noUrl": "Wprowadź link do produktu",
+        "fetchFailed": "Nie udało się pobrać zdjęć QC",
+        "searchFailed": "Błąd podczas wyszukiwania zdjęć QC"
+      },
+      "success": {
+        "found": "Znaleziono {{count}} zdjęć QC!",
+        "noImages": "Nie znaleziono zdjęć QC dla tego produktu"
+      }
+    },
+    "linkUtilityBlock": {
+      "button": "Zainstaluj wtyczkę",
+      "badge": "Odkryj nasze możliwości",
+      "title": "wtyczka",
+      "titleHighlight": "Nasza",
+      "description": "Poznaj funkcje, które czynią nas liderem na tle innych wtyczek!",
+      "features": {
+        "community": {
+          "title": "Auto-Link Konwerter",
+          "description": "Przeskocz od razu do ulubionego agenta bez zbędnych kliknięć."
+        },
+        "forum": {
+          "title": "Najbardziej rozbudowana funkcjonalność",
+          "description": "QC Menu 2.0 wyświetla się obok przedmiotu, Scroll-Zoom, Drag i wiele więcej w jednej wtyczce!"
+        },
+        "growth": {
+          "title": "Brak irytujących powiadomień",
+          "description": "Usuń \"Check Agree\" i \"Warn Remind\" raz na zawsze."
+        }
+      }
+    },
+    "errors": {
+      "404": {
+        "title": "Strona nie została znaleziona",
+        "description": "Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.",
+        "homeButton": "Strona główna",
+        "backButton": "Wróć"
+      },
+      "500": {
+        "title": "Błąd serwera",
+        "description": "Wystąpił błąd wewnętrzny serwera. Spróbuj ponownie za chwilę.",
+        "homeButton": "Strona główna",
+        "refreshButton": "Odśwież"
+      }
+    },
+    "adBar": {
+      "text": "Dołącz do naszego Discord i poznaj najlepsze repy!"
+    },
+    "cta": {
+      "title": "Dołącz do społeczności!",
+      "description": "Poznaj najlepsze repy, dziel się doświadczeniami i bądź na bieżąco z najnowszymi trendami.",
+      "primaryButton": "Dołącz do Discord"
+    },
+    "features": {
+      "title": "Dlaczego my?",
+      "subtitle": "Najlepsze narzędzia do zamawiania z Chin",
+      "feature1": {
+        "title": "Szybka konwersja linków",
+        "description": "Konwertuj linki między platformami w kilka sekund"
+      },
+      "feature2": {
+        "title": "Bezpieczne płatności",
+        "description": "Wszystkie transakcje są w pełni zabezpieczone"
+      },
+      "feature3": {
+        "title": "Śledzenie przesyłek",
+        "description": "Monitoruj status swojej paczki w czasie rzeczywistym"
+      },
+      "feature4": {
+        "title": "Najlepsze ceny",
+        "description": "Znajdź najlepsze oferty i zaoszczędź pieniądze"
+      },
+      "feature5": {
+        "title": "Szeroki wybór",
+        "description": "Tysiące produktów od najlepszych sprzedawców"
+      },
+      "feature6": {
+        "title": "Wsparcie 24/7",
+        "description": "Nasz zespół jest zawsze gotowy do pomocy"
+      }
+    },
+    "w2cPage": {
+      "title": "Najlepsze przedmioty!",
+      "subtitle": "Na tej podstronie znajdziesz najlepsze przedmioty!",
+      "description": "Masz problem z znalezieniem itemów do swojego haula? U nas znajdziesz to, co potrzebujesz, i to do trzech agentów! KakoBuy, USFans i AllChinaBuy!",
+      "searchPlaceholder": "Szukaj...",
+      "filters": "Filtry",
+      "categories": {
+        "all": "Wszystkie",
+        "buty": "Buty",
+        "spodenki": "Spodenki",
+        "spodnie": "Spodnie",
+        "koszulki": "Koszulki",
+        "bluzy": "Bluzy",
+        "kurtki": "Kurtki",
+        "longsleeve": "Longsleeve",
+        "elektronika": "Elektronika",
+        "nakrycie_glowy": "Nakrycie głowy",
+        "torby_i_plecaki": "Torby i plecaki",
+        "paski": "Paski",
+        "akcesoria": "Akcesoria",
+        "swetry": "Swetry",
+        "sety": "Sety",
+        "okulary": "Okulary"
+      },
+      "tags": {
+        "bestbatch": "Best Batch",
+        "promocje": "Promocje",
+        "budgetbatch": "Budget Batch",
+        "npc": "NPC",
+        "non-npc": "Non-NPC",
+        "random": "Random"
+      },
+      "price": "Cena",
+      "buyIn": "Kup w:",
+      "seeAgents": "Zobacz agentów",
+      "agents": {
+        "kakobuy": "KakoBuy",
+        "usfans": "USFans",
+        "allchinabuy": "AllChinaBuy"
+      },
+      "loading": "Ładowanie...",
+      "noProducts": "Nie znaleziono produktów",
+      "noProductsDescription": "Spróbuj zmienić filtry lub wyszukiwanie",
+      "clearFilters": "Wyczyść wszystkie filtry",
+      "showResults": "Pokaż wyniki",
+      "categoriesLabel": "Kategorie",
+      "tagsLabel": "Tagi"
+    },
+    "imageSearch": {
+      "button": "Szukaj po zdjęciu",
+      "title": "Szukaj po zdjęciu",
+      "description": "Wgraj, przeciągnij lub wklej zdjęcie produktu, a znajdziemy najbardziej podobne przedmioty.",
+      "dropzone": "Przeciągnij i upuść zdjęcie tutaj",
+      "dropzoneActive": "Upuść, aby wgrać",
+      "orClick": "lub kliknij, aby wybrać plik",
+      "pasteHint": "Możesz też wkleić zdjęcie ze schowka (Ctrl+V)",
+      "changeImage": "Zmień zdjęcie",
+      "search": "Szukaj",
+      "searching": "Szukamy podobnych przedmiotów...",
+      "cancel": "Anuluj",
+      "invalidFile": "To nie jest poprawny plik graficzny",
+      "tooLarge": "Zdjęcie jest za duże (max 8MB)",
+      "error": "Nie udało się wyszukać. Spróbuj ponownie.",
+      "noResults": "Nie znaleziono podobnych przedmiotów",
+      "noResultsDescription": "Spróbuj wgrać wyraźniejsze zdjęcie produktu",
+      "resultsTitle": "Wyniki wyszukiwania po zdjęciu",
+      "resultsCount": "Znaleziono {{count}} podobnych przedmiotów",
+      "clearSearch": "Wyczyść wyszukiwanie",
+      "similarity": "Podobieństwo"
+    },
+    "bestBatchPage": {
+      "title": "Best Batch",
+      "subtitle": "Najlepsze batche na rynku",
+      "searchPlaceholder": "Szukaj...",
+      "categories": {
+        "all": "Wszystkie",
+        "shoes": "Buty",
+        "clothes": "Ubrania",
+        "accessories": "Akcesoria",
+        "electronics": "Elektronika"
+      },
+      "loading": "Ładowanie...",
+      "noProducts": "Nie znaleziono produktów",
+      "tryDifferentFilters": "Spróbuj zmienić filtry lub wyszukiwanie",
+      "viewAgents": "Zobacz agentów",
+      "agents": {
+        "kakobuy": "KakoBuy",
+        "usfans": "USFans",
+        "allchinabuy": "AllChinaBuy"
+      },
+      "batch": "Batch",
+      "price": "Cena",
+      "category": "Kategoria",
+      "featured": "Featured",
+      "sortOrder": "Sort Order",
+      "created": "Utworzony"
+    },
+    "trackingPage": {
+      "badge": "Śledź przesyłkę!",
+      "title": "Śledzenie przesyłek",
+      "description": "Sprawdź status swoich przesyłek w czasie rzeczywistym",
+      "input": {
+        "placeholder": "Wprowadź numer śledzenia (np. CG52151218DE)..."
+      },
+      "button": {
+        "search": "Śledź przesyłkę",
+        "searching": "Szukam...",
+        "clearResults": "Wyczyść wyniki",
+        "tryAgain": "Spróbuj ponownie"
+      },
+      "features": {
+        "couriers": "Wspiera wszystkie główne kurierów",
+        "realtime": "Aktualizacje w czasie rzeczywistym",
+        "details": "Szczegółowe informacje o statusie",
+        "history": "Historia całej trasy przesyłki"
+      },
+      "results": {
+        "title": "Status przesyłki",
+        "mainInfo": "Informacje główne",
+        "trackingDetails": "Szczegóły przesyłki",
+        "noResults": {
+          "title": "Nie znaleziono przesyłki",
+          "description": "Sprawdź numer śledzenia i spróbuj ponownie"
+        }
+      },
+      "fields": {
+        "referenceNumber": "Numer referencyjny",
+        "trackingNumber": "Numer śledzenia",
+        "country": "Kraj",
+        "date": "Data",
+        "lastStatus": "Ostatni status",
+        "recipient": "Odbiorca",
+        "location": "Lokalizacja",
+        "status": "Status"
+      },
+      "error": {
+        "noTrackingNumber": "Wprowadź numer śledzenia",
+        "fetchFailed": "Nie udało się pobrać danych śledzenia",
+        "searchFailed": "Błąd podczas wyszukiwania śledzenia",
+        "endpointNotFound": "Endpoint śledzenia nie jest dostępny",
+        "rateLimit": "Zbyt wiele zapytań. Spróbuj ponownie za chwilę"
+      },
+      "success": {
+        "dataFetched": "Dane śledzenia zostały pobrane!"
+      }
+    },
+    "qcFinderPage": {
+      "badge": "Znajdź QC!",
+      "title": "Znajdź zdjęcia QC",
+      "description": "Wprowadź URL produktu aby znaleźć zdjęcia kontroli jakości",
+      "input": {
+        "placeholder": "Wprowadź URL produktu (Weidian, Taobao, 1688)..."
+      },
+      "button": {
+        "search": "Szukaj QC",
+        "searching": "Szukam..."
+      },
+      "features": {
+        "platforms": "Wspiera Weidian, Taobao i 1688",
+        "detection": "Automatyczna detekcja produktu",
+        "generation": "Generuje zdjęcia QC",
+        "speed": "Szybkie wyszukiwanie w czasie rzeczywistym"
+      },
+      "results": {
+        "title": "Znalezione zdjęcia QC",
+        "clearButton": "Wyczyść wyniki",
+        "noResults": {
+          "title": "Brak zdjęć QC",
+          "description": "Nie znaleziono zdjęć kontroli jakości dla tego produktu. Spróbuj z innym linkiem.",
+          "button": "Spróbuj ponownie"
+        }
+      },
+      "modal": {
+        "download": "Zdjęcie zostało pobrane!",
+        "downloadError": "Błąd podczas pobierania zdjęcia"
+      },
+      "error": {
+        "noUrl": "Wprowadź link do produktu",
+        "fetchFailed": "Nie udało się pobrać zdjęć QC",
+        "searchFailed": "Błąd podczas wyszukiwania zdjęć QC",
+        "endpointNotFound": "Endpoint QC nie jest dostępny",
+        "rateLimit": "Zbyt wiele zapytań. Spróbuj ponownie za chwilę"
+      },
+      "success": {
+        "found": "Znaleziono {{count}} zdjęć QC!",
+        "noImages": "Nie znaleziono zdjęć QC dla tego produktu"
+      }
+    },
+    "linkConverterPage": {
+      "badge": "Przekonwertuj linki!",
+      "title": "Konwerter linków",
+      "description": "Konwertuj linki z różnych platform na linki agentów",
+      "input": {
+        "placeholder": "Wklej link tutaj..."
+      },
+      "button": {
+        "convert": "Konwertuj",
+        "converting": "Konwertuję..."
+      },
+      "features": {
+        "platforms": "Wspiera Weidian, Taobao i 1688",
+        "detection": "Automatyczna detekcja platformy",
+        "generation": "Generuje linki do wszystkich agentów",
+        "speed": "Szybka konwersja w czasie rzeczywistym"
+      },
+      "error": {
+        "invalidUrl": "Nieprawidłowy URL",
+        "conversionFailed": "Konwersja nie powiodła się",
+        "copyFailed": "Kopiowanie nie powiodło się",
+        "copyAllFailed": "Kopiowanie wszystkich linków nie powiodło się"
+      },
+      "success": {
+        "converted": "Linki zostały przekonwertowane",
+        "linkCopied": "Link {{platform}} skopiowany",
+        "allLinksCopied": "Wszystkie linki skopiowane"
+      },
+      "results": {
+        "title": "Przekonwertowane linki",
+        "originalPlatform": "Oryginalna platforma",
+        "unknown": "Nieznana",
+        "copyAll": "Skopiuj wszystkie",
+        "visit": "Odwiedź"
+      },
+      "noResults": {
+        "title": "Brak wyników",
+        "description": "Spróbuj ponownie z innym linkiem",
+        "clearButton": "Wyczyść i spróbuj ponownie"
+      }
+    },
+    "tutorialsPage": {
+      "title": "404",
+      "subtitle": "Strona nie została znaleziona",
+      "description": "Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.",
+      "homeButton": "Strona główna"
+    },
+    "settings": {
+      "language": "Język",
+      "languageLabel": "Wybierz język",
+      "polish": "Polski",
+      "english": "English",
+      "poland": "Polska",
+      "unitedKingdom": "United Kingdom"
+    },
+    "productCard": {
+      "priceLabel": "Cena",
+      "moreDetails": "Szczegóły"
+    },
+    "searchModal": {
+      "placeholder": "Szukaj produktów...",
+      "searchProducts": "Szukaj produkty",
+      "noResults": "Brak wyników",
+      "tools": "Narzędzia",
+      "trackingPackage": "Śledzenie paczki",
+      "findQc": "Znajdź QC",
+      "linkConverter": "Konwerter linków"
+    },
+    "sort": {
+      "priceAsc": "Cena rosnąco",
+      "priceDesc": "Cena malejąco",
+      "newest": "Najnowsze",
+      "oldest": "Najstarsze"
+    },
+    "shippingTool": {
+      "title": "Kalkulator Wysyłki",
+      "desc": "Oblicz koszt wysyłki z Chin — wklej link produktu lub wpisz wagę ręcznie."
+    },
+    "shipping": {
+      "title": "Kalkulator",
+      "titleSub": "kosztów wysyłki",
+      "description": "Dodaj przedmioty, wybierz kraj i agenta — oblicz koszt wysyłki z Chin.",
+      "addItem": "Dodaj przedmiot",
+      "itemTab": "Przedmiot",
+      "manualTab": "Ręcznie",
+      "searchInDb": "Szukaj w bazie",
+      "or": "lub",
+      "weightGrams": "Waga (gramy)",
+      "fromDb": "· z bazy danych",
+      "fromLink": "· pobrano z linku",
+      "addToList": "Dodaj do listy",
+      "descriptionOptional": "Opis (opcjonalnie)",
+      "itemsList": "Lista przedmiotów",
+      "totalWeight": "Łączna waga",
+      "settings": "Ustawienia",
+      "targetCountry": "Kraj docelowy",
+      "totalPackageWeight": "Łączna waga paczki",
+      "calculating": "Obliczam...",
+      "calculate": "Oblicz koszt wysyłki",
+      "kakobuyVoucher": "Kupon KakoBuy",
+      "withoutVoucher": "bez kuponu:",
+      "pricesApproximate": "Ceny są orientacyjne i mogą się różnić w zależności od aktualnych stawek agenta.",
+      "defaultItemLabel": "Przedmiot",
+      "itemFromLink": "Przedmiot z linku",
+      "errors": {
+        "enterWeightProduct": "Podaj wagę przedmiotu w gramach",
+        "enterWeight": "Podaj wagę w gramach",
+        "addAtLeastOne": "Dodaj przynajmniej jeden przedmiot",
+        "fetchFailed": "Nie udało się pobrać danych wysyłki. Spróbuj ponownie."
+      },
+      "countries": {
+        "PL": "Polska",
+        "DE": "Niemcy",
+        "FR": "Francja",
+        "GB": "Wielka Brytania",
+        "CZ": "Czechy",
+        "SK": "Słowacja",
+        "HU": "Węgry",
+        "RO": "Rumunia",
+        "US": "USA"
+      }
+    },
+    "itemDetails": {
+      "notFound": "Produkt nie znaleziony",
+      "backToProducts": "Wróć do produktów",
+      "clickToZoom": "Kliknij aby powiększyć",
+      "qcPhotos": "Zdjęcia QC",
+      "noQcPhotos": "Brak zdjęć QC dla tego produktu",
+      "session": "Sesja",
+      "photos": "zdjęć",
+      "delivery": "Dostawa",
+      "days": "dni",
+      "buy": "Kup",
+      "buyOn": "Kup na",
+      "original": "Oryginał"
+    },
+    "welcomeDialog": {
+      "brand": "Goat Reps",
+      "badgePartner": "PARTNER",
+      "badgeLimited": "LIMITOWANA",
+      "title": "Zgarnij",
+      "titleHighlight": "-50% na shipping",
+      "description": "Załóż konto KakoBuy przez nasz link i odbierz zniżkę na wysyłkę. Oferta ważna przez",
+      "descriptionDays": "7 dni",
+      "viewers": "{{count}} osób ogląda teraz tę ofertę",
+      "benefit1Label": "Bonus powitalny na pierwszy haul",
+      "benefit1Value": "KakoBuy",
+      "benefit2Label": "Zniżka na shipping",
+      "benefit2Value": "-50%",
+      "days": "DNI",
+      "hours": "GODZ",
+      "minutes": "MIN",
+      "seconds": "SEK",
+      "cta": "Zarejestruj się w KakoBuy",
+      "footer": "Bez zobowiązań · Oferta tylko przez ten link",
+      "close": "Zamknij"
+    }
+  },
+  "en": {
+    "navbar": {
+      "brand": "TwojaNazwa",
+      "home": "Home",
+      "products": "Products",
+      "narzedzia": "Tools",
+      "bestBatch": "Best Batch",
+      "discord": "Discord",
+      "toolsDropdown": {
+        "qcFinder": "Find QC",
+        "tracking": "Tracking",
+        "linkConverter": "Link Converter"
+      },
+      "tools": {
+        "qcFinder": "Find QC",
+        "tracking": "Tracking",
+        "linkConverter": "Link Converter",
+        "qcFinderDescription": "Find QC photos",
+        "trackingDescription": "Track packages",
+        "linkConverterDescription": "Convert links"
+      }
+    },
+    "header": {
+      "title": "TwojaNazwa",
+      "subtitle": "Find more<br /> Faster and better",
+      "description": "Search items conveniently, find the best batch, learn more about ordering or convert links. All in one place.",
+      "ctaPrimary": "Discord",
+      "ctaSecondary": "Best Batch",
+      "discord": "Discord: 1K",
+      "searchPlaceholder": "Search products...",
+      "newest": "New",
+      "newestItems": "New products",
+      "popular": "Popular",
+      "latestFinds": "Latest finds",
+      "latestFindsPrev": "Previous product",
+      "latestFindsNext": "Next product",
+      "viewAll": "View all"
+    },
+    "bentoGrid": {
+      "bestBatch": {
+        "title": "Best Batch",
+        "description": "Only the best batches on the market. Verified by our community and marked with special tags."
+      },
+      "w2c": {
+        "title": "W2C",
+        "description": "The best items on the market. Verified by our community and marked with special tags."
+      },
+      "smartTools": {
+        "title": "Smart Tools",
+        "description": "Advanced tools for link conversion, package tracking and QC photo analysis."
+      },
+      "knowledgeBase": {
+        "title": "Knowledge Base",
+        "description": "Complete guides and tutorials. From ordering basics to advanced techniques."
+      },
+      "communityFeed": {
+        "title": "Community Feed",
+        "description": "See live what others are buying. Popular items, new drops and community trends."
+      },
+      "laptopBox": {
+        "title": "Find the best items on this page!",
+        "description": "Go to W2C and discover the best items on the market"
+      }
+    },
+    "bestBatch": {
+      "title": "Best Batch",
+      "subtitle": "Best batches on the market",
+      "searchPlaceholder": "Search...",
+      "filters": "Filters",
+      "categories": {
+        "all": "All",
+        "shoes": "Shoes",
+        "clothes": "Clothes",
+        "accessories": "Accessories",
+        "electronics": "Electronics"
+      }
+    },
+    "w2c": {
+      "title": "Best items!",
+      "subtitle": "Find the best items on this page!",
+      "description": "Having trouble finding items for your haul? Find what you need here, across three agents! KakoBuy, USFans and AllChinaBuy!",
+      "searchPlaceholder": "Search...",
+      "filters": "Filters",
+      "categories": {
+        "all": "All",
+        "shoes": "Shoes",
+        "clothes": "Clothes",
+        "accessories": "Accessories",
+        "electronics": "Electronics"
+      },
+      "price": "Price",
+      "buyIn": "Buy at:",
+      "seeAgents": "See agents"
+    },
+    "agents": {
+      "kakobuy": "KakoBuy",
+      "usfans": "USFans",
+      "allchinabuy": "AllChinaBuy",
+      "currencies": {
+        "pln": "PLN",
+        "usd": "USD",
+        "cny": "CNY"
+      }
+    },
+    "document": {
+      "title": "goatreps.com",
+      "description": "The best rep site where you can find many items at the best prices!",
+      "keywords": "goatreps, premium replicas, luxury replicas, replica shoes, replica clothing, goatreps.com",
+      "ogTitle": "goatreps.com",
+      "ogDescription": "The best rep site where you can find many items at the best prices!",
+      "twitterTitle": "goatreps.com",
+      "twitterDescription": "The best rep site where you can find many items at the best prices!"
+    },
+    "footer": {
+      "copyright": "© 2025 TwojaNazwa. All rights reserved. This site is a source of knowledge about ordering from China but does not endorse it!",
+      "tagline": "Shopping becomes easier!",
+      "codedBy": "Coded by",
+      "menu": {
+        "home": {
+          "title": "Home Page",
+          "start": "Start",
+          "benefits": "Benefits"
+        },
+        "tools": {
+          "title": "Tools",
+          "linkConverter": "Link Converter",
+          "w2c": "W2C",
+          "tracking": "Package Tracking",
+          "discord": "Our Discord"
+        }
+      }
+    },
+    "questions": {
+      "title": "Frequently asked questions and answers",
+      "subtitle": "Our community aims to help users order things from China. If you have any questions, we will answer everything on Discord!",
+      "faq1": {
+        "question": "Is KakoBuy safe?",
+        "answer": "Yes, KakoBuy is a proven and safe platform for shopping from China. Many users in our community successfully use their services."
+      },
+      "faq2": {
+        "question": "Will customs take my package?",
+        "answer": "In most cases no, but it is worth knowing the customs regulations of your country. On our Discord you will find detailed information on how to order safely."
+      },
+      "faq3": {
+        "question": "Is shipping expensive?",
+        "answer": "Shipping costs depend on the weight and size of the package. On Discord we share proven methods for optimizing shipping costs."
+      }
+    },
+    "utility": {
+      "explore": "Explore tools",
+      "title": "Link conversion tools",
+      "desc": "Convert links between different platforms and agents in one place",
+      "features": [
+        "Weidian → Kakobuy, USFans, Allchinabuy conversion",
+        "Taobao → Kakobuy, USFans, Allchinabuy conversion",
+        "1688 → Kakobuy, USFans, Allchinabuy conversion",
+        "Fast and reliable conversion"
+      ]
+    },
+    "converter": {
+      "badge": "Convert links!",
+      "title": "Convert links between different platforms and agents in one place",
+      "description": "Paste a link from Weidian, Taobao or 1688, and we will generate links to all available agents.",
+      "input": {
+        "placeholder": "Paste link here..."
+      },
+      "button": {
+        "convert": "Convert",
+        "converting": "Converting..."
+      },
+      "features": {
+        "platforms": "Supports Weidian, Taobao and 1688",
+        "detection": "Automatic platform detection",
+        "generation": "Generates links to all agents",
+        "speed": "Fast real-time conversion"
+      },
+      "error": {
+        "invalidUrl": "Invalid URL",
+        "conversionFailed": "Failed to convert links",
+        "copyFailed": "Failed to copy link",
+        "copyAllFailed": "Failed to copy all links"
+      },
+      "success": {
+        "converted": "Links have been converted!",
+        "linkCopied": "{{platform}} link copied!",
+        "allLinksCopied": "All links copied!"
+      },
+      "results": {
+        "title": "Converted links",
+        "originalPlatform": "Original platform",
+        "unknown": "Unknown",
+        "copyAll": "Copy all",
+        "visit": "Visit"
+      },
+      "noResults": {
+        "title": "No results",
+        "description": "Try again with a different link",
+        "clearButton": "Clear and try again"
+      }
+    },
+    "tracking": {
+      "badge": "Track package!",
+      "title": "Package tracking",
+      "description": "Check the status of your shipments in real time",
+      "input": {
+        "placeholder": "Enter tracking number (e.g. CG52151218DE)..."
+      },
+      "button": {
+        "search": "Track package",
+        "searching": "Searching...",
+        "clearResults": "Clear results",
+        "tryAgain": "Try again"
+      },
+      "features": {
+        "couriers": "Supports all major couriers",
+        "realtime": "Real-time updates",
+        "details": "Detailed status information",
+        "history": "Full shipment route history"
+      },
+      "results": {
+        "title": "Shipment status",
+        "mainInfo": "Main information",
+        "trackingDetails": "Shipment details",
+        "noResults": {
+          "title": "Shipment not found",
+          "description": "Check tracking number and try again"
+        }
+      },
+      "fields": {
+        "referenceNumber": "Reference number",
+        "trackingNumber": "Tracking number",
+        "country": "Country",
+        "date": "Date",
+        "lastStatus": "Last status",
+        "recipient": "Recipient",
+        "location": "Location",
+        "status": "Status"
+      },
+      "error": {
+        "noTrackingNumber": "Enter tracking number",
+        "fetchFailed": "Failed to fetch tracking data",
+        "searchFailed": "Error searching tracking"
+      },
+      "success": {
+        "dataFetched": "Tracking data fetched!"
+      }
+    },
+    "qcFinder": {
+      "badge": "Find QC!",
+      "title": "QC Finder",
+      "description": "Find and analyze quality control photos for your products",
+      "input": {
+        "placeholder": "Paste product link (Weidian, Taobao, 1688)..."
+      },
+      "button": {
+        "search": "Search QC",
+        "searching": "Searching..."
+      },
+      "features": {
+        "platforms": "Supports Weidian, Taobao and 1688",
+        "detection": "Automatic product detection",
+        "generation": "Generates QC photos",
+        "speed": "Fast real-time search"
+      },
+      "results": {
+        "title": "Found QC photos",
+        "clearButton": "Clear results",
+        "noResults": {
+          "title": "No QC photos",
+          "description": "No quality control photos found for this product. Try a different link.",
+          "button": "Try again"
+        }
+      },
+      "modal": {
+        "download": "Photo downloaded!",
+        "downloadError": "Error downloading photo"
+      },
+      "error": {
+        "noUrl": "Enter product link",
+        "fetchFailed": "Failed to fetch QC photos",
+        "searchFailed": "Error searching QC photos"
+      },
+      "success": {
+        "found": "Found {{count}} QC photos!",
+        "noImages": "No QC photos found for this product"
+      }
+    },
+    "linkUtilityBlock": {
+      "button": "Install plugin",
+      "badge": "Discover our capabilities",
+      "title": "plugin",
+      "titleHighlight": "Our",
+      "description": "Discover the features that make us a leader compared to other plugins!",
+      "features": {
+        "community": {
+          "title": "Auto-Link Converter",
+          "description": "Jump straight to your favorite agent without unnecessary clicks."
+        },
+        "forum": {
+          "title": "Most extensive functionality",
+          "description": "QC Menu 2.0 displays next to the item, Scroll-Zoom, Drag and much more in one plugin!"
+        },
+        "growth": {
+          "title": "No annoying notifications",
+          "description": "Remove \"Check Agree\" and \"Warn Remind\" once and for all."
+        }
+      }
+    },
+    "errors": {
+      "404": {
+        "title": "Page not found",
+        "description": "Sorry, but the page you are looking for does not exist or has been moved.",
+        "homeButton": "Home page",
+        "backButton": "Go back"
+      },
+      "500": {
+        "title": "Server error",
+        "description": "An internal server error occurred. Please try again in a moment.",
+        "homeButton": "Home page",
+        "refreshButton": "Refresh"
+      }
+    },
+    "adBar": {
+      "text": "Join our Discord and discover the best reps!"
+    },
+    "cta": {
+      "title": "Join the community!",
+      "description": "Discover the best reps, share experiences and stay up to date with the latest trends.",
+      "primaryButton": "Join Discord"
+    },
+    "features": {
+      "title": "Why us?",
+      "subtitle": "Best tools for ordering from China",
+      "feature1": {
+        "title": "Fast link conversion",
+        "description": "Convert links between platforms in seconds"
+      },
+      "feature2": {
+        "title": "Secure payments",
+        "description": "All transactions are fully secured"
+      },
+      "feature3": {
+        "title": "Package tracking",
+        "description": "Monitor your package status in real time"
+      },
+      "feature4": {
+        "title": "Best prices",
+        "description": "Find the best deals and save money"
+      },
+      "feature5": {
+        "title": "Wide selection",
+        "description": "Thousands of products from the best sellers"
+      },
+      "feature6": {
+        "title": "24/7 support",
+        "description": "Our team is always ready to help"
+      }
+    },
+    "w2cPage": {
+      "title": "Best items!",
+      "subtitle": "Find the best items on this page!",
+      "description": "Having trouble finding items for your haul? Find what you need here, across three agents! KakoBuy, USFans and AllChinaBuy!",
+      "searchPlaceholder": "Search...",
+      "filters": "Filters",
+      "categories": {
+        "all": "All",
+        "buty": "Shoes",
+        "spodenki": "Shorts",
+        "spodnie": "Pants",
+        "koszulki": "T-shirts",
+        "bluzy": "Hoodies",
+        "kurtki": "Jackets",
+        "longsleeve": "Longsleeve",
+        "elektronika": "Electronics",
+        "nakrycie_glowy": "Headwear",
+        "torby_i_plecaki": "Bags & Backpacks",
+        "paski": "Belts",
+        "akcesoria": "Accessories",
+        "swetry": "Sweaters",
+        "sety": "Sets",
+        "okulary": "Sunglasses"
+      },
+      "tags": {
+        "bestbatch": "Best Batch",
+        "promocje": "Sales",
+        "budgetbatch": "Budget Batch",
+        "npc": "NPC",
+        "non-npc": "Non-NPC",
+        "random": "Random"
+      },
+      "price": "Price",
+      "buyIn": "Buy at:",
+      "seeAgents": "See agents",
+      "agents": {
+        "kakobuy": "KakoBuy",
+        "usfans": "USFans",
+        "allchinabuy": "AllChinaBuy"
+      },
+      "loading": "Loading...",
+      "noProducts": "No products found",
+      "noProductsDescription": "Try changing filters or search",
+      "clearFilters": "Clear all filters",
+      "showResults": "Show results",
+      "categoriesLabel": "Categories",
+      "tagsLabel": "Tags"
+    },
+    "imageSearch": {
+      "button": "Search by image",
+      "title": "Search by image",
+      "description": "Upload, drag & drop, or paste a product photo and we'll find the most similar items.",
+      "dropzone": "Drag and drop an image here",
+      "dropzoneActive": "Drop to upload",
+      "orClick": "or click to choose a file",
+      "pasteHint": "You can also paste an image from your clipboard (Ctrl+V)",
+      "changeImage": "Change image",
+      "search": "Search",
+      "searching": "Searching for similar items...",
+      "cancel": "Cancel",
+      "invalidFile": "This is not a valid image file",
+      "tooLarge": "Image is too large (max 8MB)",
+      "error": "Search failed. Please try again.",
+      "noResults": "No similar items found",
+      "noResultsDescription": "Try uploading a clearer product photo",
+      "resultsTitle": "Image search results",
+      "resultsCount": "Found {{count}} similar items",
+      "clearSearch": "Clear search",
+      "similarity": "Similarity"
+    },
+    "bestBatchPage": {
+      "title": "Best Batch",
+      "subtitle": "Best batches on the market",
+      "searchPlaceholder": "Search...",
+      "categories": {
+        "all": "All",
+        "shoes": "Shoes",
+        "clothes": "Clothes",
+        "accessories": "Accessories",
+        "electronics": "Electronics"
+      },
+      "loading": "Loading...",
+      "noProducts": "No products found",
+      "tryDifferentFilters": "Try changing filters or search",
+      "viewAgents": "See agents",
+      "agents": {
+        "kakobuy": "KakoBuy",
+        "usfans": "USFans",
+        "allchinabuy": "AllChinaBuy"
+      },
+      "batch": "Batch",
+      "price": "Price",
+      "category": "Category",
+      "featured": "Featured",
+      "sortOrder": "Sort Order",
+      "created": "Created"
+    },
+    "trackingPage": {
+      "badge": "Track package!",
+      "title": "Package tracking",
+      "description": "Check the status of your shipments in real time",
+      "input": {
+        "placeholder": "Enter tracking number (e.g. CG52151218DE)..."
+      },
+      "button": {
+        "search": "Track package",
+        "searching": "Searching...",
+        "clearResults": "Clear results",
+        "tryAgain": "Try again"
+      },
+      "features": {
+        "couriers": "Supports all major couriers",
+        "realtime": "Real-time updates",
+        "details": "Detailed status information",
+        "history": "Full shipment route history"
+      },
+      "results": {
+        "title": "Shipment status",
+        "mainInfo": "Main information",
+        "trackingDetails": "Shipment details",
+        "noResults": {
+          "title": "Shipment not found",
+          "description": "Check tracking number and try again"
+        }
+      },
+      "fields": {
+        "referenceNumber": "Reference number",
+        "trackingNumber": "Tracking number",
+        "country": "Country",
+        "date": "Date",
+        "lastStatus": "Last status",
+        "recipient": "Recipient",
+        "location": "Location",
+        "status": "Status"
+      },
+      "error": {
+        "noTrackingNumber": "Enter tracking number",
+        "fetchFailed": "Failed to fetch tracking data",
+        "searchFailed": "Error searching tracking",
+        "endpointNotFound": "Tracking endpoint is not available",
+        "rateLimit": "Too many requests. Please try again in a moment"
+      },
+      "success": {
+        "dataFetched": "Tracking data fetched!"
+      }
+    },
+    "qcFinderPage": {
+      "badge": "Find QC!",
+      "title": "Find QC photos",
+      "description": "Enter product URL to find quality control photos",
+      "input": {
+        "placeholder": "Enter product URL (Weidian, Taobao, 1688)..."
+      },
+      "button": {
+        "search": "Search QC",
+        "searching": "Searching..."
+      },
+      "features": {
+        "platforms": "Supports Weidian, Taobao and 1688",
+        "detection": "Automatic product detection",
+        "generation": "Generates QC photos",
+        "speed": "Fast real-time search"
+      },
+      "results": {
+        "title": "Found QC photos",
+        "clearButton": "Clear results",
+        "noResults": {
+          "title": "No QC photos",
+          "description": "No quality control photos found for this product. Try a different link.",
+          "button": "Try again"
+        }
+      },
+      "modal": {
+        "download": "Photo downloaded!",
+        "downloadError": "Error downloading photo"
+      },
+      "error": {
+        "noUrl": "Enter product link",
+        "fetchFailed": "Failed to fetch QC photos",
+        "searchFailed": "Error searching QC photos",
+        "endpointNotFound": "QC endpoint is not available",
+        "rateLimit": "Too many requests. Please try again in a moment"
+      },
+      "success": {
+        "found": "Found {{count}} QC photos!",
+        "noImages": "No QC photos found for this product"
+      }
+    },
+    "linkConverterPage": {
+      "badge": "Convert links!",
+      "title": "Link converter",
+      "description": "Convert links from different platforms to agent links",
+      "input": {
+        "placeholder": "Paste link here..."
+      },
+      "button": {
+        "convert": "Convert",
+        "converting": "Converting..."
+      },
+      "features": {
+        "platforms": "Supports Weidian, Taobao and 1688",
+        "detection": "Automatic platform detection",
+        "generation": "Generates links to all agents",
+        "speed": "Fast real-time conversion"
+      },
+      "error": {
+        "invalidUrl": "Invalid URL",
+        "conversionFailed": "Conversion failed",
+        "copyFailed": "Copy failed",
+        "copyAllFailed": "Copying all links failed"
+      },
+      "success": {
+        "converted": "Links have been converted",
+        "linkCopied": "{{platform}} link copied",
+        "allLinksCopied": "All links copied"
+      },
+      "results": {
+        "title": "Converted links",
+        "originalPlatform": "Original platform",
+        "unknown": "Unknown",
+        "copyAll": "Copy all",
+        "visit": "Visit"
+      },
+      "noResults": {
+        "title": "No results",
+        "description": "Try again with a different link",
+        "clearButton": "Clear and try again"
+      }
+    },
+    "tutorialsPage": {
+      "title": "404",
+      "subtitle": "Page not found",
+      "description": "Sorry, but the page you are looking for does not exist or has been moved.",
+      "homeButton": "Home page"
+    },
+    "settings": {
+      "language": "Language",
+      "languageLabel": "Select language",
+      "polish": "Polish",
+      "english": "English",
+      "poland": "Poland",
+      "unitedKingdom": "United Kingdom"
+    },
+    "productCard": {
+      "priceLabel": "Price",
+      "moreDetails": "Details"
+    },
+    "searchModal": {
+      "placeholder": "Search products...",
+      "searchProducts": "Search products",
+      "noResults": "No results",
+      "tools": "Tools",
+      "trackingPackage": "Package tracking",
+      "findQc": "Find QC",
+      "linkConverter": "Link Converter"
+    },
+    "sort": {
+      "priceAsc": "Price ascending",
+      "priceDesc": "Price descending",
+      "newest": "Newest",
+      "oldest": "Oldest"
+    },
+    "shippingTool": {
+      "title": "Shipping Calculator",
+      "desc": "Calculate shipping cost from China — paste a product link or enter weight manually."
+    },
+    "shipping": {
+      "title": "Shipping",
+      "titleSub": "cost calculator",
+      "description": "Add items, select country and agent — calculate shipping cost from China.",
+      "addItem": "Add item",
+      "itemTab": "Item",
+      "manualTab": "Manual",
+      "searchInDb": "Search database",
+      "or": "or",
+      "weightGrams": "Weight (grams)",
+      "fromDb": "· from database",
+      "fromLink": "· fetched from link",
+      "addToList": "Add to list",
+      "descriptionOptional": "Description (optional)",
+      "itemsList": "Items list",
+      "totalWeight": "Total weight",
+      "settings": "Settings",
+      "targetCountry": "Destination country",
+      "totalPackageWeight": "Total package weight",
+      "calculating": "Calculating...",
+      "calculate": "Calculate shipping cost",
+      "kakobuyVoucher": "KakoBuy Coupon",
+      "withoutVoucher": "without coupon:",
+      "pricesApproximate": "Prices are approximate and may vary depending on current agent rates.",
+      "defaultItemLabel": "Item",
+      "itemFromLink": "Item from link",
+      "errors": {
+        "enterWeightProduct": "Enter item weight in grams",
+        "enterWeight": "Enter weight in grams",
+        "addAtLeastOne": "Add at least one item",
+        "fetchFailed": "Failed to fetch shipping data. Please try again."
+      },
+      "countries": {
+        "PL": "Poland",
+        "DE": "Germany",
+        "FR": "France",
+        "GB": "United Kingdom",
+        "CZ": "Czech Republic",
+        "SK": "Slovakia",
+        "HU": "Hungary",
+        "RO": "Romania",
+        "US": "USA"
+      }
+    },
+    "itemDetails": {
+      "notFound": "Product not found",
+      "backToProducts": "Back to products",
+      "clickToZoom": "Click to zoom",
+      "qcPhotos": "QC Photos",
+      "noQcPhotos": "No QC photos for this product",
+      "session": "Session",
+      "photos": "photos",
+      "delivery": "Delivery",
+      "days": "days",
+      "buy": "Buy",
+      "buyOn": "Buy on",
+      "original": "Original"
+    },
+    "welcomeDialog": {
+      "brand": "Goat Reps",
+      "badgePartner": "PARTNER",
+      "badgeLimited": "LIMITED",
+      "title": "Get",
+      "titleHighlight": "-50% on shipping",
+      "description": "Sign up on KakoBuy through our link and claim your shipping discount. Offer valid for",
+      "descriptionDays": "7 days",
+      "viewers": "{{count}} people are viewing this offer right now",
+      "benefit1Label": "Welcome bonus on your first haul",
+      "benefit1Value": "KakoBuy",
+      "benefit2Label": "Shipping discount",
+      "benefit2Value": "-50%",
+      "days": "DAYS",
+      "hours": "HRS",
+      "minutes": "MIN",
+      "seconds": "SEC",
+      "cta": "Sign up on KakoBuy",
+      "footer": "No commitment · Offer only through this link",
+      "close": "Close"
+    }
+  }
+}
