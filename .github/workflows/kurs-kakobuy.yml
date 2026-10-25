@@ -3,6 +3,9 @@ name: Kurs KakoBuy
 # Raz w tygodniu (poniedziałek 05:15 UTC) odczytuje kursy walut z kakobuy.com w Chrome i zapisuje strona/data/kursy.json.
 # Vercel przebudowuje stronę po commicie, a serwer na Pterodactylu sam pobiera nowy plik (strona/server/kursy.mjs).
 # Ręcznie: Actions → Kurs KakoBuy → Run workflow.
+#
+# Dwa zadania: przeglądarka (obca strona z reklamami i skryptami) działa bez prawa zapisu do repo i bez zapisanego
+# tokena; commit robi osobne zadanie, które dostaje tylko plik z kursami i sprawdza go przed zapisem.
 on:
   schedule:
     - cron: "15 5 * * 1"
@@ -14,27 +17,78 @@ on:
       - narzedzia/kurs-kakobuy.mjs
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: kurs-kakobuy
   cancel-in-progress: false
 
 jobs:
-  kurs:
+  odczyt:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v5
         with:
           node-version: 24
 
+      # Chrome z własną piaskownicą: Ubuntu 24.04 domyślnie blokuje przestrzenie nazw użytkownika, których ona potrzebuje
+      - name: Piaskownica Chrome
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
       - name: Kurs z KakoBuy
         run: node narzedzia/kurs-kakobuy.mjs
         env:
           BROWSER: /usr/bin/google-chrome
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kursy
+          path: strona/data/kursy.json
+          retention-days: 7
+          if-no-files-found: error
+
+  zapis:
+    needs: odczyt
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: kursy
+          path: ${{ runner.temp }}/kursy
+
+      - name: Sprawdzenie pliku
+        env:
+          NOWY: ${{ runner.temp }}/kursy/kursy.json
+        run: |
+          node -e '
+            const fs = require("fs");
+            const text = fs.readFileSync(process.env.NOWY, "utf8");
+            if (text.length > 20000) throw new Error("plik jest za duży");
+            const d = JSON.parse(text);
+            const range = { PLN: [0.3, 1.2], EUR: [0.06, 0.3], USD: [0.06, 0.3] };
+            for (const [c, [lo, hi]] of Object.entries(range)) {
+              const v = d?.rates?.[c];
+              if (typeof v !== "number" || v < lo || v > hi) throw new Error(`podejrzany kurs ${c}: ${v}`);
+            }
+            const age = Date.now() - Date.parse(d.fetchedAt);
+            if (!(age >= -300000 && age < 3600000)) throw new Error(`zła data kursu: ${d.fetchedAt}`);
+            const pick = (o) => (o && typeof o === "object" ? Object.fromEntries(Object.keys(range).filter((c) => typeof o[c] === "number").map((c) => [c, o[c]])) : null);
+            const out = { source: "KakoBuy", fetchedAt: d.fetchedAt, rates: pick(d.rates), nbp: pick(d.nbp), markup: pick(d.markup) };
+            fs.writeFileSync("strona/data/kursy.json", JSON.stringify(out, null, 2) + "\n");
+            console.log("1 CNY =", out.rates.PLN, "PLN /", out.rates.EUR, "EUR /", out.rates.USD, "USD");
+          '
 
       - name: Zapis do repo
         run: |

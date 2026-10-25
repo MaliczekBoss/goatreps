@@ -60,7 +60,7 @@ TRUST_PROXY=cf-connecting-ip
 | `TRUST_PROXY` | skąd brać prawdziwy adres odwiedzającego: `cf-connecting-ip` za Cloudflare, `x-real-ip` za nginx/load balancerem. Bez tego limity zapytań liczą się wspólnie dla wszystkich |
 | `CLOUDFLARE_ONLY` | `1` = serwer przyjmuje tylko połączenia z adresów Cloudflare i tylko dla goatreps.com (www przekierowuje na goatreps.com); `0` = na czas testu przez `http://IP:PORT` |
 | `CF_ORIGIN_SECRET` | (opcjonalnie) tajny nagłówek `X-Origin-Secret` dopisywany przez regułę w Cloudflare – wpuszczane są tylko zapytania z nim |
-| `TRUST_LOCAL_NETWORK` | (opcjonalnie) `0` = ruch z sieci lokalnej (Docker, 172.x / 10.x / 192.168.x) traktowany jak obcy; domyślnie zaufany (reverse proxy na węźle) |
+| `TRUST_LOCAL_NETWORK` | (opcjonalnie) `1` = ufaj też ruchowi z sieci lokalnej (reverse proxy na węźle, 172.x / 10.x / 192.168.x) – domyślnie nie; wtedy włącz też `CF_ORIGIN_SECRET` |
 | `ALLOWED_HOSTS` | (opcjonalnie) dodatkowe domeny po przecinku, np. `goatreps.pl` – domyślnie tylko goatreps.com i www.goatreps.com |
 | `NEXT_PUBLIC_CDN_URL` | (opcjonalnie) adres S3/R2 ze zdjęciami – pusty = zdjęcia z folderu `cdn/` na serwerze |
 | `OPENAI_API_KEY`, `OPENAI_BASE_URL` lub `GEMINI_API_KEY` | wyszukiwanie po zdjęciu (`/photo-search`); bez kluczy narzędzie pokaże, że jest wyłączone |
@@ -149,4 +149,4 @@ zmieniło. Nowe zdjęcia: dograj brakujące pliki do `cdn/` (nazwy plików się 
 | `Odrzucono zapytanie (… – spoza Cloudflare)`, w przeglądarce 403 | wchodzisz na IP:port zamiast goatreps.com – to celowe; do testu `CLOUDFLARE_ONLY=0` |
 | goatreps.com: 403 „Strona działa tylko przez…” | rekord DNS nie jest Proxied (szara chmurka) albo włączony `CF_ORIGIN_SECRET` bez reguły z kroku 5 |
 | goatreps.com: błąd 521 / 522 Cloudflare | serwer wyłączony albo zły port w Origin Rule (krok 2) |
-| `Zapytania przychodzą z sieci lokalnej` | przed stroną jest proxy/Docker – zablokuj bezpośredni dostęp do portu albo `TRUST_LOCAL_NETWORK=0` |
+| `Zapytanie z sieci lokalnej (172.…)` i goatreps.com daje 403 | host przepuszcza ruch przez proxy (Dockera albo nginx na węźle) i serwer nie widzi adresów Cloudflare: ustaw `TRUST_LOCAL_NETWORK=1` i koniecznie włącz `CF_ORIGIN_SECRET` (krok 5 w „Cloudflare”) |

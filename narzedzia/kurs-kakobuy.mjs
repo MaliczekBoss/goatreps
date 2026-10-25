@@ -42,9 +42,8 @@ function findBrowser() {
 async function readKakobuyRates() {
   const port = 9300 + Math.floor(Math.random() * 500);
   const profile = mkdtempSync(path.join(tmpdir(), "kurs-kakobuy-"));
-  // na jednorazowej maszynie GitHub Actions Chrome nie ma piaskownicy użytkownika (AppArmor w Ubuntu 24.04)
-  const ci = process.env.CI ? ["--no-sandbox"] : [];
-  const proc = spawn(findBrowser(), ["--headless=new", "--disable-gpu", "--no-first-run", ...ci, `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, "about:blank"], {
+  // zawsze z piaskownicą przeglądarki (na GitHub Actions włącza ją krok „Piaskownica Chrome” w workflow)
+  const proc = spawn(findBrowser(), ["--headless=new", "--disable-gpu", "--no-first-run", `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, "about:blank"], {
     stdio: "ignore",
   });
   try {

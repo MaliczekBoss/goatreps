@@ -1,5 +1,6 @@
 // Strażnik przed Next.js (używa go server/serve.mjs): skąd przyszło zapytanie i czy je wpuścić.
-//  - CLOUDFLARE_ONLY=1: tylko połączenia z adresów Cloudflare (i z sieci lokalnej – reverse proxy, Docker, testy).
+//  - CLOUDFLARE_ONLY=1: tylko połączenia z adresów Cloudflare (i z localhost). Sieć lokalna (reverse proxy na węźle)
+//    tylko z TRUST_LOCAL_NETWORK=1 – domyślnie nie, bo za proxy Dockera cały ruch, także obcy, ma adres 172.x.
 //    Kto zna IP:port serwera, nie ominie Cloudflare (WAF, ochrona przed DDoS) i nie podrobi cf-connecting-ip,
 //    z którego liczone są limity zapytań (logowanie, wyszukiwanie po zdjęciu, ceny).
 //  - CF_ORIGIN_SECRET: (opcjonalnie) tajny nagłówek X-Origin-Secret dopisywany przez regułę w Cloudflare –
@@ -48,7 +49,7 @@ export function parseCloudflare(texts) {
 
 export function createGuard(env = process.env) {
   const cloudflareOnly = on(env.CLOUDFLARE_ONLY, false);
-  const trustLocal = on(env.TRUST_LOCAL_NETWORK, true);
+  const trustLocal = on(env.TRUST_LOCAL_NETWORK, false);
   const secret = (env.CF_ORIGIN_SECRET ?? "").trim();
   const secretHash = secret ? createHash("sha256").update(secret).digest() : null;
   const site = (() => {
@@ -64,7 +65,7 @@ export function createGuard(env = process.env) {
   const local = blockList(LOCAL);
   let cloudflare = blockList(CLOUDFLARE_FALLBACK);
 
-  /** loopback | local | cloudflare | public */
+  /** loopback | local | cloudflare | public (privateNet: adres z sieci lokalnej, której nie ufamy) */
   function classify(address) {
     let ip = String(address ?? "");
     if (ip.startsWith("::ffff:") && isIP(ip.slice(7)) === 4) ip = ip.slice(7);
@@ -73,7 +74,7 @@ export function createGuard(env = process.env) {
     const type = v === 6 ? "ipv6" : "ipv4";
     if (loopback.check(ip, type)) return { ip, kind: "loopback" };
     if (cloudflare.check(ip, type)) return { ip, kind: "cloudflare" };
-    if (trustLocal && local.check(ip, type)) return { ip, kind: "local" };
+    if (local.check(ip, type)) return trustLocal ? { ip, kind: "local" } : { ip, kind: "public", privateNet: true };
     return { ip, kind: "public" };
   }
 

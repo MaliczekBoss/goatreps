@@ -32,12 +32,20 @@ let rejected = 0;
 let lastRejected = "";
 let firstRejectionLogged = false;
 let localWarned = false;
+let localHinted = false;
 function noteRejection(peer, reason) {
   rejected++;
   lastRejected = `${peer.ip} – ${reason}`;
   if (!firstRejectionLogged) {
     firstRejectionLogged = true;
     log(`Odrzucono zapytanie (${lastRejected}). Strona przyjmuje tylko ruch przez Cloudflare – do testów przez IP:port ustaw CLOUDFLARE_ONLY=0.`);
+  }
+  if (peer.privateNet && !localHinted) {
+    localHinted = true;
+    log(
+      `Zapytanie z sieci lokalnej (${peer.ip}). Jeśli przed stroną stoi reverse proxy na tym serwerze, ustaw TRUST_LOCAL_NETWORK=1 ` +
+        `(i najlepiej CF_ORIGIN_SECRET). Jeśli całe goatreps.com dostaje 403, a proxy nie ma – host przepuszcza ruch przez proxy Dockera.`,
+    );
   }
 }
 setInterval(() => {
@@ -63,8 +71,8 @@ const server = http.createServer((req, res) => {
   if (result.peer.kind === "local" && !localWarned) {
     localWarned = true;
     log(
-      `Zapytania przychodzą z sieci lokalnej (${result.peer.ip}) – zwykle to reverse proxy albo Docker. Serwer nie sprawdzi wtedy, ` +
-        `czy idą przez Cloudflare: zablokuj bezpośredni dostęp do portu albo ustaw TRUST_LOCAL_NETWORK=0, jeśli nie masz proxy.`,
+      `Zapytania przychodzą z sieci lokalnej (${result.peer.ip}, TRUST_LOCAL_NETWORK=1) – serwer nie sprawdzi wtedy, czy idą ` +
+        `przez Cloudflare: zablokuj bezpośredni dostęp do portu i włącz CF_ORIGIN_SECRET.`,
     );
   }
   if (result.redirect) {
