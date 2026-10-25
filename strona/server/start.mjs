@@ -158,11 +158,15 @@ async function seedDatabase() {
   }
 }
 
+const s3Ready = () => Boolean(process.env.S3_ENDPOINT && process.env.S3_BUCKET && process.env.S3_ACCESS_KEY_ID && process.env.S3_SECRET_ACCESS_KEY);
+
 function cdnInfo() {
   if (process.env.NEXT_PUBLIC_CDN_URL) return log(`Zdjęcia z CDN: ${process.env.NEXT_PUBLIC_CDN_URL}`);
   const dir = process.env.CDN_DIR ? path.resolve(process.env.CDN_DIR) : path.join(root, "cdn");
-  if (existsSync(path.join(dir, "i"))) log(`Zdjęcia z dysku: ${dir}`);
-  else log(`UWAGA: nie ma folderu ze zdjęciami (${dir}) ani NEXT_PUBLIC_CDN_URL – strona będzie bez zdjęć. Wgraj cdn/ obok index.js.`);
+  const s3 = s3Ready() ? ` + S3 ${process.env.S3_ENDPOINT}/${process.env.S3_BUCKET}` : "";
+  if (existsSync(path.join(dir, "i"))) log(`Zdjęcia z dysku: ${dir}${s3}`);
+  else if (s3) log(`Zdjęcia z S3: ${process.env.S3_ENDPOINT}/${process.env.S3_BUCKET}`);
+  else log(`UWAGA: nie ma folderu ze zdjęciami (${dir}), S3 ani NEXT_PUBLIC_CDN_URL – strona będzie bez zdjęć. Wgraj cdn/ obok index.js.`);
 }
 
 await ensureDependencies();
@@ -184,3 +188,10 @@ server.on("exit", (code) => process.exit(code ?? 1));
 
 const { scheduleRates } = await import("./kursy.mjs");
 scheduleRates(root, log);
+
+// zdjęcia z cdn/ do bucketu S3 (tylko brakujące) – w tle, strona działa w tym czasie normalnie
+if (s3Ready() && !process.env.NEXT_PUBLIC_CDN_URL) {
+  import("./cdn-sync.mjs")
+    .then(({ syncCdn }) => syncCdn(root, log))
+    .catch((error) => log(`Synchronizacja zdjęć z S3 nie powiodła się: ${error.message}`));
+}

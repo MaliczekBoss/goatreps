@@ -11,7 +11,7 @@ const cdnOrigin = (() => {
   }
 })();
 
-function contentSecurityPolicy(nonce: string) {
+function contentSecurityPolicy(nonce: string, https: boolean) {
   return [
     "default-src 'self'",
     // 'strict-dynamic' + nonce: wykonają się tylko skrypty Next.js z tym noncem i to, co one same załadują.
@@ -29,14 +29,17 @@ function contentSecurityPolicy(nonce: string) {
     "manifest-src 'self'",
     "base-uri 'none'",
     "form-action 'self'",
-    ...(dev ? [] : ["upgrade-insecure-requests"]),
+    // tylko przez HTTPS – na http://IP:PORT (serwer bez domeny) przeglądarka próbowałaby pobrać CSS i JS po https
+    ...(https ? ["upgrade-insecure-requests"] : []),
   ].join("; ");
 }
 
 export function proxy(request: NextRequest) {
   const bytes = crypto.getRandomValues(new Uint8Array(18));
   const nonce = btoa(String.fromCharCode(...bytes));
-  const csp = contentSecurityPolicy(nonce);
+  // x-forwarded-proto: od Cloudflare/Vercela albo uzupełniony przez Next z prawdziwego połączenia (podróbki usuwa server/origin-guard.mjs)
+  const https = !dev && (request.headers.get("x-forwarded-proto") ?? request.nextUrl.protocol.replace(":", "")) === "https";
+  const csp = contentSecurityPolicy(nonce, https);
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);

@@ -26,29 +26,35 @@ i uruchamia. Bez komend npm i bez crona.
    do katalogu głównego serwera, tak żeby `index.js` był w `/home/container/index.js`.
 2. Zdjęcia: wgraj `cdn.tar` (najlepiej przez **SFTP** – plik ma ok. 1,25 GB, panel może mieć limit wielkości uploadu)
    do katalogu głównego i rozpakuj (**Unarchive**). Ma powstać folder `/home/container/cdn/` z podfolderami `i/`, `t/`, `q/`, `p/`, `c/`, `a/`, `b/`.
-   *Zamiast tego* możesz wgrać zawartość `cdn/` do S3/R2 i ustawić `NEXT_PUBLIC_CDN_URL` (wtedy folder na serwerze nie jest potrzebny).
+   Przy ustawionym Garage S3 (`S3_*` w `.env`) serwer po starcie sam wgra te zdjęcia do bucketu (w konsoli: `S3: wgrano …`)
+   i od tej chwili bierze je z bucketu – wtedy folder `cdn/` i plik `cdn.tar` możesz usunąć, żeby zwolnić 1,25 GB.
 3. **Startup → JS file / MAIN_FILE** = `index.js`.
-4. Plik `.env` jest już w paczce (hasło i klucz panelu, klucze AI, adres strony, `TRUST_PROXY` dla Cloudflare).
-   Otwórz go w **Files** i wpisz tylko adres bazy w `MONGODB_URI=` (bez bazy strona też działa – na plikach).
-5. **Start**.
+4. Plik `.env` jest już w paczce i jest kompletny: MongoDB, Garage S3, hasło i klucz panelu, klucze AI, ustawienia na czas
+   bez domeny. Nic nie trzeba wpisywać.
+5. **Start**. Strona działa pod `http://IP_SERWERA:PORT` (port z zakładki Network).
 
 ## Ustawienia – plik `.env`
 
-Gotowy plik wygląda tak (wartości są już wpisane, puste zostaje tylko `MONGODB_URI`):
+Gotowy plik wygląda tak (wartości są już wpisane):
 
 ```env
-MONGODB_URI=mongodb://UŻYTKOWNIK:HASŁO@HOST:27017/?authSource=admin
+MONGODB_URI=mongodb://goatreps:…@IP_SERWERA:27017/goatreps
 MONGODB_DB=goatreps
 ADMIN_PASSWORD=…
 ADMIN_SECRET=…
+ADMIN_ALLOW_HTTP=1          # na razie bez domeny – usuń po przejściu na goatreps.com
 OPENAI_BASE_URL=…
 OPENAI_API_KEY=…
 GEMINI_API_KEY=…
 NEXT_PUBLIC_SITE_URL=https://goatreps.com
 NEXT_PUBLIC_CDN_URL=
-CLOUDFLARE_ONLY=1
-TRUST_PROXY=cf-connecting-ip
-# CF_ORIGIN_SECRET=…   (gotowy klucz – włączasz po kroku 5 w „Cloudflare”)
+CLOUDFLARE_ONLY=0           # na razie bez domeny – ustaw 1 po przejściu na goatreps.com
+TRUST_PROXY=x-real-ip
+# CF_ORIGIN_SECRET=…        (gotowy klucz – włączasz po kroku 5 w „Cloudflare”)
+S3_ENDPOINT=http://IP_SERWERA:3900
+S3_BUCKET=uploads
+S3_ACCESS_KEY_ID=…
+S3_SECRET_ACCESS_KEY=…
 ```
 
 | Zmienna | Opis |
@@ -57,7 +63,9 @@ TRUST_PROXY=cf-connecting-ip
 | `NEXT_PUBLIC_SITE_URL` | adres strony (sitemap, linki) |
 | `ADMIN_PASSWORD`, `ADMIN_SECRET` | panel `/admin`; `ADMIN_SECRET` min. 12 znaków i inny niż hasło; **na wszystkich instancjach takie same** |
 | `ADMIN_TOTP_SECRET` | logowanie dwuetapowe do panelu (opcjonalnie; klucz z `node narzedzia/admin-2fa.mjs`) |
-| `TRUST_PROXY` | skąd brać prawdziwy adres odwiedzającego: `cf-connecting-ip` za Cloudflare, `x-real-ip` za nginx/load balancerem. Bez tego limity zapytań liczą się wspólnie dla wszystkich |
+| `TRUST_PROXY` | `x-real-ip` – prawdziwy adres odwiedzającego wpisuje tam sam serwer (od Cloudflare albo z połączenia); bez tego limity zapytań liczą się wspólnie dla wszystkich |
+| `ADMIN_ALLOW_HTTP` | `1` = panel działa też po zwykłym http (serwer bez domeny); hasło idzie wtedy nieszyfrowane, strona logowania to pokazuje. Po przejściu na goatreps.com usuń |
+| `S3_ENDPOINT`, `S3_BUCKET`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY` | Garage S3 na zdjęcia: serwer wgrywa do bucketu brakujące pliki z `cdn/`, strona podaje je pod `/cdn/…` (najpierw z dysku, potem z bucketu). `S3_REGION` dobiera się sam. Klucza RPC Garage strona nie potrzebuje |
 | `CLOUDFLARE_ONLY` | `1` = serwer przyjmuje tylko połączenia z adresów Cloudflare i tylko dla goatreps.com (www przekierowuje na goatreps.com); `0` = na czas testu przez `http://IP:PORT` |
 | `CF_ORIGIN_SECRET` | (opcjonalnie) tajny nagłówek `X-Origin-Secret` dopisywany przez regułę w Cloudflare – wpuszczane są tylko zapytania z nim |
 | `TRUST_LOCAL_NETWORK` | (opcjonalnie) `1` = ufaj też ruchowi z sieci lokalnej (reverse proxy na węźle, 172.x / 10.x / 192.168.x) – domyślnie nie; wtedy włącz też `CF_ORIGIN_SECRET` |
@@ -68,10 +76,19 @@ TRUST_PROXY=cf-connecting-ip
 
 Port bierze się sam z `SERVER_PORT` (przydział w Pterodactyl).
 
+## Na razie bez domeny
+
+Teraz strona działa pod `http://IP_SERWERA:PORT` (`CLOUDFLARE_ONLY=0`, `ADMIN_ALLOW_HTTP=1`). Działa wszystko,
+ale bez HTTPS: hasło do panelu idzie nieszyfrowane (strona logowania to pokazuje), więc loguj się tylko z zaufanej sieci.
+Limity zapytań liczą się po adresie połączenia, podrobione nagłówki `cf-*` są usuwane.
+
+Gdy goatreps.com będzie gotowa: zrób kroki z „Cloudflare” niżej, w `.env` ustaw `CLOUDFLARE_ONLY=1`, usuń linię
+`ADMIN_ALLOW_HTTP=1` i zrestartuj serwer.
+
 ## Cloudflare (domena goatreps.com)
 
-Strona jest ustawiona pod goatreps.com za Cloudflare (`CLOUDFLARE_ONLY=1`): wejście bezpośrednio na `http://IP:PORT`
-serwera dostaje 403 – to celowe, żeby nikt nie ominął Cloudflare. W panelu Cloudflare (domena goatreps.com):
+Z `CLOUDFLARE_ONLY=1` wejście bezpośrednio na `http://IP:PORT` serwera dostaje 403 – to celowe, żeby nikt nie ominął
+Cloudflare. W panelu Cloudflare (domena goatreps.com):
 
 1. **DNS → Records**: rekord `A` `goatreps.com` → adres IP serwera (węzła Pterodactyl), **Proxy status: Proxied**
    (pomarańczowa chmurka). Rekord `CNAME` `www` → `goatreps.com`, też Proxied (www przekierowuje na goatreps.com).
@@ -146,6 +163,11 @@ zmieniło. Nowe zdjęcia: dograj brakujące pliki do `cdn/` (nazwy plików się 
 | `UWAGA: nie ma folderu ze zdjęciami` | rozpakuj `cdn.tar` w katalogu głównym albo ustaw `NEXT_PUBLIC_CDN_URL` |
 | panel `/admin`: „Panel nie jest skonfigurowany” | brak `ADMIN_PASSWORD` / `ADMIN_SECRET` w `.env` |
 | `Nie udało się pobrać kursu KakoBuy` | serwer nie ma dostępu do raw.githubusercontent.com – strona liczy dalej po ostatnim kursie |
+| `S3 niedostępne (… HTTP 403 SignatureDoesNotMatch / InvalidAccessKeyId)` | zły `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` – zdjęcia idą wtedy z dysku |
+| `S3 niedostępne (… fetch failed / ECONNREFUSED)` | Garage nie słucha na `S3_ENDPOINT` z wnętrza kontenera – sprawdź port (domyślnie 3900) albo adres (np. `http://172.18.0.1:3900`) |
+| `Wgrywanie zdjęć do S3 przerwane – zapis nie działa` | klucz nie ma prawa zapisu do bucketu: `garage bucket allow --read --write uploads --key …` |
+| `[mongo] brak połączenia` / `Authentication failed` przy starcie | zły adres lub hasło w `MONGODB_URI`, albo Mongo nie przyjmuje połączeń z kontenera (bind/port 27017) |
+| panel: „Logowanie wymaga HTTPS” | strona bez domeny – dopisz `ADMIN_ALLOW_HTTP=1` do `.env` (albo przejdź na goatreps.com przez Cloudflare) |
 | `Odrzucono zapytanie (… – spoza Cloudflare)`, w przeglądarce 403 | wchodzisz na IP:port zamiast goatreps.com – to celowe; do testu `CLOUDFLARE_ONLY=0` |
 | goatreps.com: 403 „Strona działa tylko przez…” | rekord DNS nie jest Proxied (szara chmurka) albo włączony `CF_ORIGIN_SECRET` bez reguły z kroku 5 |
 | goatreps.com: błąd 521 / 522 Cloudflare | serwer wyłączony albo zły port w Origin Rule (krok 2) |

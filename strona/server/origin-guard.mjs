@@ -6,6 +6,7 @@
 //  - CF_ORIGIN_SECRET: (opcjonalnie) tajny nagłówek X-Origin-Secret dopisywany przez regułę w Cloudflare –
 //    wtedy nawet inne konto Cloudflare skierowane na nasz adres IP nie dostanie strony.
 //  - nagłówki cf-* / x-forwarded-* od kogoś spoza zaufanych adresów są usuwane, x-forwarded-host zawsze,
+//    a x-real-ip zawsze ustawia strażnik (adres od Cloudflare albo z połączenia – działa też bez domeny),
 //  - tylko domeny strony (NEXT_PUBLIC_SITE_URL + www, ALLOWED_HOSTS); www → przekierowanie na adres główny,
 //  - POST/PUT/PATCH/DELETE tylko z Origin naszej strony (Next sam przepuszcza akcje serwera bez Origin),
 //    /api/* nie dla innych stron (Sec-Fetch-Site: cross-site),
@@ -108,6 +109,13 @@ export function createGuard(env = process.env) {
     const h = req.headers;
     delete h["x-forwarded-host"];
     if (!trusted) for (const name of FORWARDED) delete h[name];
+    // prawdziwy adres odwiedzającego zawsze w x-real-ip (TRUST_PROXY=x-real-ip): od Cloudflare z cf-connecting-ip,
+    // od zaufanego proxy z jego nagłówka, a przy bezpośrednim połączeniu (serwer bez domeny) – adres połączenia
+    const valid = (v) => (typeof v === "string" && isIP(v.trim()) ? v.trim() : "");
+    h["x-real-ip"] =
+      (peer.kind === "cloudflare" && valid(h["cf-connecting-ip"])) ||
+      ((peer.kind === "local" || peer.kind === "loopback") && (valid(h["x-real-ip"]) || valid(h["cf-connecting-ip"]))) ||
+      peer.ip;
 
     if (cloudflareOnly && peer.kind !== "loopback") {
       if (!trusted) return { status: 403, text: `Strona działa tylko przez ${site.protocol}//${apex}`, peer, reason: "spoza Cloudflare" };

@@ -105,11 +105,11 @@ export async function POST(request: Request) {
 
   const now = Date.now();
   const ip = clientIp(request);
-  // kraj tylko od Cloudflare (gdy ufamy jego nagłówkom) – inaczej nagłówek mógłby wpisać każdy
   const trust = (process.env.TRUST_PROXY ?? "").trim().toLowerCase();
-  // kraj tylko od zaufanego pośrednika: Cloudflare (cf-ipcountry) albo Vercel (x-vercel-ip-country) – inaczej nagłówek wpisałby każdy
+  // kraj tylko od zaufanego pośrednika: Cloudflare (cf-ipcountry) albo Vercel (x-vercel-ip-country) – inaczej nagłówek wpisałby każdy.
+  // Za server/serve.mjs (GOATREPS_GUARD=1) cf-ipcountry zostaje tylko w zapytaniach, które naprawdę przyszły z Cloudflare.
   const cfCountry =
-    trust === "cf-connecting-ip"
+    trust === "cf-connecting-ip" || process.env.GOATREPS_GUARD === "1"
       ? request.headers.get("cf-ipcountry")
       : trust === "x-real-ip" && process.env.VERCEL
         ? request.headers.get("x-vercel-ip-country")

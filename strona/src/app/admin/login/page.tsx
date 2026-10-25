@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { isAdmin } from "@/lib/admin/auth";
-import { totpEnabled } from "@/lib/admin/auth-token";
+import { sessionCookieFor, totpEnabled } from "@/lib/admin/auth-token";
 import { FluxFill } from "@/components/flux-fill";
 import { LoginForm } from "./login-form";
 
@@ -10,6 +11,9 @@ export const metadata: Metadata = { title: "Logowanie" };
 
 export default async function LoginPage() {
   if (await isAdmin()) redirect("/admin/stats");
+  const cookie = sessionCookieFor(await headers());
+  // serwer bez domeny (http://IP:PORT): hasło idzie bez szyfrowania – mówimy to wprost
+  const insecure = process.env.NODE_ENV === "production" && !cookie.secure;
 
   return (
     <div className="site-container grid place-items-center pt-6 pb-10 sm:pt-12">
@@ -32,6 +36,13 @@ export default async function LoginPage() {
             <p className="relative mt-2 text-sm text-zinc-400">Zaloguj się, żeby zobaczyć statystyki strony.</p>
           </div>
           <div className="px-6 pt-1 pb-6 sm:px-7 sm:pb-7">
+            {insecure && (
+              <p className="mt-5 rounded-2xl border border-amber-300/20 bg-amber-300/[0.06] px-4 py-3 text-xs leading-relaxed text-amber-100/90">
+                {cookie.usable
+                  ? "Połączenie bez HTTPS – hasło idzie nieszyfrowane. Loguj się tylko na czas, zanim strona dostanie domenę przez Cloudflare."
+                  : "Logowanie wymaga HTTPS. Strona działa teraz bez domeny – na ten czas panel można włączyć wpisem ADMIN_ALLOW_HTTP=1 w .env na serwerze."}
+              </p>
+            )}
             <LoginForm twoFactor={totpEnabled()} />
           </div>
         </div>

@@ -10,6 +10,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const port = Number(process.env.SERVER_PORT || process.env.PORT || 3000);
 const log = (message) => console.log(`[goatreps] ${new Date().toISOString().slice(0, 19).replace("T", " ")} ${message}`);
 const guard = createGuard(process.env);
+// dla strony: nagłówki cf-* są tu tylko od Cloudflare, a x-real-ip ustawia strażnik (kraj w statystykach, limity)
+process.env.GOATREPS_GUARD = "1";
 
 // aktualna lista adresów Cloudflare (raz na dobę); bez internetu zostaje lista wbudowana
 async function refreshCloudflare() {

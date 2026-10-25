@@ -78,9 +78,32 @@ async function seedStatistics(db, root, log) {
   await seedStats(db, file, log);
 }
 
+const authFailed = (error) => error?.code === 18 || /authentication failed/i.test(String(error?.message));
+
+/** Połączenie jak w src/lib/mongo.ts: gdy logowanie się nie uda, a adres nie ma authSource – druga próba z authSource=admin. */
+async function connect(uri, log) {
+  const open = async (u) => {
+    const client = new MongoClient(u, { serverSelectionTimeoutMS: 15000, appName: "goatreps-seed" });
+    try {
+      await client.connect();
+      return client;
+    } catch (error) {
+      await client.close().catch(() => {});
+      throw error;
+    }
+  };
+  try {
+    return await open(uri);
+  } catch (error) {
+    if (!authFailed(error) || /[?&]authSource=/i.test(uri)) throw error;
+    const client = await open(`${uri}${uri.includes("?") ? "&" : "?"}authSource=admin`);
+    log("MongoDB: użytkownik jest w bazie „admin” – logowanie z authSource=admin (możesz dopisać to do MONGODB_URI).");
+    return client;
+  }
+}
+
 export async function seed(root, log) {
-  const client = new MongoClient(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 15000, appName: "goatreps-seed" });
-  await client.connect();
+  const client = await connect(process.env.MONGODB_URI, log);
   try {
     const db = database(client);
     log(`MongoDB: baza „${db.databaseName}”`);

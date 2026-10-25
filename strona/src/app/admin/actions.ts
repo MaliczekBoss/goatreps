@@ -3,7 +3,7 @@
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { isAdmin } from "@/lib/admin/auth";
-import { adminConfigured, checkPassword, SESSION_COOKIE, sessionCookie, totpEnabled, totpState } from "@/lib/admin/auth-token";
+import { adminConfigured, checkPassword, sessionCookieFor, totpEnabled, totpState } from "@/lib/admin/auth-token";
 import {
   consumeTotp,
   createSession,
@@ -37,7 +37,15 @@ export async function login(_prev: FormState, formData: FormData): Promise<FormS
     };
   }
 
-  const key = ipKey(clientIpFrom(await headers()));
+  const h = await headers();
+  const cookie = sessionCookieFor(h);
+  if (!cookie.usable) {
+    return {
+      error:
+        "Logowanie do panelu wymaga HTTPS (strona pod domeną przez Cloudflare). Na czas bez domeny dopisz do .env na serwerze ADMIN_ALLOW_HTTP=1 i uruchom stronę ponownie.",
+    };
+  }
+  const key = ipKey(clientIpFrom(h));
   const tag = ipTag(key);
 
   // baza z licznikami nie odpowiada → odmawiamy (nigdy logowanie bez limitu)
@@ -64,22 +72,23 @@ export async function login(_prev: FormState, formData: FormData): Promise<FormS
   const jar = await cookies();
   let token: string;
   try {
-    await destroySession(jar.get(SESSION_COOKIE)?.value).catch(() => {});
+    await destroySession(jar.get(cookie.name)?.value).catch(() => {});
     token = await createSession();
   } catch (e) {
     console.error(`[admin] zapis sesji nieudany (${tag}): ${e instanceof Error ? e.message : e}`);
     return { error: UNAVAILABLE };
   }
-  jar.set(SESSION_COOKIE, token, sessionCookie);
+  jar.set(cookie.name, token, cookie.options);
   console.info(`[admin] zalogowano (${tag})`);
   redirect("/admin/stats");
 }
 
 export async function logout() {
   const jar = await cookies();
+  const cookie = sessionCookieFor(await headers());
   // cookie znika zawsze; gdyby baza nie odpowiedziała, sesja i tak wygaśnie sama (TTL, max 12 h)
-  await destroySession(jar.get(SESSION_COOKIE)?.value).catch((e: unknown) => console.error(`[admin] usunięcie sesji nieudane: ${e instanceof Error ? e.message : e}`));
-  jar.set(SESSION_COOKIE, "", { ...sessionCookie, maxAge: 0 });
+  await destroySession(jar.get(cookie.name)?.value).catch((e: unknown) => console.error(`[admin] usunięcie sesji nieudane: ${e instanceof Error ? e.message : e}`));
+  jar.set(cookie.name, "", { ...cookie.options, maxAge: 0 });
   redirect("/admin/login");
 }
 
@@ -87,7 +96,8 @@ export async function logoutEverywhere() {
   if (!(await isAdmin())) redirect("/admin/login");
   // błąd bazy = wyjątek (strona błędu), żeby nikt nie myślał, że inne urządzenia są wylogowane
   await destroyAllSessions();
-  (await cookies()).set(SESSION_COOKIE, "", { ...sessionCookie, maxAge: 0 });
+  const cookie = sessionCookieFor(await headers());
+  (await cookies()).set(cookie.name, "", { ...cookie.options, maxAge: 0 });
   // na Vercelu sesje nie są nigdzie zapisane – inne urządzenia wyloguje dopiero zmiana ADMIN_SECRET
   console.info(STATELESS_SESSIONS ? "[admin] wylogowano tutaj; na Vercelu inne urządzenia wyloguje zmiana ADMIN_SECRET" : "[admin] unieważniono wszystkie sesje");
   redirect("/admin/login");

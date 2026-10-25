@@ -18,6 +18,8 @@ function dbName(client: MongoClient) {
   return named && named !== "test" ? named : "goatreps";
 }
 
+const authFailed = (error: unknown) => (error as { code?: number } | null)?.code === 18 || /authentication failed/i.test(String((error as Error)?.message));
+
 type Cache = { client?: MongoClient; db?: Promise<Db>; warned?: boolean };
 const g = globalThis as typeof globalThis & { __grMongo?: Cache };
 const cache: Cache = (g.__grMongo ??= {});
@@ -26,17 +28,24 @@ const cache: Cache = (g.__grMongo ??= {});
 export function mongo(): Promise<Db> {
   if (!mongoConfigured()) return Promise.reject(new Error("MongoDB nie jest skonfigurowane (brak MONGODB_URI)"));
   cache.db ??= (async () => {
-    const client = new MongoClient(URI, {
-      serverSelectionTimeoutMS: 10_000,
-      maxPoolSize: 20,
-      appName: "goatreps",
-    });
+    const open = async (uri: string) => {
+      const client = new MongoClient(uri, { serverSelectionTimeoutMS: 10_000, maxPoolSize: 20, appName: "goatreps" });
+      try {
+        await client.connect();
+        return client;
+      } catch (error) {
+        // nieudane połączenie: zamykamy klienta, żeby nie zostawiać otwartych gniazd przy kolejnych próbach
+        await client.close().catch(() => {});
+        throw error;
+      }
+    };
+    let client: MongoClient;
     try {
-      await client.connect();
+      client = await open(URI);
     } catch (error) {
-      // nieudane połączenie: zamykamy klienta, żeby nie zostawiać otwartych gniazd przy kolejnych próbach
-      await client.close().catch(() => {});
-      throw error;
+      // użytkownik założony w bazie "admin" zamiast w bazie strony – druga próba z authSource=admin
+      if (!authFailed(error) || /[?&]authSource=/i.test(URI)) throw error;
+      client = await open(`${URI}${URI.includes("?") ? "&" : "?"}authSource=admin`);
     }
     cache.client = client;
     return client.db(dbName(client));

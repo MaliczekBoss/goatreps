@@ -8,15 +8,32 @@ export const SESSION_MAX_AGE_S = 60 * 60 * 12;
 
 const production = process.env.NODE_ENV === "production";
 
-export const SESSION_COOKIE = production ? "__Host-gr_admin" : "gr_admin";
+type HeaderSource = { get(name: string): string | null };
 
-export const sessionCookie = {
-  httpOnly: true,
-  secure: production,
-  sameSite: "strict" as const,
-  path: "/",
-  maxAge: SESSION_MAX_AGE_S,
-};
+/** Połączenie szyfrowane: HTTPS (Cloudflare, Vercel) albo localhost, który przeglądarka traktuje jak bezpieczny. */
+export function secureRequest(h: HeaderSource) {
+  // x-forwarded-proto ustawia pośrednik albo sam Next z prawdziwego połączenia; podróbki usuwa server/origin-guard.mjs
+  if ((h.get("x-forwarded-proto") ?? "").split(",")[0].trim() === "https") return true;
+  const host = (h.get("host") ?? "").toLowerCase().replace(/:\d+$/, "");
+  return host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+}
+
+/** Serwer bez domeny (http://IP:PORT): panel działa tylko po świadomym ADMIN_ALLOW_HTTP=1 – hasło idzie wtedy otwartym tekstem. */
+const allowHttp = () => process.env.ADMIN_ALLOW_HTTP === "1";
+
+/**
+ * Cookie sesji dla tego zapytania: przez HTTPS `__Host-gr_admin` (Secure, tylko ta domena), przez zwykłe http
+ * `gr_admin` bez Secure (przeglądarka nie zapisze Secure po http). `usable: false` = logowanie zablokowane.
+ */
+export function sessionCookieFor(h: HeaderSource) {
+  const secure = production && secureRequest(h);
+  return {
+    name: secure ? "__Host-gr_admin" : "gr_admin",
+    secure,
+    usable: !production || secure || allowHttp(),
+    options: { httpOnly: true, secure, sameSite: "strict" as const, path: "/", maxAge: SESSION_MAX_AGE_S },
+  };
+}
 
 const MIN_PASSWORD = 8;
 const MIN_SECRET = 12;

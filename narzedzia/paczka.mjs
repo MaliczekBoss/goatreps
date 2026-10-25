@@ -61,11 +61,21 @@ const CLOUDFLARE_BLOCK =(originSecret) => `# --- Cloudflare (goatreps.com stoi z
 # Serwer przyjmuje tylko ruch z adresów Cloudflare: kto zna IP:port serwera, nie ominie Cloudflare (WAF, DDoS)
 # ani nie podrobi adresu odwiedzającego. Do testu przez http://IP:PORT ustaw na chwilę 0.
 CLOUDFLARE_ONLY=1
-# Prawdziwy adres odwiedzającego (limity zapytań, kraj w statystykach) – Cloudflare podaje go w tym nagłówku
-TRUST_PROXY=cf-connecting-ip
+# Prawdziwy adres odwiedzającego (limity zapytań): x-real-ip ustawia sam serwer (od Cloudflare albo z połączenia)
+TRUST_PROXY=x-real-ip
 # (opcjonalnie, najmocniej) tajny nagłówek od Cloudflare: dodaj regułę z PTERODACTYL.md („Cloudflare”, krok 5),
 # potem usuń # z linii niżej i zrestartuj serwer
-# CF_ORIGIN_SECRET=${originSecret}`;
+# CF_ORIGIN_SECRET=${originSecret}
+# Tylko na czas bez domeny (http://IP:PORT, CLOUDFLARE_ONLY=0): panel po zwykłym http – hasło idzie nieszyfrowane
+# ADMIN_ALLOW_HTTP=1
+
+# --- Zdjęcia w S3 (np. Garage na serwerze) – opcjonalnie: przy starcie serwer wgrywa brakujące zdjęcia z cdn/
+# do bucketu, a strona podaje je pod /cdn/… (najpierw z dysku, potem z bucketu). Region dobiera się sam.
+S3_ENDPOINT=
+S3_BUCKET=
+S3_ACCESS_KEY_ID=
+S3_SECRET_ACCESS_KEY=
+S3_REGION=`;
 
 /** Gotowe pliki ustawień – tworzone tylko, gdy ich jeszcze nie ma. */
 function prepareEnv() {
@@ -159,7 +169,18 @@ for (const name of ["ceny.json", "statystyki.json"]) {
   if (existsSync(from)) copyFileSync(from, path.join(app, "seed", name));
 }
 
-copyFileSync(path.join(root, "narzedzia", "szablony", "PTERODACTYL.md"), path.join(out, "PTERODACTYL.md"));
+// instrukcja z adresem serwera z pterodactyl.env (w repo jest tylko IP_SERWERA – adres serwera nie trafia do gita)
+const serverHost = (() => {
+  const env = existsSync(path.join(out, "pterodactyl.env")) ? readFileSync(path.join(out, "pterodactyl.env"), "utf8") : "";
+  const url = /^S3_ENDPOINT=(\S+)/m.exec(env)?.[1] ?? /^MONGODB_URI=mongodb:\/\/(?:[^@\s]*@)?([^:/,\s]+)/m.exec(env)?.[1] ?? "";
+  try {
+    return url.includes("://") ? new URL(url).hostname : url;
+  } catch {
+    return "";
+  }
+})();
+const guide = readFileSync(path.join(root, "narzedzia", "szablony", "PTERODACTYL.md"), "utf8");
+writeFileSync(path.join(out, "PTERODACTYL.md"), serverHost ? guide.replaceAll("IP_SERWERA", serverHost) : guide);
 // gotowe ustawienia w paczce – wgrywasz i startujesz (przy aktualizacji: --bez-env, żeby nie nadpisać .env na serwerze)
 if (withEnv) copyFileSync(path.join(out, "pterodactyl.env"), path.join(app, ".env"));
 
