@@ -1,0 +1,51 @@
+name: Kurs KakoBuy
+
+# Raz w tygodniu (poniedziałek 05:15 UTC) odczytuje kursy walut z kakobuy.com w Chrome i zapisuje strona/data/kursy.json.
+# Vercel przebudowuje stronę po commicie, a serwer na Pterodactylu sam pobiera nowy plik (strona/server/kursy.mjs).
+# Ręcznie: Actions → Kurs KakoBuy → Run workflow.
+on:
+  schedule:
+    - cron: "15 5 * * 1"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/kurs-kakobuy.yml
+      - narzedzia/kurs-kakobuy.mjs
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kurs-kakobuy
+  cancel-in-progress: false
+
+jobs:
+  kurs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Kurs z KakoBuy
+        run: node narzedzia/kurs-kakobuy.mjs
+        env:
+          BROWSER: /usr/bin/google-chrome
+
+      - name: Zapis do repo
+        run: |
+          if git diff --quiet -- strona/data/kursy.json; then
+            echo "Kurs bez zmian"
+            exit 0
+          fi
+          # autor jak przy zwykłych commitach – Vercel buduje commity właściciela repo
+          git config user.name "MaliczekBoss"
+          git config user.email "MaliczekBoss@users.noreply.github.com"
+          git add strona/data/kursy.json
+          git commit -m "Kurs KakoBuy $(date -u +%F)"
+          git pull --rebase origin main
+          git push origin HEAD:main

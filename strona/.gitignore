@@ -43,7 +43,7 @@ next-env.d.ts
 
 # dane zapisywane przez działający serwer – nie wgrywać, nie nadpisywać
 /data/ceny.json
-/data/kursy.json
+# (data/kursy.json jest w repo – co tydzień zapisuje go GitHub Actions, .github/workflows/kurs-kakobuy.yml)
 /data/statystyki.json
 /data/statystyki.json.*
 /data/*.tmp

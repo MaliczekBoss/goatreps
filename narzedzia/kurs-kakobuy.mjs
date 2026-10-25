@@ -5,7 +5,8 @@
 // i ją odczytuje – nic nie łamiemy, czytamy to, co widzi każdy odwiedzający.
 //
 // Użycie:  node kurs-kakobuy.mjs            (przeglądarka: zmienna BROWSER albo znana ścieżka Edge/Chrome/Chromium)
-// Na serwerze najlepiej raz dziennie z crona – strona używa kursu do 3 dni, potem NBP z narzutem KakoBuy.
+// Automatycznie: GitHub Actions co tydzień (.github/workflows/kurs-kakobuy.yml) – strona używa kursu do 10 dni,
+// potem NBP z narzutem KakoBuy.
 import { spawn } from "node:child_process";
 import { existsSync, mkdtempSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -41,7 +42,9 @@ function findBrowser() {
 async function readKakobuyRates() {
   const port = 9300 + Math.floor(Math.random() * 500);
   const profile = mkdtempSync(path.join(tmpdir(), "kurs-kakobuy-"));
-  const proc = spawn(findBrowser(), ["--headless=new", "--disable-gpu", "--no-first-run", `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, "about:blank"], {
+  // na jednorazowej maszynie GitHub Actions Chrome nie ma piaskownicy użytkownika (AppArmor w Ubuntu 24.04)
+  const ci = process.env.CI ? ["--no-sandbox"] : [];
+  const proc = spawn(findBrowser(), ["--headless=new", "--disable-gpu", "--no-first-run", ...ci, `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, "about:blank"], {
     stdio: "ignore",
   });
   try {
@@ -79,8 +82,13 @@ async function readKakobuyRates() {
       const r = await send("Runtime.evaluate", { expression: "localStorage.getItem('currencies_list')", returnByValue: true });
       raw = r.result?.result?.value ?? null;
     }
+    if (!raw) {
+      // co widać w przeglądarce – np. strona sprawdzająca Cloudflare zamiast KakoBuy
+      const page = await send("Runtime.evaluate", { expression: "`${document.title} | ${location.href}`", returnByValue: true });
+      ws.close();
+      throw new Error(`KakoBuy nie zapisał listy kursów (zmiana strony albo blokada) – w przeglądarce: ${page.result?.result?.value ?? "?"}`);
+    }
     ws.close();
-    if (!raw) throw new Error("KakoBuy nie zapisał listy kursów (zmiana strony albo blokada)");
     const list = JSON.parse(raw);
     if (!Array.isArray(list)) throw new Error("nieoczekiwany format listy kursów");
     const rates = {};

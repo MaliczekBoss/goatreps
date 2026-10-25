@@ -6,7 +6,8 @@ import type { Rates } from "./money";
 
 // Kursy, po których przeliczamy juany: takie jak w kasie KakoBuy (najczęściej wybierany agent),
 // a nie średnie NBP – KakoBuy liczy z narzutem ok. 8%, więc ceny w zł z NBP wychodziły za niskie.
-//  1. data/kursy.json – prawdziwe kursy KakoBuy zapisane skryptem narzedzia/kurs-kakobuy.mjs (ważne 3 dni),
+//  1. data/kursy.json – prawdziwe kursy KakoBuy zapisane skryptem narzedzia/kurs-kakobuy.mjs; GitHub Actions odświeża je
+//     raz w tygodniu (Vercel przebudowuje stronę, Pterodactyl pobiera plik sam – server/kursy.mjs). Ważne 10 dni (zapas na nieudany tydzień),
 //  2. gdy pliku brak albo jest stary: średni kurs NBP × narzut KakoBuy (z pliku albo domyślny).
 // Wszystko po stronie serwera – przeglądarka nie łączy się z nikim poza naszą domeną.
 
@@ -14,7 +15,7 @@ const NBP_URL = "https://api.nbp.pl/api/exchangerates/tables/A/?format=json";
 const FILE = path.join(process.cwd(), "data", "kursy.json");
 const TTL_MS = 6 * 60 * 60 * 1000;
 const RETRY_MS = 10 * 60 * 1000;
-const FILE_MAX_AGE_MS = 3 * 24 * 60 * 60 * 1000;
+const FILE_MAX_AGE_MS = 10 * 24 * 60 * 60 * 1000;
 const CHECK_FILE_MS = 60_000;
 
 type Code = "PLN" | "EUR" | "USD";

@@ -38,6 +38,8 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     sri: { algorithm: "sha384" },
+    // jedyne akcje serwera to logowanie i wylogowanie w panelu – kilkaset bajtów, więc limit 1 MB jest zbędny
+    serverActions: { bodySizeLimit: "32kb" },
   },
   async headers() {
     return [

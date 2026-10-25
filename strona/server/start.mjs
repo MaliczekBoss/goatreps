@@ -2,7 +2,8 @@
 //  1. instaluje paczki (npm ci), gdy zmienił się package-lock.json,
 //  2. przy pierwszym starcie wgrywa dane z seed/ do pustej bazy MongoDB,
 //  3. buduje stronę, gdy zmieniły się jej pliki albo .env,
-//  4. uruchamia next start na porcie z SERVER_PORT.
+//  4. uruchamia stronę na porcie z SERVER_PORT (server/serve.mjs: Next.js za blokadą ruchu spoza Cloudflare),
+//  5. co 6 h sprawdza nowy kurs KakoBuy (server/kursy.mjs – plik odświeżany raz w tygodniu przez GitHub Actions).
 // Kilka instancji (HA) na wspólnym dysku: blokady w .goatreps/ – buduje jedna, reszta czeka na gotową wersję.
 import { spawn, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
@@ -173,10 +174,13 @@ const shared = sharedBuildEnv(source);
 await ensureBuild(source, shared);
 
 log(`Uruchamiam serwer na porcie ${port}…`);
-const server = spawn(process.execPath, [nextBin, "start", "-p", port, "-H", "0.0.0.0"], {
+const server = spawn(process.execPath, [path.join(root, "server", "serve.mjs")], {
   cwd: root,
   stdio: "inherit",
   env: { ...process.env, ...shared, NODE_ENV: "production", NEXT_TELEMETRY_DISABLED: "1" },
 });
 for (const signal of ["SIGINT", "SIGTERM"]) process.on(signal, () => server.kill(signal));
 server.on("exit", (code) => process.exit(code ?? 1));
+
+const { scheduleRates } = await import("./kursy.mjs");
+scheduleRates(root, log);

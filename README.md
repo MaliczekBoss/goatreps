@@ -19,7 +19,8 @@ Repo nie zawiera folderów `cdn/` (zdjęcia, 1,25 GB), `zrodla/` ani backupu baz
 1. **Zdjęcia:** wgraj zawartość lokalnego `cdn/` do magazynu plików z publicznym adresem (Cloudflare R2, AWS S3 + CloudFront, Bunny…),
    zachowując ścieżki (`i/…`, `t/…`, `q/…` itd.). Szczegóły w `cdn/README-S3.md` (lokalnie).
 2. **Nowy projekt na Vercel** z tego repo, w ustawieniach: **Root Directory = `strona`** (framework Next.js wykryje się sam).
-3. **Zmienne środowiskowe** (Settings → Environment Variables), wzór w `strona/.env.example`:
+3. **Zmienne środowiskowe** (Settings → Environment Variables) – gotowy plik do wklejenia robi `npm run paczka`
+   (`do-wyslania/vercel.env`, uzupełnij `NEXT_PUBLIC_CDN_URL`); wzór w `strona/.env.example`:
    - `NEXT_PUBLIC_CDN_URL` – adres magazynu zdjęć, np. `https://cdn.goatreps.com` (bez tego strona nie pokaże zdjęć),
    - `TRUST_PROXY=x-real-ip` – Vercel podaje prawdziwy adres odwiedzającego w tym nagłówku (limity zapytań, statystyki),
    - `ADMIN_PASSWORD`, `ADMIN_SECRET` (min. 12 znaków, inny niż hasło), opcjonalnie `ADMIN_TOTP_SECRET`,
@@ -30,7 +31,8 @@ Ograniczenia Vercela (serwer bez stałego dysku i z wieloma krótko żyjącymi i
 - statystyki panelu admina i odświeżone ceny są trzymane tylko w pamięci – po restarcie instancji znikają
   (panel pokazuje ostrzeżenie); na stałe trzeba by je zapisywać np. w Upstash Redis,
 - sesja admina jest ważna po podpisie przez 12 h; „Wyloguj wszędzie” wylogowuje tylko bieżące urządzenie – resztę wyloguje zmiana `ADMIN_SECRET`,
-- kursy KakoBuy: bez pliku `data/kursy.json` strona liczy kurs NBP × narzut KakoBuy (~8,3%), więc ceny w zł dalej są zbliżone do KakoBuy.
+- kursy KakoBuy: raz w tygodniu GitHub Actions (`.github/workflows/kurs-kakobuy.yml`) zapisuje nowy `strona/data/kursy.json`
+  i Vercel przebudowuje stronę; gdy kurs jest starszy niż 10 dni, strona liczy NBP × narzut KakoBuy (~8,3%).
 
 ## Wdrożenie na Pterodactyl (MongoDB)
 
@@ -40,8 +42,14 @@ Paczkę do wgrania składa skrypt (w folderze `narzedzia/`):
 npm run paczka
 ```
 
-Powstaje `do-wyslania/`: `goatreps.zip` (strona z plikiem startowym `index.js` i danymi do pierwszego wgrania do MongoDB),
-`cdn.tar` (zdjęcia) i `PTERODACTYL.md` – instrukcja dla osoby, która wgrywa. Strona sama instaluje paczki, wgrywa dane
-do pustej bazy, buduje się i startuje na porcie z `SERVER_PORT`; statystyki, ceny, sesje admina i limity logowania
-są w MongoDB, więc może działać kilka instancji naraz.
+Powstaje `do-wyslania/`: `goatreps.zip` (strona z plikiem startowym `index.js`, gotowym `.env` i danymi do pierwszego
+wgrania do MongoDB), `cdn.tar` (zdjęcia), `pterodactyl.env` / `vercel.env` (ustawienia – tworzone raz, z nowym hasłem
+panelu; potem tylko dopisujesz `MONGODB_URI`) i `PTERODACTYL.md` – instrukcja dla osoby, która wgrywa. Strona sama
+instaluje paczki, wgrywa dane do pustej bazy, buduje się i startuje na porcie z `SERVER_PORT`; statystyki, ceny, sesje
+admina i limity logowania są w MongoDB, więc może działać kilka instancji naraz. Kurs KakoBuy serwer pobiera sam co 6 h
+(plik odświeżany co tydzień przez GitHub Actions). Aktualizacja bez nadpisania ustawień: `npm run paczka -- --bez-env --bez-zdjec`.
+
+Na serwerze strona działa przez `server/serve.mjs` (zamiast `next start`): z `CLOUDFLARE_ONLY=1` przyjmuje tylko połączenia
+z adresów Cloudflare i tylko dla goatreps.com, usuwa podrobione nagłówki `cf-*`, wpuszcza POST tylko z naszego Origin
+i nie odpowiada na `/api/*` innym stronom. Ustawienia Cloudflare (DNS, port, SSL, cache zdjęć) – `PTERODACTYL.md`.
 
