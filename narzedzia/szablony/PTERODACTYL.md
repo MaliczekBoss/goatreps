@@ -69,6 +69,7 @@ S3_SECRET_ACCESS_KEY=…
 | `CLOUDFLARE_ONLY` | `1` = serwer przyjmuje tylko połączenia z adresów Cloudflare i tylko dla goatreps.com (www przekierowuje na goatreps.com); `0` = na czas testu przez `http://IP:PORT` |
 | `CF_ORIGIN_SECRET` | (opcjonalnie) tajny nagłówek `X-Origin-Secret` dopisywany przez regułę w Cloudflare – wpuszczane są tylko zapytania z nim |
 | `TRUST_LOCAL_NETWORK` | (opcjonalnie) `1` = ufaj też ruchowi z sieci lokalnej (reverse proxy na węźle, 172.x / 10.x / 192.168.x) – domyślnie nie; wtedy włącz też `CF_ORIGIN_SECRET` |
+| `PROXY_IP_HEADER` | (opcjonalnie, z `TRUST_LOCAL_NETWORK=1`) nagłówek z adresem odwiedzającego, który Twoje proxy **nadpisuje**: `x-real-ip` (nginx z `proxy_set_header X-Real-IP $remote_addr`) albo `cf-connecting-ip`. Domyślnie: `cf-connecting-ip` przy `CLOUDFLARE_ONLY=1`, inaczej adres połączenia |
 | `ALLOWED_HOSTS` | (opcjonalnie) dodatkowe domeny po przecinku, np. `goatreps.pl` – domyślnie tylko goatreps.com i www.goatreps.com |
 | `NEXT_PUBLIC_CDN_URL` | (opcjonalnie) adres S3/R2 ze zdjęciami – pusty = zdjęcia z folderu `cdn/` na serwerze |
 | `OPENAI_API_KEY`, `OPENAI_BASE_URL` lub `GEMINI_API_KEY` | wyszukiwanie po zdjęciu (`/photo-search`); bez kluczy narzędzie pokaże, że jest wyłączone |

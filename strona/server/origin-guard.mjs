@@ -51,6 +51,13 @@ export function parseCloudflare(texts) {
 export function createGuard(env = process.env) {
   const cloudflareOnly = on(env.CLOUDFLARE_ONLY, false);
   const trustLocal = on(env.TRUST_LOCAL_NETWORK, false);
+  // nagłówek z adresem odwiedzającego, który zaufane proxy (sieć lokalna / localhost) na pewno nadpisuje;
+  // domyślnie za Cloudflare cf-connecting-ip (Cloudflare zawsze go nadpisuje), bez Cloudflare – żaden (adres połączenia)
+  const proxyHeader = (() => {
+    const v = String(env.PROXY_IP_HEADER ?? "").trim().toLowerCase();
+    if (v === "cf-connecting-ip" || v === "x-real-ip") return v;
+    return cloudflareOnly ? "cf-connecting-ip" : "";
+  })();
   const secret = (env.CF_ORIGIN_SECRET ?? "").trim();
   const secretHash = secret ? createHash("sha256").update(secret).digest() : null;
   const site = (() => {
@@ -110,11 +117,12 @@ export function createGuard(env = process.env) {
     delete h["x-forwarded-host"];
     if (!trusted) for (const name of FORWARDED) delete h[name];
     // prawdziwy adres odwiedzającego zawsze w x-real-ip (TRUST_PROXY=x-real-ip): od Cloudflare z cf-connecting-ip,
-    // od zaufanego proxy z jego nagłówka, a przy bezpośrednim połączeniu (serwer bez domeny) – adres połączenia
+    // od zaufanego proxy tylko z nagłówka PROXY_IP_HEADER (który to proxy na pewno nadpisuje – inaczej klient wpisałby
+    // sobie dowolny adres), a przy bezpośrednim połączeniu (serwer bez domeny) – adres połączenia
     const valid = (v) => (typeof v === "string" && isIP(v.trim()) ? v.trim() : "");
     h["x-real-ip"] =
       (peer.kind === "cloudflare" && valid(h["cf-connecting-ip"])) ||
-      ((peer.kind === "local" || peer.kind === "loopback") && (valid(h["x-real-ip"]) || valid(h["cf-connecting-ip"]))) ||
+      ((peer.kind === "local" || peer.kind === "loopback") && proxyHeader && valid(h[proxyHeader])) ||
       peer.ip;
 
     if (cloudflareOnly && peer.kind !== "loopback") {
