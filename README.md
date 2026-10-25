@@ -32,3 +32,16 @@ Ograniczenia Vercela (serwer bez stałego dysku i z wieloma krótko żyjącymi i
 - sesja admina jest ważna po podpisie przez 12 h; „Wyloguj wszędzie” wylogowuje tylko bieżące urządzenie – resztę wyloguje zmiana `ADMIN_SECRET`,
 - kursy KakoBuy: bez pliku `data/kursy.json` strona liczy kurs NBP × narzut KakoBuy (~8,3%), więc ceny w zł dalej są zbliżone do KakoBuy.
 
+## Wdrożenie na Pterodactyl (MongoDB)
+
+Paczkę do wgrania składa skrypt (w folderze `narzedzia/`):
+
+```bash
+npm run paczka
+```
+
+Powstaje `do-wyslania/`: `goatreps.zip` (strona z plikiem startowym `index.js` i danymi do pierwszego wgrania do MongoDB),
+`cdn.tar` (zdjęcia) i `PTERODACTYL.md` – instrukcja dla osoby, która wgrywa. Strona sama instaluje paczki, wgrywa dane
+do pustej bazy, buduje się i startuje na porcie z `SERVER_PORT`; statystyki, ceny, sesje admina i limity logowania
+są w MongoDB, więc może działać kilka instancji naraz.
+

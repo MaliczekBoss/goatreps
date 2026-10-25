@@ -1,10 +1,10 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { CDN_DIR } from "@/lib/cdn-dir";
 import { CDN_PATH, CDN_URL } from "@/lib/images";
 
 // Zapas na czas, gdy zdjęcia nie są jeszcze na S3/CDN: podaje pliki z lokalnego folderu cdn/.
 // Gdy NEXT_PUBLIC_CDN_URL jest ustawione, ta ścieżka zawsze odpowiada 404.
-const CDN_DIR = path.resolve(/*turbopackIgnore: true*/ process.env.CDN_DIR || path.join(process.cwd(), "..", "cdn"));
 const TYPES = { webp: "image/webp", png: "image/png" } as const;
 
 export async function GET(_request: Request, ctx: RouteContext<"/cdn/[...path]">) {

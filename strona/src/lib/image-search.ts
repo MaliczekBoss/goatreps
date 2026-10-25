@@ -2,6 +2,7 @@ import "server-only";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getCategories, searchCandidates, toCard, topInCategory } from "./catalog";
+import { CDN_DIR } from "./cdn-dir";
 import { CDN_PATH, CDN_URL } from "./images";
 import { hit } from "./rate-limit";
 import { normalize } from "./search";
@@ -225,7 +226,6 @@ function checkLimits(ip: string | null) {
 
 // --- miniatury kandydatów: z dysku (cdn/) albo ze stałego adresu CDN – nigdy z adresu z zapytania -------------
 
-const CDN_DIR = path.resolve(/*turbopackIgnore: true*/ process.env.CDN_DIR || path.join(process.cwd(), "..", "cdn"));
 
 async function thumbnail(file: string | null): Promise<Image | null> {
   if (!file || !CDN_PATH.test(file)) return null;

@@ -3,6 +3,7 @@ import { readFileSync, renameSync, writeFileSync } from "node:fs";
 import { mkdir, rename, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { getProduct } from "./catalog";
+import { mongo, mongoConfigured } from "./mongo";
 import type { Product } from "./types";
 
 /*
@@ -33,6 +34,7 @@ const MAX_PRICE = 100_000;
 const SAVE_DEBOUNCE_MS = 2000;
 const SAVE_MAX_WAIT_MS = 10_000;
 const SAVE_RETRY_MS = 30_000;
+const MONGO_SYNC_MS = 60_000;
 
 const PRICES_FILE = path.join(process.cwd(), "data", "ceny.json");
 // Vercel (i inne środowiska bezserwerowe): dysk tylko do odczytu – ceny trzymamy w pamięci instancji.
@@ -154,6 +156,71 @@ class JsonFileStore implements PriceStore {
   }
 }
 
+/**
+ * MongoDB (Pterodactyl, kilka instancji): kolekcja "prices" { _id: id produktu, price, checkedAt, source, available, updatedAt }.
+ * Odczyt dalej synchroniczny z pamięci; zapis to upsert jednego produktu, a co minutę dociągamy zmiany z innych instancji.
+ */
+class MongoPriceStore implements PriceStore {
+  private data = new Map<number, SyncedPrice>();
+  private pending = new Set<Promise<unknown>>();
+  private since = new Date(0);
+  private warnedAt = 0;
+
+  constructor() {
+    void this.sync();
+    const timer = setInterval(() => void this.sync(), MONGO_SYNC_MS);
+    timer.unref?.();
+  }
+
+  private warn(what: string, e: unknown) {
+    // przy awarii bazy nie zalewamy logów – najwyżej raz na minutę
+    if (Date.now() - this.warnedAt < 60_000) return;
+    this.warnedAt = Date.now();
+    console.error(`[ceny] MongoDB – ${what}: ${errMsg(e)}`);
+  }
+
+  /** Wczytuje (przy starcie wszystko, potem tylko zmienione od ostatniego razu). */
+  private async sync() {
+    try {
+      const col = (await mongo()).collection<{ _id: number; updatedAt: Date } & SyncedPrice>("prices");
+      const from = this.since;
+      const docs = await col.find({ updatedAt: { $gt: from } }).toArray();
+      for (const d of docs) {
+        const entry = sanitize(d);
+        if (Number.isSafeInteger(d._id) && d._id > 0 && entry) this.data.set(d._id, entry);
+        if (d.updatedAt > this.since) this.since = d.updatedAt;
+      }
+    } catch (e) {
+      this.warn("odczyt", e);
+    }
+  }
+
+  get(id: number) {
+    return this.data.get(id) ?? null;
+  }
+
+  set(id: number, value: SyncedPrice) {
+    this.data.set(id, value);
+    const write = mongo()
+      .then((db) =>
+        db
+          .collection<{ _id: number }>("prices")
+          .updateOne({ _id: id }, { $set: { ...value, updatedAt: new Date() } }, { upsert: true }),
+      )
+      .catch((e) => this.warn("zapis", e))
+      .finally(() => this.pending.delete(write));
+    this.pending.add(write);
+  }
+
+  async flush() {
+    await Promise.all([...this.pending]);
+  }
+
+  flushSync() {
+    // zapisy idą od razu do bazy – nic nie czeka w pamięci
+  }
+}
+
 async function writeAtomic(file: string, content: string) {
   await mkdir(path.dirname(file), { recursive: true });
   const tmp = `${file}.${process.pid}.${Date.now().toString(36)}.tmp`;
@@ -206,7 +273,7 @@ const g = globalThis as typeof globalThis & { __grCeny?: State };
 
 function state(): State {
   if (!g.__grCeny) {
-    g.__grCeny = { store: new JsonFileStore(PRICES_FILE), inFlight: new Map(), misses: new Map(), breakers: new Map(), active: 0, queue: [], budget: { count: 0, reset: 0 } };
+    g.__grCeny = { store: mongoConfigured() ? new MongoPriceStore() : new JsonFileStore(PRICES_FILE), inFlight: new Map(), misses: new Map(), breakers: new Map(), active: 0, queue: [], budget: { count: 0, reset: 0 } };
     process.once("exit", () => g.__grCeny?.store.flushSync());
   }
   return g.__grCeny;

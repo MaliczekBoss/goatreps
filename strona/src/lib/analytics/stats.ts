@@ -1,17 +1,19 @@
 import "server-only";
 import { getProduct } from "../catalog";
+import { hoursOf, shiftDay, stamp, TOTAL_FIELDS, type Breakdown, type DayAgg, type Storage, type Totals } from "./model";
 import { isSource, sources, type Range, type SourceId } from "./shared";
-import { hoursOf, readState, shiftDay, stamp, TOTAL_FIELDS, type Breakdown, type DayAgg, type Totals } from "./store";
+import { readSnapshot } from "./store";
 
 export { ranges, type Range } from "./shared";
-export type { Totals } from "./store";
+export type { Storage, Totals } from "./model";
 export { record, visitorId, stamp, type TrackEvent, type Visitor } from "./store";
 
 export type Bucket = Totals & { key: string; future: boolean };
 
 export type StatsReport = {
   range: Range;
-  storage: "file" | "memory";
+  /** "mongo" = MongoDB, "file" = data/statystyki.json, "memory" = tylko w pamięci (plik nie daje się zapisać). */
+  storage: Storage;
   granularity: "hour" | "day";
   current: Bucket[];
   previous: Bucket[];
@@ -48,7 +50,6 @@ const pick = (src: Totals | undefined): Totals => {
  * Odwiedzający ma inny skrót każdego dnia, więc unikalni z kilku dni = suma dni.
  */
 export async function readStats(range: Range, now = Date.now()): Promise<StatsReport> {
-  const st = readState(now);
   const today = stamp(now);
   const byHour = range === "today" || range === "yesterday";
   const length = range === "7d" ? 7 : range === "30d" ? 30 : 1;
@@ -61,6 +62,16 @@ export async function readStats(range: Range, now = Date.now()): Promise<StatsRe
   const prevKeys = byHour ? hoursOf(prevEndDay) : prevDays;
   // dziś liczymy tylko do bieżącej godziny – tak samo w poprzednim okresie (uczciwe porównanie)
   const cutoff = range === "today" ? today.hourOfDay : curKeys.length - 1;
+
+  const st = await readSnapshot(
+    {
+      days: [...curDays, ...prevDays, endDay, prevEndDay],
+      mapDays: curDays,
+      hours: byHour ? [...curKeys, ...prevKeys] : [],
+      minutes: [today.minute - 29, today.minute],
+    },
+    now,
+  );
 
   const bucket = (key: string, future: boolean): Bucket => ({
     ...(future ? empty() : pick(byHour ? st.hours.get(key) : st.days.get(key))),
@@ -108,13 +119,6 @@ export async function readStats(range: Range, now = Date.now()): Promise<StatsRe
     if (title) productNames[id] = title.slice(0, 160);
   }
 
-  const liveBySource = new Map<SourceId, number>();
-  for (const key of st.live.keys()) {
-    const src = key.split("|")[0];
-    const id: SourceId = isSource(src) ? src : "other";
-    liveBySource.set(id, (liveBySource.get(id) ?? 0) + 1);
-  }
-
   return {
     range,
     storage: st.storage,
@@ -124,8 +128,8 @@ export async function readStats(range: Range, now = Date.now()): Promise<StatsRe
     totals: sum(current, byHour ? uvUntil(endDay, cutoff) : uvOfDays(curDays)),
     previousTotals: sum(previous, byHour ? uvUntil(prevEndDay, cutoff) : uvOfDays(prevDays)),
     live: {
-      count: st.live.size,
-      sources: [...liveBySource].sort((a, b) => b[1] - a[1]),
+      count: st.live.count,
+      sources: st.live.sources,
       perMinute: Array.from({ length: 30 }, (_, i) => st.minutes.get(today.minute - 29 + i) ?? 0),
     },
     breakdown,

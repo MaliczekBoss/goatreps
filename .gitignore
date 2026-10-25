@@ -11,3 +11,6 @@ node_modules/
 # Ustawienia lokalne Claude Code / edytora
 /.claude/
 *.tmp
+
+# Paczka do wgrania na serwer (składana skryptem narzedzia/paczka.mjs)
+/do-wyslania/

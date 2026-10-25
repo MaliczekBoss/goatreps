@@ -21,7 +21,8 @@
     "weidian": "node weidian-zdjecia.mjs ../strona/data ../cdn ../zrodla",
     "sprawdz": "node sprawdz.mjs ../zrodla ../cdn ../strona/data",
     "aktualizuj": "npm run snapshot && npm run scal && npm run zdjecia && npm run katalog && npm run weidian -- --limit 0 && npm run sprawdz",
-    "kurs": "node kurs-kakobuy.mjs"
+    "kurs": "node kurs-kakobuy.mjs",
+    "paczka": "node paczka.mjs"
   },
   "dependencies": {
     "sharp": "^0.35.5"

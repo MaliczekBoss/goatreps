@@ -1,3 +1,4 @@
+import { after } from "next/server";
 import { getProduct } from "@/lib/catalog";
 import { AGENT_HOSTS, isSource, normalizePath, normalizeSearch, SESSION_ID } from "@/lib/analytics/shared";
 import { record, stamp, visitorId, type TrackEvent, type Visitor } from "@/lib/analytics/stats";
@@ -119,10 +120,8 @@ export async function POST(request: Request) {
     device: /iPad|Tablet/i.test(ua) ? "tablet" : /Mobi|Android|iPhone/i.test(ua) ? "mobile" : "desktop",
   };
 
-  try {
-    record(event, visitor, now);
-  } catch (e) {
-    console.error("[statystyki] zapis zdarzenia nieudany:", e instanceof Error ? e.message : e);
-  }
+  // zapis po wysłaniu odpowiedzi – wolna albo niedostępna baza nie opóźnia strony (record() sam loguje błędy)
+  const tracked = event;
+  after(() => record(tracked, visitor, now));
   return done();
 }

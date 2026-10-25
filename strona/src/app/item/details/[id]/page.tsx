@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: Props) {
   const more = similar(product, 5);
   const qcCount = qc?.photos.length ?? 0;
   // prawdziwe wyświetlenia ze statystyk (jedna osoba raz na dobę) – bez zmyślonych "X osób ogląda teraz"
-  const views = productViews(product.id);
+  const views = await productViews(product.id);
   const viewsForm = new Intl.PluralRules("pl-PL").select(views);
   const viewsText = viewsForm === "one" ? "osoba obejrzała" : viewsForm === "few" ? "osoby obejrzały" : "osób obejrzało";
 

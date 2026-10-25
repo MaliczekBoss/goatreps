@@ -4,10 +4,44 @@ import { accessSync, constants, copyFileSync, readFileSync, renameSync, statSync
 import { mkdir, rename, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { derivedKey } from "../admin/auth-token";
-import { AGENT_HOSTS, isSource, normalizePath, normalizeSearch, type SourceId } from "./shared";
+import { mongoConfigured } from "../mongo";
+import {
+  BREAKDOWNS,
+  count,
+  emptyDay,
+  emptyTotals,
+  errMsg,
+  FIXED_PAGES,
+  KEEP_DAYS,
+  KEEP_HOUR_DAYS,
+  KEEP_MINUTES,
+  LIVE_CAP,
+  LIVE_MS,
+  MAP_CAP,
+  MAX_COUNT,
+  obj,
+  SEEN_CAP,
+  shiftDay,
+  stamp,
+  TOTAL_FIELDS,
+  validKey,
+  VIEWED_CAP,
+  VIEWS_CAP,
+  type Breakdown,
+  type DayAgg,
+  type Snapshot,
+  type SnapshotQuery,
+  type Stamp,
+  type Totals,
+  type TrackEvent,
+  type Visitor,
+} from "./model";
+import { isSource, type SourceId } from "./shared";
+import { productViewsMongo, readSnapshotMongo, recordMongo } from "./store-mongo";
 
 /*
- * Magazyn statystyk bez bazy danych (w xayez to był Redis/Mongo).
+ * Magazyn statystyk. Gdy jest MONGODB_URI – wszystko w MongoDB (store-mongo.ts, wiele instancji naraz).
+ * Bez bazy (jak lokalnie):
  *
  * - Wszystko w pamięci procesu (globalThis), wczytywane z data/statystyki.json przy pierwszym użyciu.
  * - Zapis atomowy (plik tymczasowy + rename) najwyżej co 15 s i przy zamykaniu procesu.
@@ -17,42 +51,16 @@ import { AGENT_HOSTS, isSource, normalizePath, normalizeSearch, type SourceId } 
  * - Limity rozmiaru map i zbiorów – zalew zapytań nie zapcha pamięci ani dysku.
  */
 
+export { hoursOf, LIVE_MS, shiftDay, stamp, TOTAL_FIELDS, type Breakdown, type DayAgg, type Stamp, type Totals, type TrackEvent, type Visitor } from "./model";
+
 export const STATS_FILE = path.join(process.cwd(), "data", "statystyki.json");
 
-const TZ = "Europe/Warsaw";
-const KEEP_DAYS = 100;
-const VIEWS_CAP = 20_000; // więcej niż produktów w katalogu – plik nie urośnie bez końca
-const KEEP_HOUR_DAYS = 3;
-const KEEP_MINUTES = 120;
-export const LIVE_MS = 30 * 60_000;
 const SAVE_EVERY_MS = 15_000;
 const SAVE_RETRY_MS = 60_000;
 const MAX_FILE_BYTES = 64 * 1024 * 1024;
-const MAX_COUNT = 1e12;
 
-const SEEN_CAP = 200_000; // unikalni odwiedzający na dobę (i na godzinę)
-const VIEWED_CAP = 300_000; // pary odwiedzający × produkt na dobę
-const LIVE_CAP = 20_000;
-
-export type Totals = { uv: number; pv: number; s: number; ms: number; dur: number; out: number; promo: number; search: number };
-export const TOTAL_FIELDS = ["uv", "pv", "s", "ms", "dur", "out", "promo", "search"] as const satisfies readonly (keyof Totals)[];
-
-export const BREAKDOWNS = ["pages", "sources", "countries", "devices", "agents", "products", "searches"] as const;
-export type Breakdown = (typeof BREAKDOWNS)[number];
-
-// Kluczy w mapie dnia najwyżej tyle (strony produktów i katalog są i tak sprawdzane z katalogiem).
-const MAP_CAP: Record<Breakdown, number> = { pages: 1000, sources: 32, countries: 300, devices: 3, agents: 16, products: 5000, searches: 500 };
 // Zamknięty dzień (po północy) zostaje przycięty do czołówki – do statystyk liczy się top 12.
 const CLOSED_CAP: Partial<Record<Breakdown, number>> = { pages: 300, products: 300, searches: 200 };
-// Te strony mieszczą się zawsze, nawet gdy mapa stron jest pełna.
-const FIXED_PAGES = new Set(["/", "/products", "/qc-finder", "/link-converter", "/tracking", "/shipping", "/tools", "/inne"]);
-
-export type DayAgg = Totals & {
-  /** Nowi (pierwszy raz tego dnia) odwiedzający w każdej godzinie – suma nv[0..h] = unikalni od północy do godziny h. */
-  nv: number[];
-  maps: Record<Breakdown, Map<string, number>>;
-  closed: boolean;
-};
 
 type Today = { day: string; hour: string; seen: Set<string>; hourSeen: Set<string>; viewed: Set<string>; warned: boolean };
 
@@ -72,49 +80,6 @@ type State = {
   writing: Promise<void> | null;
 };
 
-export type Visitor = { id: string; country: string; device: "mobile" | "tablet" | "desktop" };
-
-export type TrackEvent =
-  | { t: "pv"; sid: string; src: SourceId; dur: number; path: string; isNew: boolean; n: number; product?: number; q?: string }
-  | { t: "ping"; sid: string; src: SourceId; dur: number }
-  | { t: "out"; sid: string; src: SourceId; agent: string }
-  | { t: "promo"; sid: string; src: SourceId }
-  | { t: "search"; sid: string; src: SourceId; q: string };
-
-// ---------------------------------------------------------------------------------------------------------------
-// Czas (Europe/Warsaw)
-
-const parts = new Intl.DateTimeFormat("en-CA", {
-  timeZone: TZ,
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-  hour: "2-digit",
-  hourCycle: "h23",
-});
-
-export type Stamp = { day: string; hour: string; hourOfDay: number; minute: number };
-
-let lastStamp: Stamp | null = null;
-
-/** day = "YYYYMMDD", hour = "YYYYMMDDHH" (czas polski), minute = minuta od epoki. */
-export function stamp(ms: number): Stamp {
-  const minute = Math.floor(ms / 60_000);
-  // przesunięcie strefy to pełne godziny, więc w obrębie minuty wynik jest ten sam (formatToParts jest wolne)
-  if (lastStamp?.minute === minute) return lastStamp;
-  const p = Object.fromEntries(parts.formatToParts(new Date(ms)).map((x) => [x.type, x.value]));
-  const day = `${p.year}${p.month}${p.day}`;
-  lastStamp = { day, hour: `${day}${p.hour}`, hourOfDay: Number(p.hour), minute };
-  return lastStamp;
-}
-
-export function shiftDay(day: string, n: number) {
-  const d = new Date(Date.UTC(Number(day.slice(0, 4)), Number(day.slice(4, 6)) - 1, Number(day.slice(6, 8)) + n));
-  return `${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, "0")}${String(d.getUTCDate()).padStart(2, "0")}`;
-}
-
-export const hoursOf = (day: string) => Array.from({ length: 24 }, (_, h) => `${day}${String(h).padStart(2, "0")}`);
-
 // ---------------------------------------------------------------------------------------------------------------
 // Odwiedzający
 
@@ -125,6 +90,7 @@ const salt = () => derivedKey("statystyki") ?? (g.__grStatsSalt ??= randomBytes(
 
 const VISITOR_ID = /^[A-Za-z0-9_-]{12}$/;
 const VIEWED_ID = /^[A-Za-z0-9_-]{12}[1-9]\d{0,6}$/;
+const LIVE_KEY = /^([a-z]{1,12})\|[a-z0-9]{8,24}$/;
 
 export function visitorId(day: string, ip: string | null, ua: string) {
   return createHmac("sha256", salt())
@@ -136,37 +102,10 @@ export function visitorId(day: string, ip: string | null, ua: string) {
 // ---------------------------------------------------------------------------------------------------------------
 // Stan
 
-const emptyTotals = (): Totals => ({ uv: 0, pv: 0, s: 0, ms: 0, dur: 0, out: 0, promo: 0, search: 0 });
-
-const emptyDay = (): DayAgg => ({
-  ...emptyTotals(),
-  nv: Array.from({ length: 24 }, () => 0),
-  maps: { pages: new Map(), sources: new Map(), countries: new Map(), devices: new Map(), agents: new Map(), products: new Map(), searches: new Map() },
-  closed: false,
-});
-
 const emptyToday = (t: Stamp): Today => ({ day: t.day, hour: t.hour, seen: new Set(), hourSeen: new Set(), viewed: new Set(), warned: false });
 
-const errMsg = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const errCode = (e: unknown) => (e && typeof e === "object" && "code" in e ? String((e as { code: unknown }).code) : "");
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-const obj = (v: unknown): Record<string, unknown> | null => (v && typeof v === "object" && !Array.isArray(v) ? (v as Record<string, unknown>) : null);
-const count = (v: unknown) => (typeof v === "number" && Number.isSafeInteger(v) && v >= 0 && v <= MAX_COUNT ? v : 0);
-
-const DEVICES = new Set(["mobile", "tablet", "desktop"]);
-const AGENTS = new Set(AGENT_HOSTS.map(([id]) => id));
-const LIVE_KEY = /^([a-z]{1,12})\|[a-z0-9]{8,24}$/;
-
-/** Klucze z pliku sprawdzamy tak samo jak dane z /api/track – ręcznie zmieniony plik nie wprowadzi śmieci. */
-const validKey: Record<Breakdown, (k: string) => boolean> = {
-  pages: (k) => normalizePath(k) === k,
-  sources: isSource,
-  countries: (k) => /^[A-Z]{2}$/.test(k),
-  devices: (k) => DEVICES.has(k),
-  agents: (k) => AGENTS.has(k),
-  products: (k) => /^[1-9]\d{0,6}$/.test(k),
-  searches: (k) => normalizeSearch(k) === k,
-};
 
 function compact(d: DayAgg) {
   d.closed = true;
@@ -403,8 +342,8 @@ function flushSync(s: State) {
   }
 }
 
-/** Do testów / zamykania: zapisuje od razu oczekujące zmiany. */
-export const flushStats = () => flush(state());
+/** Do testów / zamykania: zapisuje od razu oczekujące zmiany (tylko magazyn w pliku). */
+export const flushStats = () => (mongoConfigured() ? Promise.resolve() : flush(state()));
 
 // ---------------------------------------------------------------------------------------------------------------
 // Liczenie
@@ -468,7 +407,7 @@ function addOnce(s: State, set: Set<string>, id: string, cap: number) {
   return true;
 }
 
-export function record(e: TrackEvent, v: Visitor, now = Date.now()) {
+function recordMemory(e: TrackEvent, v: Visitor, now: number) {
   const s = state();
   const t = stamp(now);
   rollover(s, t, now);
@@ -519,14 +458,42 @@ export function record(e: TrackEvent, v: Visitor, now = Date.now()) {
   markDirty(s);
 }
 
-/** Ile osób obejrzało produkt (od kiedy liczymy; jedna osoba raz na dobę). */
-export function productViews(id: number) {
+/**
+ * Zapisuje zdarzenie. Nigdy nie odrzuca (błędy bazy są logowane), więc wywołujący nie musi czekać ani łapać błędów.
+ * Z MongoDB obietnica kończy się po zapisie w bazie; bez bazy – od razu.
+ */
+export function record(e: TrackEvent, v: Visitor, now = Date.now()): Promise<void> {
+  if (mongoConfigured()) return recordMongo(e, v, now);
+  try {
+    recordMemory(e, v, now);
+  } catch (err) {
+    console.error(`[statystyki] zapis zdarzenia nieudany: ${errMsg(err)}`);
+  }
+  return Promise.resolve();
+}
+
+/** Ile osób obejrzało produkt (od kiedy liczymy; jedna osoba raz na dobę). Przy problemie z bazą – ostatnia znana wartość albo 0. */
+export async function productViews(id: number): Promise<number> {
+  if (mongoConfigured()) return productViewsMongo(id);
   return state().views.get(String(id)) ?? 0;
 }
 
-/** Aktualny stan do odczytu (po przesunięciu doby/godziny). Nie zmieniaj zwróconych map. */
-export function readState(now = Date.now()) {
+/** Dane do raportu (po przesunięciu doby/godziny). Z MongoDB rzuca, gdy baza nie odpowiada. */
+export async function readSnapshot(q: SnapshotQuery, now = Date.now()): Promise<Snapshot> {
+  if (mongoConfigured()) return readSnapshotMongo(q, now);
   const s = state();
   rollover(s, stamp(now), now);
-  return { days: s.days as ReadonlyMap<string, DayAgg>, hours: s.hours as ReadonlyMap<string, Totals>, minutes: s.minutes as ReadonlyMap<number, number>, live: s.live as ReadonlyMap<string, number>, storage: s.storage };
+  const sources = new Map<SourceId, number>();
+  for (const key of s.live.keys()) {
+    const src = key.split("|")[0];
+    const id: SourceId = isSource(src) ? src : "other";
+    sources.set(id, (sources.get(id) ?? 0) + 1);
+  }
+  return {
+    days: s.days,
+    hours: s.hours,
+    minutes: s.minutes,
+    live: { count: s.live.size, sources: [...sources].sort((a, b) => b[1] - a[1]) },
+    storage: s.storage,
+  };
 }

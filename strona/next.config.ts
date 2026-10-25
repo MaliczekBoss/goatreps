@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
   // Zdjęcia są już przygotowane jako WebP (i/ 1400 px, t/ 480 px) i leżą na CDN,
   // więc optymalizator Next (/_next/image) jest zbędny i wyłączony – mniejsza powierzchnia ataku.
   images: { unoptimized: true },
+  // Pterodactyl z kilkoma instancjami: wszystkie budują stronę z tym samym identyfikatorem wersji
+  // (ustawia go server/start.mjs z sumy kontrolnej plików), więc nawigacja działa między instancjami.
+  deploymentId: process.env.GOATREPS_DEPLOYMENT_ID || undefined,
   outputFileTracingIncludes: {
     "/**": ["./data/products.json", "./data/categories.json", "./data/shipping.json", "./data/qc.json", "./data/kursy.json"],
   },

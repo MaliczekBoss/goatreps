@@ -51,6 +51,10 @@ i `ADMIN_SECRET` (losowy, np. `node -e "console.log(require('crypto').randomByte
   Odwiedzający to skrót HMAC (dzień + IP + przeglądarka) – **surowe IP nie jest nigdzie zapisywane**, skróty są trzymane tylko
   dla bieżącej doby. Plik zapisuje serwer – **nie nadpisuj go przy wgrywaniu nowej wersji strony**.
 - Wyłączenie liczenia własnych wejść: w konsoli przeglądarki `localStorage.setItem("gr-notrack", "1")`.
+- **Z MongoDB** (`MONGODB_URI`): sesje, limity logowania, zużyte kody 2FA i statystyki są w bazie, wspólne dla wszystkich instancji
+  (kolekcje `admin_sessions`, `rate_limits`, `admin_totp`, `stats_*`, `product_views`; stare dane wygasają same – indeksy TTL).
+  Restart nie wylogowuje, „Wyloguj wszędzie” działa na każdej instancji. Gdy baza nie odpowiada, logowanie jest odrzucane,
+  a zdarzenia statystyk przepadają (strona działa dalej). Stary `data/statystyki.json` przenosi raz `server/seed-stats.mjs`.
 
 ## Kalkulator wysyłki
 
